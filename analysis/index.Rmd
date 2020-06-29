@@ -9,7 +9,7 @@ editor_options:
 ---
 
 
-This document contains a series of steps that the project members have performed to explore the Geo-PKO dataset. 
+This document contains a series of steps that the project members have performed to explore the Geo-PKO dataset. More information on the dataset can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/).
 
 Load packages.
 ```{r, warning=FALSE, message=FALSE}
@@ -29,14 +29,15 @@ Now we can start with the actual fun stuff! Let's have a quick look at the first
 head(GeoPKO)
 ```
 
+The dataset covers UN peacekeeping missions in Africa between 1994 and 2018. We can use the dataset to extract the number of active missions during this period. 
+
 ```{r}
 NoMission <- GeoPKO %>% select(year, Mission) %>% distinct(year, Mission) %>% count(year)
 Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
   scale_x_continuous("Year", breaks=seq(1994, 2018, 1))+theme_classic()+
   scale_y_continuous("Number of missions", breaks=seq(0,10,1)) +
   theme(panel.grid=element_blank(), 
-        axis.text.x=element_text(angle=45, vjust=0.5)) +
-  ggtitle("Number of UN Peacekeeping Missions in Africa, 1994-2018")
+        axis.text.x=element_text(angle=45, vjust=0.5)) 
 Plot1
 
 ```
