@@ -413,16 +413,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree4db5b4facfdbf89e88977ca46fe7dca4188772a4targetblank4db5b4fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/4db5b4facfdbf89e88977ca46fe7dca4188772a4" target="_blank">4db5b4f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree0a3c9c9d5686ea117ea1cea12f7433c074467dc1targetblank0a3c9c9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/0a3c9c9d5686ea117ea1cea12f7433c074467dc1" target="_blank">0a3c9c9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree4db5b4facfdbf89e88977ca46fe7dca4188772a4targetblank4db5b4fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree0a3c9c9d5686ea117ea1cea12f7433c074467dc1targetblank0a3c9c9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/4db5b4facfdbf89e88977ca46fe7dca4188772a4" target="_blank">4db5b4f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/0a3c9c9d5686ea117ea1cea12f7433c074467dc1" target="_blank">0a3c9c9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -471,6 +471,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/0a3c9c9d5686ea117ea1cea12f7433c074467dc1/analysis/index.Rmd" target="_blank">0a3c9c9</a>
+</td>
+<td>
+hatnguyen267
+</td>
+<td>
+2020-06-29
+</td>
+<td>
+more to index.rmb
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/50d7b310a2e0cb947af5b4b47bab1c01a9db53e9/docs/index.html" target="_blank">50d7b31</a>
+</td>
+<td>
+hatnguyen267
+</td>
+<td>
+2020-06-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -546,7 +580,7 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>This document contains a series of steps that the project members have performed to explore the Geo-PKO dataset.</p>
+<p>This document contains a series of steps that the project members have performed to explore the Geo-PKO dataset. More information on the dataset can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
 <p>Load packages.</p>
 <pre class="r"><code>library(tidyverse)
 library(readr)
@@ -580,13 +614,13 @@ library(ggthemes)</code></pre>
 #   TCC5 &lt;dbl&gt;, TCC6 &lt;dbl&gt;, TCC7 &lt;dbl&gt;, TCC8 &lt;dbl&gt;, TCC9 &lt;dbl&gt;, TCC10 &lt;lgl&gt;,
 #   TCC11 &lt;lgl&gt;, TCC12 &lt;lgl&gt;, TCC13 &lt;lgl&gt;, TCC14 &lt;lgl&gt;, ADM1_id &lt;dbl&gt;,
 #   ADM1_name &lt;chr&gt;, ADM2_id &lt;dbl&gt;, ADM2_name &lt;chr&gt;, PRIOID &lt;dbl&gt;</code></pre>
+<p>The dataset covers UN peacekeeping missions in Africa between 1994 and 2018. We can use the dataset to extract the number of active missions during this period.</p>
 <pre class="r"><code>NoMission &lt;- GeoPKO %&gt;% select(year, Mission) %&gt;% distinct(year, Mission) %&gt;% count(year)
 Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
   scale_x_continuous(&quot;Year&quot;, breaks=seq(1994, 2018, 1))+theme_classic()+
   scale_y_continuous(&quot;Number of missions&quot;, breaks=seq(0,10,1)) +
   theme(panel.grid=element_blank(), 
-        axis.text.x=element_text(angle=45, vjust=0.5)) +
-  ggtitle(&quot;Number of UN Peacekeeping Missions in Africa, 1994-2018&quot;)
+        axis.text.x=element_text(angle=45, vjust=0.5)) 
 Plot1</code></pre>
 <p><img src="figure/index.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
