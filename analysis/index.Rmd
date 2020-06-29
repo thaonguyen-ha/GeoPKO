@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Analysis"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,22 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+
+This document contains a series of steps that the project members have performed to explore the Geo-PKO dataset. 
+
+Load packages.
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(readr)
+```
+Import the dataset. 
+
+```{r, warning=FALSE, message =FALSE}
+GeoPKO <- read_csv("data/geopko.csv")
+```
+
+Now we can start with the actual fun stuff! Let's have a quick look at the first few rows of the dataset.
+ 
+```{r}
+head(GeoPKO)
+```

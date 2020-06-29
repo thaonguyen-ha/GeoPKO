@@ -1,5 +1,3 @@
 # GeoPKO
 
-A [workflowr][] project.
-
-[workflowr]: https://github.com/jdblischak/workflowr
+This website was produced using [workflowr]: https://github.com/jdblischak/workflowr
