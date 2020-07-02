@@ -9,4 +9,9 @@ editor_options:
 
 This project intends to demonstrate the use of the Geo-PKO dataset. 
 
+<<<<<<< HEAD
 Tanushree. Haii :)
+=======
+Members:
+- Nguyen Ha
+>>>>>>> f33576731b467d7e9a0bf51cc773e8fa81aabe9a
