@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+This project intends to demonstrate the use of the Geo-PKO dataset. 
