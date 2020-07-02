@@ -16,6 +16,7 @@ Load packages.
 library(tidyverse)
 library(readr)
 library(ggthemes)
+library(knitr)
 ```
 Import the dataset. 
 
@@ -41,4 +42,47 @@ Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom
 Plot1
 
 ```
+
+We want to have a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
+
+```{r}
+GeoPKO$No.troops <- as.numeric(GeoPKO$No.troops)
+map2018df <- GeoPKO %>% filter(year==2018) %>% 
+  select(Mission, month, location, latitude, longitude, No.troops, HQ)
+map2018df1 <- map2018df %>% group_by(location, latitude, longitude, Mission, HQ) %>% 
+  summarize(ave = mean(No.troops, na.rm=TRUE)) %>% ungroup() 
+kable(map2018df1[1:5,], caption = "A preview of this dataframe")
+```
+
+Next, we obtain the geometric shapes from `rnaturalearth`, and filter for countries in Africa.
+```{r}
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+Africa <- world %>% filter(region_un == "Africa")
+
+```
+
+Finally, we plot our data onto the map.
+```{r}
+library(ggrepel)
+p2 <- ggplot(data=Africa) + geom_sf() + 
+  geom_point(data=map2018df1, aes(x=longitude, y=latitude, size=ave, color=ave), alpha=.7)+
+  scale_color_continuous()+
+  geom_point(data=map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude), 
+             color="red", shape=4, size=10)+
+  geom_label_repel(data=map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission))+
+  labs(title="UN Peacekeeping Deployment in Africa - 2018 (approx.)")+
+  theme(panel.grid=element_blank(),
+        axis.title=element_blank(),
+        axis.ticks=element_blank(),
+        axis.text=element_blank(),
+        panel.background=element_blank())
+  
+p2
+```
+
+
 
