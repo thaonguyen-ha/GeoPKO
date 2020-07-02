@@ -8,4 +8,7 @@ editor_options:
 ---
 
 This project intends to demonstrate the use of the Geo-PKO dataset. 
-Lou van Roozendaal
+
+Members:
+- Nguyen Ha
+- Lou van Roozendaal
