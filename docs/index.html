@@ -304,7 +304,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -313,7 +313,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -322,13 +322,13 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-06-29
+<strong>Last updated:</strong> 2020-07-02
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
-<strong>Knit directory:</strong> <code>GeoPKOReport/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>GeoPKO/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
@@ -341,12 +341,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you'll want to first commit it to the Git repo. If you're still working on the analysis, you can ignore this warning. When you're finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -413,16 +413,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree0a3c9c9d5686ea117ea1cea12f7433c074467dc1targetblank0a3c9c9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/0a3c9c9d5686ea117ea1cea12f7433c074467dc1" target="_blank">0a3c9c9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreef33576731b467d7e9a0bf51cc773e8fa81aabe9atargetblankf335767a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/f33576731b467d7e9a0bf51cc773e8fa81aabe9a" target="_blank">f335767</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree0a3c9c9d5686ea117ea1cea12f7433c074467dc1targetblank0a3c9c9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreef33576731b467d7e9a0bf51cc773e8fa81aabe9atargetblankf335767a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/0a3c9c9d5686ea117ea1cea12f7433c074467dc1" target="_blank">0a3c9c9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/f33576731b467d7e9a0bf51cc773e8fa81aabe9a" target="_blank">f335767</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -430,9 +430,15 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
+    Ignored:    analysis/.Rhistory
+    Ignored:    analysis/figure/
 
 Untracked files:
+    Untracked:  2020_07_02.R
     Untracked:  data/geopko.csv
+
+Unstaged changes:
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -471,6 +477,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/01d2b98a85e54db65b16995d8829ccc45cdda1fd/docs/index.html" target="_blank">01d2b98</a>
+</td>
+<td>
+hatnguyen267
+</td>
+<td>
+2020-06-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -584,7 +607,8 @@ Start workflowr project.
 <p>Load packages.</p>
 <pre class="r"><code>library(tidyverse)
 library(readr)
-library(ggthemes)</code></pre>
+library(ggthemes)
+library(knitr)</code></pre>
 <p>Import the dataset.</p>
 <pre class="r"><code>GeoPKO &lt;- read_csv(&quot;data/geopko.csv&quot;)</code></pre>
 <p>Now we can start with the actual fun stuff! Let's have a quick look at the first few rows of the dataset.</p>
@@ -623,6 +647,98 @@ Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + g
         axis.text.x=element_text(angle=45, vjust=0.5)) 
 Plot1</code></pre>
 <p><img src="figure/index.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We want to have a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
+<pre class="r"><code>GeoPKO$No.troops &lt;- as.numeric(GeoPKO$No.troops)</code></pre>
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>map2018df &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;% 
+  select(Mission, month, location, latitude, longitude, No.troops, HQ)
+map2018df1 &lt;- map2018df %&gt;% group_by(location, latitude, longitude, Mission, HQ) %&gt;% 
+  summarize(ave = mean(No.troops, na.rm=TRUE)) %&gt;% ungroup() 
+kable(map2018df1[1:5,], caption = &quot;A preview of this dataframe&quot;)</code></pre>
+<table>
+<caption>A preview of this dataframe</caption>
+<thead>
+<tr class="header">
+<th align="left">location</th>
+<th align="right">latitude</th>
+<th align="right">longitude</th>
+<th align="left">Mission</th>
+<th align="right">HQ</th>
+<th align="right">ave</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Abyei Camp</td>
+<td align="right">9.627095</td>
+<td align="right">28.43450</td>
+<td align="left">UNISFA</td>
+<td align="right">3</td>
+<td align="right">1170.00</td>
+</tr>
+<tr class="even">
+<td align="left">Adikivu</td>
+<td align="right">-2.325729</td>
+<td align="right">28.81233</td>
+<td align="left">MONUSCO</td>
+<td align="right">0</td>
+<td align="right">568.75</td>
+</tr>
+<tr class="odd">
+<td align="left">Adikivu</td>
+<td align="right">-2.325729</td>
+<td align="right">28.81233</td>
+<td align="left">MONUSCO</td>
+<td align="right">2</td>
+<td align="right">1250.00</td>
+</tr>
+<tr class="even">
+<td align="left">Agany Toak</td>
+<td align="right">9.527483</td>
+<td align="right">28.43431</td>
+<td align="left">UNISFA</td>
+<td align="right">0</td>
+<td align="right">35.00</td>
+</tr>
+<tr class="odd">
+<td align="left">Agok</td>
+<td align="right">9.357486</td>
+<td align="right">28.58258</td>
+<td align="left">UNISFA</td>
+<td align="right">0</td>
+<td align="right">91.00</td>
+</tr>
+</tbody>
+</table>
+<p>Next, we obtain the geometric shapes from <code>rnaturalearth</code>, and filter for countries in Africa.</p>
+<pre class="r"><code>library(rnaturalearth)</code></pre>
+<pre><code>Warning: package &#39;rnaturalearth&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>library(rnaturalearthdata)</code></pre>
+<pre><code>Warning: package &#39;rnaturalearthdata&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>library(sf)</code></pre>
+<pre><code>Warning: package &#39;sf&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3</code></pre>
+<pre class="r"><code>world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
+Africa &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
+<p>Finally, we plot our data onto the map.</p>
+<pre class="r"><code>library(ggrepel)</code></pre>
+<pre><code>Warning: package &#39;ggrepel&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>p2 &lt;- ggplot(data=Africa) + geom_sf() + 
+  geom_point(data=map2018df1, aes(x=longitude, y=latitude, size=ave, color=ave), alpha=.7)+
+  scale_color_continuous()+
+  geom_point(data=map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude), 
+             color=&quot;red&quot;, shape=4, size=10)+
+  geom_label_repel(data=map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission))+
+  labs(title=&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;)+
+  theme(panel.grid=element_blank(),
+        axis.title=element_blank(),
+        axis.ticks=element_blank(),
+        axis.text=element_blank(),
+        panel.background=element_blank())
+  
+p2</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<p><img src="figure/index.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -633,7 +749,7 @@ Plot1</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.5.0 (2018-04-23)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 16299)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -648,26 +764,30 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggthemes_4.2.0  forcats_0.5.0   stringr_1.4.0   dplyr_0.8.4    
- [5] purrr_0.3.3     readr_1.3.1     tidyr_1.0.2     tibble_2.1.3   
- [9] ggplot2_3.2.1   tidyverse_1.3.0 workflowr_1.6.2
+ [1] ggrepel_0.8.1           sf_0.8-1                rnaturalearthdata_0.1.0
+ [4] rnaturalearth_0.1.0     knitr_1.28              ggthemes_4.2.0         
+ [7] forcats_0.5.0           stringr_1.4.0           dplyr_0.8.4            
+[10] purrr_0.3.3             readr_1.3.1             tidyr_1.0.2            
+[13] tibble_2.1.3            ggplot2_3.2.1           tidyverse_1.3.0        
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.0.0 xfun_0.12        haven_2.2.0      lattice_0.20-35 
- [5] colorspace_1.4-1 vctrs_0.2.3      generics_0.0.2   htmltools_0.4.0 
- [9] yaml_2.2.1       utf8_1.1.4       rlang_0.4.5      later_1.0.0     
-[13] pillar_1.4.3     withr_2.1.2      glue_1.4.0       DBI_1.1.0       
-[17] dbplyr_1.4.2     modelr_0.1.6     readxl_1.3.1     lifecycle_0.1.0 
-[21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_0.3.5     
-[25] evaluate_0.14    knitr_1.28       httpuv_1.5.2     fansi_0.4.1     
-[29] broom_0.5.5      Rcpp_1.0.4.6     promises_1.1.0   backports_1.1.5 
-[33] scales_1.1.0     jsonlite_1.6.1   farver_2.0.3     fs_1.3.1        
-[37] hms_0.5.3        digest_0.6.25    stringi_1.4.6    grid_3.5.0      
-[41] rprojroot_1.3-2  cli_2.0.2        tools_3.5.0      magrittr_1.5    
-[45] lazyeval_0.2.2   crayon_1.3.4     whisker_0.4      pkgconfig_2.0.3 
-[49] xml2_1.2.2       reprex_0.3.0     lubridate_1.7.4  rstudioapi_0.11 
-[53] assertthat_0.2.1 rmarkdown_2.3    httr_1.4.1       R6_2.4.1        
-[57] nlme_3.1-137     git2r_0.26.1     compiler_3.5.0  </code></pre>
+ [1] Rcpp_1.0.4.6       lubridate_1.7.4    lattice_0.20-35    class_7.3-14      
+ [5] assertthat_0.2.1   rprojroot_1.3-2    digest_0.6.25      utf8_1.1.4        
+ [9] R6_2.4.1           cellranger_1.1.0   backports_1.1.5    reprex_0.3.0      
+[13] e1071_1.7-3        evaluate_0.14      httr_1.4.1         highr_0.8         
+[17] pillar_1.4.3       rlang_0.4.5        lazyeval_0.2.2     readxl_1.3.1      
+[21] rstudioapi_0.11    whisker_0.4        rmarkdown_2.3      labeling_0.3      
+[25] munsell_0.5.0      broom_0.5.5        compiler_3.5.0     httpuv_1.5.2      
+[29] modelr_0.1.6       xfun_0.12          pkgconfig_2.0.3    rgeos_0.5-2       
+[33] htmltools_0.4.0    tidyselect_1.0.0   workflowr_1.6.2    fansi_0.4.1       
+[37] crayon_1.3.4       dbplyr_1.4.2       withr_2.1.2        later_1.0.0       
+[41] grid_3.5.0         nlme_3.1-137       jsonlite_1.6.1     gtable_0.3.0      
+[45] lifecycle_0.1.0    DBI_1.1.0          git2r_0.26.1       magrittr_1.5      
+[49] units_0.6-5        scales_1.1.0       KernSmooth_2.23-15 cli_2.0.2         
+[53] stringi_1.4.6      farver_2.0.3       fs_1.3.1           promises_1.1.0    
+[57] sp_1.4-1           xml2_1.2.2         generics_0.0.2     vctrs_0.2.3       
+[61] tools_3.5.0        glue_1.4.0         hms_0.5.3          yaml_2.2.1        
+[65] colorspace_1.4-1   classInt_0.4-2     rvest_0.3.5        haven_2.2.0       </code></pre>
 </div>
 
 
