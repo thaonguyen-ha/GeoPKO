@@ -13,6 +13,7 @@
 
 <title>Analysis</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
@@ -22,6 +23,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -30,6 +32,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -322,7 +326,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-02
+<strong>Last updated:</strong> 2020-07-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -358,7 +362,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it's best to always run the code in an empty environment.</p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
 </div>
 </div>
 </div>
@@ -413,16 +417,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree8b39fe5ace8c522d6acf487ba761546dbf770188targetblank8b39fe5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/8b39fe5ace8c522d6acf487ba761546dbf770188" target="_blank">8b39fe5</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree9c0642e723233372c039e5498b86fc7c4fb3f2a5targetblank9c0642ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/9c0642e723233372c039e5498b86fc7c4fb3f2a5" target="_blank">9c0642e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree8b39fe5ace8c522d6acf487ba761546dbf770188targetblank8b39fe5a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree9c0642e723233372c039e5498b86fc7c4fb3f2a5targetblank9c0642ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/8b39fe5ace8c522d6acf487ba761546dbf770188" target="_blank">8b39fe5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/9c0642e723233372c039e5498b86fc7c4fb3f2a5" target="_blank">9c0642e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -431,11 +435,15 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/.RData
     Ignored:    analysis/.Rhistory
+
+Untracked files:
+    Untracked:  2020_07_03.R
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
 </p>
 </div>
 </div>
@@ -446,7 +454,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in th
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -475,6 +483,108 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/9c0642e723233372c039e5498b86fc7c4fb3f2a5/analysis/index.Rmd" target="_blank">9c0642e</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/0d5cc47d602a124c76a027be9f7aa979ca8fc79d/analysis/index.Rmd" target="_blank">0d5cc47</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Fixed conflict with main fol.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/4cf53c8649eb56e9a2902e409c11394761666923/analysis/index.Rmd" target="_blank">4cf53c8</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Fixing legend position; previous tables
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/14ab237285f566807081395a783b005497ddc8eb/analysis/index.Rmd" target="_blank">14ab237</a>
+</td>
+<td>
+GitHub
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Update index.Rmd
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/557ebbf06105e066e0ae85b74d5a6feee87f884c/analysis/index.Rmd" target="_blank">557ebbf</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Lou_change_graph
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/3bde5f58f723b18f599bfb2a44835957d5340451/docs/index.html" target="_blank">3bde5f5</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/hatnguyen267/GeoPKO/blob/8b39fe5ace8c522d6acf487ba761546dbf770188/analysis/index.Rmd" target="_blank">8b39fe5</a>
 </td>
 <td>
@@ -484,7 +594,7 @@ Nguyen Ha
 2020-07-02
 </td>
 <td>
-wflow_publish(c(&quot;index.Rmd&quot;, &quot;about.Rmd&quot;))
+wflow_publish(c(“index.Rmd”, “about.Rmd”))
 </td>
 </tr>
 <tr>
@@ -501,7 +611,7 @@ Nguyen Ha
 2020-07-02
 </td>
 <td>
-wflow_publish(c(&quot;index.Rmd&quot;, &quot;about.Rmd&quot;))
+wflow_publish(c(“index.Rmd”, “about.Rmd”))
 </td>
 </tr>
 <tr>
@@ -635,36 +745,1311 @@ Start workflowr project.
 <pre class="r"><code>library(tidyverse)
 library(readr)
 library(ggthemes)
-library(knitr)</code></pre>
+library(knitr)
+library(kableExtra)</code></pre>
 <p>Import the dataset.</p>
 <pre class="r"><code>GeoPKO &lt;- read_csv(&quot;data/geopko.csv&quot;)</code></pre>
-<p>Now we can start with the actual fun stuff! Let's have a quick look at the first few rows of the dataset.</p>
-<pre class="r"><code>head(GeoPKO)</code></pre>
-<pre><code># A tibble: 6 x 71
-  Source Mission  year month location country latitude longitude No.troops RPF  
-  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;lgl&gt;
-1 Map n~ BINUB    2007     3 Bujumbu~ Burundi    -3.38     29.4  0         NA   
-2 Map n~ BINUB    2009     8 Bujumbu~ Burundi    -3.38     29.4  0         NA   
-3 Map n~ MINUCI   2003     8 Abidjan  Ivory ~     5.31     -4.01 0         NA   
-4 Map n~ MINUCI   2003    11 Abidjan  Ivory ~     5.31     -4.01 0         NA   
-5 Map n~ MINUCI   2004     1 Abidjan  Ivory ~     5.31     -4.01 0         NA   
-6 Map n~ MINURCA  1998     6 Bangui   Centra~     4.38     18.6  1385      NA   
-# ... with 61 more variables: RPF_No &lt;lgl&gt;, RES &lt;dbl&gt;, RES_No &lt;dbl&gt;, FP &lt;dbl&gt;,
-#   FP_No &lt;dbl&gt;, No.TCC &lt;chr&gt;, name.of.TCC1 &lt;chr&gt;, No.troops.per.TCC1 &lt;chr&gt;,
-#   name.of.TCC2 &lt;chr&gt;, No.troops.per.TCC2 &lt;chr&gt;, name.of.TCC3 &lt;chr&gt;,
-#   No.troops.per.TCC3 &lt;dbl&gt;, name.of.TCC4 &lt;chr&gt;, No.troops.per.TCC4 &lt;dbl&gt;,
-#   name.of.TCC5 &lt;chr&gt;, No.troops.per.TCC5 &lt;dbl&gt;, name.of.TCC6 &lt;chr&gt;,
-#   No.troops.per.TCC6 &lt;dbl&gt;, name.of.TCC7 &lt;chr&gt;, No.troops.per.TCC7 &lt;dbl&gt;,
-#   name.of.TCC8 &lt;chr&gt;, No.troops.per.TCC8 &lt;dbl&gt;, name.of.TCC9 &lt;chr&gt;,
-#   No.troops.per.TCC9 &lt;dbl&gt;, name.of.TCC10 &lt;lgl&gt;, No.troops.per.TCC10 &lt;lgl&gt;,
-#   name.of.TCC11 &lt;lgl&gt;, No.troops.per.TCC11 &lt;lgl&gt;, name.of.TCC12 &lt;lgl&gt;,
-#   No.troops.per.TCC12 &lt;lgl&gt;, name.of.TCC13 &lt;lgl&gt;, No.troops.per.TCC13 &lt;lgl&gt;,
-#   name.of.TCC14 &lt;lgl&gt;, No.troops.per.TCC14 &lt;lgl&gt;, UNPOL..dummy. &lt;dbl&gt;,
-#   UNMO..dummy. &lt;dbl&gt;, HQ &lt;dbl&gt;, LO &lt;dbl&gt;, comments &lt;chr&gt;, cow_code &lt;dbl&gt;,
-#   gwno &lt;dbl&gt;, name &lt;chr&gt;, TCC1 &lt;dbl&gt;, TCC2 &lt;dbl&gt;, TCC3 &lt;dbl&gt;, TCC4 &lt;dbl&gt;,
-#   TCC5 &lt;dbl&gt;, TCC6 &lt;dbl&gt;, TCC7 &lt;dbl&gt;, TCC8 &lt;dbl&gt;, TCC9 &lt;dbl&gt;, TCC10 &lt;lgl&gt;,
-#   TCC11 &lt;lgl&gt;, TCC12 &lt;lgl&gt;, TCC13 &lt;lgl&gt;, TCC14 &lt;lgl&gt;, ADM1_id &lt;dbl&gt;,
-#   ADM1_name &lt;chr&gt;, ADM2_id &lt;dbl&gt;, ADM2_name &lt;chr&gt;, PRIOID &lt;dbl&gt;</code></pre>
+<p>Now we can start with the actual fun stuff! Let’s have a quick look at the first few rows of the dataset.</p>
+<pre class="r"><code>kable(GeoPKO[1:5,]) %&gt;% kable_styling() %&gt;%
+  scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Source
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Mission
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+year
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+month
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+location
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+country
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+latitude
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+longitude
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+RPF
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+RPF_No
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+RES
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+RES_No
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+FP
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+FP_No
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.TCC
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC1
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC1
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC2
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC2
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC3
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC3
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC4
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC4
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC5
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC5
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC6
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC6
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC7
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC7
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC8
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC8
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC9
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC9
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC10
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC10
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC11
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC11
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC12
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC12
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC13
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC13
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name.of.TCC14
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+No.troops.per.TCC14
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+UNPOL..dummy.
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+UNMO..dummy.
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+HQ
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+LO
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+comments
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+cow_code
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+gwno
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+name
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC1
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC2
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC3
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC4
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC5
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC6
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC7
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC8
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TCC9
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+TCC10
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+TCC11
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+TCC12
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+TCC13
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+TCC14
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ADM1_id
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ADM1_name
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ADM2_id
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ADM2_name
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PRIOID
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Map no. 4309
+</td>
+<td style="text-align:left;">
+BINUB
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Bujumbura
+</td>
+<td style="text-align:left;">
+Burundi
+</td>
+<td style="text-align:right;">
+-3.382200
+</td>
+<td style="text-align:right;">
+29.364400
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+516
+</td>
+<td style="text-align:right;">
+516
+</td>
+<td style="text-align:left;">
+Burundi
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3348
+</td>
+<td style="text-align:left;">
+Bujumbura Mairie
+</td>
+<td style="text-align:right;">
+20147
+</td>
+<td style="text-align:left;">
+Roherero
+</td>
+<td style="text-align:right;">
+124979
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Map no. 4309 Rev. 1
+</td>
+<td style="text-align:left;">
+BINUB
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Bujumbura
+</td>
+<td style="text-align:left;">
+Burundi
+</td>
+<td style="text-align:right;">
+-3.382200
+</td>
+<td style="text-align:right;">
+29.364400
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+516
+</td>
+<td style="text-align:right;">
+516
+</td>
+<td style="text-align:left;">
+Burundi
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3348
+</td>
+<td style="text-align:left;">
+Bujumbura Mairie
+</td>
+<td style="text-align:right;">
+20147
+</td>
+<td style="text-align:left;">
+Roherero
+</td>
+<td style="text-align:right;">
+124979
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Map no. 4203 Rev. 2
+</td>
+<td style="text-align:left;">
+MINUCI
+</td>
+<td style="text-align:right;">
+2003
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:left;">
+Ivory Coast
+</td>
+<td style="text-align:right;">
+5.309657
+</td>
+<td style="text-align:right;">
+-4.012656
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+MINUCI HQ; Also ECOWAS main HQ; France HQ
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:left;">
+Cote D’Ivoire
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3411
+</td>
+<td style="text-align:left;">
+Lagunes
+</td>
+<td style="text-align:right;">
+40389
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:right;">
+137152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Map no. 4203 Rev. 3
+</td>
+<td style="text-align:left;">
+MINUCI
+</td>
+<td style="text-align:right;">
+2003
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:left;">
+Ivory Coast
+</td>
+<td style="text-align:right;">
+5.309657
+</td>
+<td style="text-align:right;">
+-4.012656
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+MINUCI HQ; Also ECOWAS main HQ; France HQ; Fanci HQ
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:left;">
+Cote D’Ivoire
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3411
+</td>
+<td style="text-align:left;">
+Lagunes
+</td>
+<td style="text-align:right;">
+40389
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:right;">
+137152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Map no. 4203 Rev. 4
+</td>
+<td style="text-align:left;">
+MINUCI
+</td>
+<td style="text-align:right;">
+2004
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:left;">
+Ivory Coast
+</td>
+<td style="text-align:right;">
+5.309657
+</td>
+<td style="text-align:right;">
+-4.012656
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+MINUCI HQ; ECOWAS main HQ; France HQ; Fanci HQ
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:left;">
+Cote D’Ivoire
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3411
+</td>
+<td style="text-align:left;">
+Lagunes
+</td>
+<td style="text-align:right;">
+40389
+</td>
+<td style="text-align:left;">
+Abidjan
+</td>
+<td style="text-align:right;">
+137152
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>The dataset covers UN peacekeeping missions in Africa between 1994 and 2018. We can use the dataset to extract the number of active missions during this period.</p>
 <pre class="r"><code>NoMission &lt;- GeoPKO %&gt;% select(year, Mission) %&gt;% distinct(year, Mission) %&gt;% count(year)
 Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
@@ -683,88 +2068,167 @@ map2018df1 &lt;- map2018df %&gt;% group_by(location, latitude, longitude, Missio
   summarize(ave = mean(No.troops, na.rm=TRUE)) %&gt;% ungroup() 
 kable(map2018df1[1:5,], caption = &quot;A preview of this dataframe&quot;)</code></pre>
 <table>
-<caption>A preview of this dataframe</caption>
+<caption>
+A preview of this dataframe
+</caption>
 <thead>
-<tr class="header">
-<th align="left">location</th>
-<th align="right">latitude</th>
-<th align="right">longitude</th>
-<th align="left">Mission</th>
-<th align="right">HQ</th>
-<th align="right">ave</th>
+<tr>
+<th style="text-align:left;">
+location
+</th>
+<th style="text-align:right;">
+latitude
+</th>
+<th style="text-align:right;">
+longitude
+</th>
+<th style="text-align:left;">
+Mission
+</th>
+<th style="text-align:right;">
+HQ
+</th>
+<th style="text-align:right;">
+ave
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Abyei Camp</td>
-<td align="right">9.627095</td>
-<td align="right">28.43450</td>
-<td align="left">UNISFA</td>
-<td align="right">3</td>
-<td align="right">1170.00</td>
+<tr>
+<td style="text-align:left;">
+Abyei Camp
+</td>
+<td style="text-align:right;">
+9.627095
+</td>
+<td style="text-align:right;">
+28.43450
+</td>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1170.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Adikivu</td>
-<td align="right">-2.325729</td>
-<td align="right">28.81233</td>
-<td align="left">MONUSCO</td>
-<td align="right">0</td>
-<td align="right">568.75</td>
+<tr>
+<td style="text-align:left;">
+Adikivu
+</td>
+<td style="text-align:right;">
+-2.325729
+</td>
+<td style="text-align:right;">
+28.81233
+</td>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+568.75
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Adikivu</td>
-<td align="right">-2.325729</td>
-<td align="right">28.81233</td>
-<td align="left">MONUSCO</td>
-<td align="right">2</td>
-<td align="right">1250.00</td>
+<tr>
+<td style="text-align:left;">
+Adikivu
+</td>
+<td style="text-align:right;">
+-2.325729
+</td>
+<td style="text-align:right;">
+28.81233
+</td>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1250.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Agany Toak</td>
-<td align="right">9.527483</td>
-<td align="right">28.43431</td>
-<td align="left">UNISFA</td>
-<td align="right">0</td>
-<td align="right">35.00</td>
+<tr>
+<td style="text-align:left;">
+Agany Toak
+</td>
+<td style="text-align:right;">
+9.527483
+</td>
+<td style="text-align:right;">
+28.43431
+</td>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+35.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Agok</td>
-<td align="right">9.357486</td>
-<td align="right">28.58258</td>
-<td align="left">UNISFA</td>
-<td align="right">0</td>
-<td align="right">91.00</td>
+<tr>
+<td style="text-align:left;">
+Agok
+</td>
+<td style="text-align:right;">
+9.357486
+</td>
+<td style="text-align:right;">
+28.58258
+</td>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+91.00
+</td>
 </tr>
 </tbody>
 </table>
 <p>Next, we obtain the geometric shapes from <code>rnaturalearth</code>, and filter for countries in Africa.</p>
-<pre class="r"><code>library(rnaturalearth)</code></pre>
-<pre><code>Warning: package &#39;rnaturalearth&#39; was built under R version 3.5.3</code></pre>
-<pre class="r"><code>library(rnaturalearthdata)</code></pre>
-<pre><code>Warning: package &#39;rnaturalearthdata&#39; was built under R version 3.5.3</code></pre>
-<pre class="r"><code>library(sf)</code></pre>
-<pre><code>Warning: package &#39;sf&#39; was built under R version 3.5.3</code></pre>
-<pre><code>Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3</code></pre>
-<pre class="r"><code>world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
+<pre class="r"><code>library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+
+world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
 Africa &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
 <p>Finally, we plot our data onto the map.</p>
-<pre class="r"><code>library(ggrepel)</code></pre>
-<pre><code>Warning: package &#39;ggrepel&#39; was built under R version 3.5.3</code></pre>
-<pre class="r"><code>p2 &lt;- ggplot(data=Africa) + geom_sf() + 
-  geom_point(data=map2018df1, aes(x=longitude, y=latitude, size=ave, color=ave), alpha=.7)+
-  scale_color_continuous()+
-  geom_point(data=map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude), 
-             color=&quot;red&quot;, shape=4, size=10)+
-  geom_label_repel(data=map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission))+
-  labs(title=&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;)+
-  theme(panel.grid=element_blank(),
-        axis.title=element_blank(),
-        axis.ticks=element_blank(),
-        axis.text=element_blank(),
-        panel.background=element_blank())
-  
+<pre class="r"><code>library(ggrepel)
+library(viridis)
+
+p2 &lt;-  ggplot(data=Africa) + geom_sf() + 
+  geom_point(data = map2018df1, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
+  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, trans=&quot;log&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
+  scale_alpha_continuous(name=&quot;Average Troop Deployment&quot;, trans=&quot;log&quot;, range=c(0.1, .9), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000))+
+  scale_color_viridis(option=&quot;cividis&quot;, trans=&quot;log&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
+  guides( colour = guide_legend()) +
+  geom_point(data = map2018df1 %&gt;% filter(HQ==3), aes (x=longitude, y=latitude), color = &quot;red&quot;, shape = 4, size=7)+
+  geom_label_repel(data = map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission)) +
+  labs (title =&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;) +
+  labs(color=&#39;Average Troop Deployment&#39;) +
+  theme(
+    text = element_text(color = &quot;#22211d&quot;),
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
+    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
+    panel.grid=element_blank(),
+    axis.text=element_blank(),
+    axis.ticks=element_blank(),
+    axis.title=element_blank()
+  )
 p2</code></pre>
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="figure/index.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
@@ -776,7 +2240,7 @@ p2</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.5.0 (2018-04-23)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18363)
+Running under: Windows 10 x64 (build 16299)
 
 Matrix products: default
 
@@ -791,30 +2255,32 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggrepel_0.8.1           sf_0.8-1                rnaturalearthdata_0.1.0
- [4] rnaturalearth_0.1.0     knitr_1.28              ggthemes_4.2.0         
- [7] forcats_0.5.0           stringr_1.4.0           dplyr_0.8.4            
-[10] purrr_0.3.3             readr_1.3.1             tidyr_1.0.2            
-[13] tibble_2.1.3            ggplot2_3.2.1           tidyverse_1.3.0        
+ [1] viridis_0.5.1           viridisLite_0.3.0       ggrepel_0.8.1          
+ [4] sf_0.8-1                rnaturalearthdata_0.1.0 rnaturalearth_0.1.0    
+ [7] kableExtra_1.1.0        knitr_1.28              ggthemes_4.2.0         
+[10] forcats_0.5.0           stringr_1.4.0           dplyr_0.8.4            
+[13] purrr_0.3.3             readr_1.3.1             tidyr_1.0.2            
+[16] tibble_2.1.3            ggplot2_3.2.1           tidyverse_1.3.0        
+[19] workflowr_1.6.2        
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.4.6       lubridate_1.7.4    lattice_0.20-35    class_7.3-14      
- [5] assertthat_0.2.1   rprojroot_1.3-2    digest_0.6.25      utf8_1.1.4        
- [9] R6_2.4.1           cellranger_1.1.0   backports_1.1.5    reprex_0.3.0      
-[13] e1071_1.7-3        evaluate_0.14      httr_1.4.1         highr_0.8         
-[17] pillar_1.4.3       rlang_0.4.5        lazyeval_0.2.2     readxl_1.3.1      
-[21] rstudioapi_0.11    whisker_0.4        rmarkdown_2.3      labeling_0.3      
-[25] munsell_0.5.0      broom_0.5.5        compiler_3.5.0     httpuv_1.5.2      
-[29] modelr_0.1.6       xfun_0.12          pkgconfig_2.0.3    rgeos_0.5-2       
-[33] htmltools_0.4.0    tidyselect_1.0.0   workflowr_1.6.2    fansi_0.4.1       
-[37] crayon_1.3.4       dbplyr_1.4.2       withr_2.1.2        later_1.0.0       
-[41] grid_3.5.0         nlme_3.1-137       jsonlite_1.6.1     gtable_0.3.0      
-[45] lifecycle_0.1.0    DBI_1.1.0          git2r_0.26.1       magrittr_1.5      
-[49] units_0.6-5        scales_1.1.0       KernSmooth_2.23-15 cli_2.0.2         
-[53] stringi_1.4.6      farver_2.0.3       fs_1.3.1           promises_1.1.0    
-[57] sp_1.4-1           xml2_1.2.2         generics_0.0.2     vctrs_0.2.3       
-[61] tools_3.5.0        glue_1.4.0         hms_0.5.3          yaml_2.2.1        
-[65] colorspace_1.4-1   classInt_0.4-2     rvest_0.3.5        haven_2.2.0       </code></pre>
+ [1] httr_1.4.1         jsonlite_1.6.1     modelr_0.1.6       assertthat_0.2.1  
+ [5] sp_1.4-1           highr_0.8          cellranger_1.1.0   yaml_2.2.1        
+ [9] pillar_1.4.3       backports_1.1.5    lattice_0.20-35    glue_1.4.0        
+[13] digest_0.6.25      promises_1.1.0     rvest_0.3.5        colorspace_1.4-1  
+[17] htmltools_0.4.0    httpuv_1.5.2       pkgconfig_2.0.3    broom_0.5.5       
+[21] haven_2.2.0        scales_1.1.0       webshot_0.5.2      whisker_0.4       
+[25] later_1.0.0        git2r_0.26.1       generics_0.0.2     farver_2.0.3      
+[29] withr_2.1.2        lazyeval_0.2.2     cli_2.0.2          magrittr_1.5      
+[33] crayon_1.3.4       readxl_1.3.1       evaluate_0.14      fs_1.3.1          
+[37] fansi_0.4.1        nlme_3.1-137       xml2_1.2.2         class_7.3-14      
+[41] tools_3.5.0        hms_0.5.3          lifecycle_0.1.0    munsell_0.5.0     
+[45] reprex_0.3.0       compiler_3.5.0     e1071_1.7-3        rlang_0.4.5       
+[49] classInt_0.4-2     units_0.6-5        grid_3.5.0         rstudioapi_0.11   
+[53] rmarkdown_2.3      gtable_0.3.0       DBI_1.1.0          R6_2.4.1          
+[57] gridExtra_2.2.1    lubridate_1.7.4    rgeos_0.5-2        rprojroot_1.3-2   
+[61] KernSmooth_2.23-15 stringi_1.4.6      Rcpp_1.0.4.6       vctrs_0.2.3       
+[65] dbplyr_1.4.2       tidyselect_1.0.0   xfun_0.12         </code></pre>
 </div>
 
 
@@ -829,6 +2295,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 
