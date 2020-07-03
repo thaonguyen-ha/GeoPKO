@@ -68,19 +68,24 @@ Africa <- world %>% filter(region_un == "Africa")
 Finally, we plot our data onto the map.
 ```{r}
 library(ggrepel)
-p2 <- ggplot(data=Africa) + geom_sf() + 
-  geom_point(data=map2018df1, aes(x=longitude, y=latitude, size=ave, color=ave), alpha=.7)+
-  scale_color_continuous()+
-  geom_point(data=map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude), 
-             color="red", shape=4, size=10)+
-  geom_label_repel(data=map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission))+
-  labs(title="UN Peacekeeping Deployment in Africa - 2018 (approx.)")+
-  theme(panel.grid=element_blank(),
-        axis.title=element_blank(),
-        axis.ticks=element_blank(),
-        axis.text=element_blank(),
-        panel.background=element_blank())
-  
+p2 <-  ggplot(data=Africa) + geom_sf() + 
+  geom_point(data = map2018df1, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
+  scale_size_continuous(name="Average Troop Deployment", trans="log", range=c(1,12), breaks=mybreaks) +
+  scale_alpha_continuous(name="Average Troop Deployment", trans="log", range=c(0.1, .9), breaks=mybreaks)+
+  scale_color_viridis(option="cividis", trans="log", breaks=mybreaks, name="Average Troop Deployment" ) +
+  guides( colour = guide_legend()) +
+  geom_point(data = map2018df1 %>% filter(HQ==3), aes (x=longitude, y=latitude), color = "red", shape = 3, size=10)+
+  geom_label_repel(data = map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission)) +
+  labs (title ="UN Peacekeeping Deployment in Africa - 2018 (approx.)") +
+  labs(color='Average Troop Deployment') +
+  theme(
+    legend.position = c(0.2, 0.3),
+    text = element_text(color = "#22211d"),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+  )
 p2
 ```
 
