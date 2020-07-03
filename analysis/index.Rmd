@@ -72,6 +72,7 @@ Finally, we plot our data onto the map.
 library(ggrepel)
 library(viridis)
 
+=======
 p2 <-  ggplot(data=Africa) + geom_sf() + 
   geom_point(data = map2018df1, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
   scale_size_continuous(name="Average Troop Deployment", trans="log", range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
