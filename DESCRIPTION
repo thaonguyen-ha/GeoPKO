@@ -1,0 +1,24 @@
+Title: A visualization project for the Geo-PKO dataset
+Title: Paeoecological analysis using `neotoma`, an R package.
+Author: Nguyen Ha, Tanushree Rao, Lou van Roozendaal
+Maintainer: Nguyen Ha <nguyen.ha@pcr.uu.se>
+Description: A paper in progress for understanding age model construction in paleoecology.
+
+Depends:
+    R (>= 2.10)
+Imports:
+    neotoma,
+    rmarkdown,
+    purrr,
+    ggplot2,
+    plyr,
+    reshape2,
+    mgcv,
+    Bchron,
+    viridis,
+    dplyr,
+    readr,
+    gridExtra,
+    knitr,
+    svglite,
+    purrrlyr
