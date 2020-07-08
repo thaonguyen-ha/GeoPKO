@@ -416,16 +416,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreee863725fd19a593d37cc5deba4852cb6454b20d7targetblanke863725a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/e863725fd19a593d37cc5deba4852cb6454b20d7" target="_blank">e863725</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb3d8755981830a8b96a975de8841f67322c48311targetblankb3d8755a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b3d8755981830a8b96a975de8841f67322c48311" target="_blank">b3d8755</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreee863725fd19a593d37cc5deba4852cb6454b20d7targetblanke863725a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb3d8755981830a8b96a975de8841f67322c48311targetblankb3d8755a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/e863725fd19a593d37cc5deba4852cb6454b20d7" target="_blank">e863725</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b3d8755981830a8b96a975de8841f67322c48311" target="_blank">b3d8755</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -478,6 +478,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/b3d8755981830a8b96a975de8841f67322c48311/analysis/index.Rmd" target="_blank">b3d8755</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Adjusting graph output size
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/884b86f30c76e6c38fcd948c6af88893ada8b9c7/docs/index.html" target="_blank">884b86f</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2474,8 +2508,7 @@ p2 &lt;-  ggplot(data=Africa) + geom_sf() +
   guides( colour = guide_legend()) +
   geom_point(data = map2018df1 %&gt;% filter(HQ==3), aes (x=longitude, y=latitude), color = &quot;red&quot;, shape = 4, size=7)+
   geom_label_repel(data = map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission)) +
-  labs (title =&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;) +
-  labs(color=&#39;Average Troop Deployment&#39;) +
+  labs (title =&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;, color=&#39;Average Troop Deployment&#39;) +
   theme(
     text = element_text(color = &quot;#22211d&quot;),
     plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
@@ -2498,9 +2531,9 @@ p2</code></pre>
                 aes(x=longitude, y=latitude), color=&quot;black&quot;, shape=16, size=2)+
     geom_label_repel(data=map2018df1 %&gt;% filter(HQ==3), 
                 aes(x=longitude, y=latitude, label=Mission))+
-    labs(title=&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;)+
-    scale_size(range = c(2, 16))+
-    labs(size=&quot;Average number of troops (continuous scale)&quot;,col=&quot;Country&quot;)+
+    labs(title=&quot;UN Peacekeeping Deployment in Africa - 2018&quot;)+
+    scale_size(range = c(1, 12))+
+    labs(size=&quot;Average number of troops \n(continuous scale)&quot;,col=&quot;Country&quot;)+
     theme(text = element_text(color = &quot;#22211d&quot;),
     plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
     panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
@@ -2510,10 +2543,12 @@ p2</code></pre>
     axis.title=element_blank(),
     axis.ticks=element_blank(),
     axis.text=element_blank(),
-    legend.key=element_blank()
+    legend.key=element_blank(),
+    legend.position=&quot;right&quot;,
+    legend.box=&quot;horizontal&quot;
   )
 p3</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/index.Rmd/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>How has this changed over the period covered by the dataset? For that, we attempted to make an animated graph. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year.</p>
 <pre class="r"><code>gif_df &lt;- GeoPKO %&gt;% select(Mission, year, location, latitude, longitude, No.troops, HQ) %&gt;%
   group_by(Mission, year, location) %&gt;%
