@@ -72,7 +72,6 @@ Africa <- world %>% filter(region_un == "Africa")
 
 ```
 
-Finally, we plot our data onto the map.
 ```{r, warning=FALSE, message=FALSE}
 library(ggrepel)
 library(viridis)
@@ -93,12 +92,42 @@ p2 <-  ggplot(data=Africa) + geom_sf() +
     legend.background = element_rect(fill = "#f5f5f2", color = NA),
     plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
     panel.grid=element_blank(),
-    axis.text=element_blank(),
-    axis.ticks=element_blank(),
     axis.title=element_blank(),
+    axis.ticks=element_blank(),
+    axis.text=element_blank(),
+    panel.background=element_blank(),
     legend.key=element_blank()
   )
 p2
+```
+
+
+Here is the same map, but this time the points show both troop size and country.
+
+```{r, warning=FALSE, message=FALSE}
+p3 <- ggplot(data=Africa) + geom_sf() +
+    geom_point(data=map2018df1, 
+                aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4)+
+    geom_point(data=map2018df1 %>% filter(HQ==3), 
+                aes(x=longitude, y=latitude), color="black", shape=16, size=2)+
+    geom_label_repel(data=map2018df1 %>% filter(HQ==3), 
+                aes(x=longitude, y=latitude, label=Mission))+
+    labs(title="UN Peacekeeping Deployment in Africa - 2018 (approx.)")+
+    scale_size(range = c(2, 16))+
+    labs(size="Average number of troops (continuous scale)",col="Country")+
+    theme(text = element_text(color = "#22211d"),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+    panel.grid=element_blank(),
+    axis.title=element_blank(),
+    axis.ticks=element_blank(),
+    axis.text=element_blank(),
+    panel.background=element_blank(),
+    legend.key=element_blank()
+  )
+p3
 ```
 
 How has this changed over the period covered by the dataset? For that, we attempted to make an animated graph. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year. 
@@ -140,6 +169,3 @@ ggplot(data=Africa) + geom_sf() +
 #anim_save("animatedUNPKO.gif", p3)
 
 ```
-
-
-
