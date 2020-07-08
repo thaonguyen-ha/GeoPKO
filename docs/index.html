@@ -416,16 +416,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree176eca570f593d533a994f2a267c2a9cbf8f3429targetblank176eca5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/176eca570f593d533a994f2a267c2a9cbf8f3429" target="_blank">176eca5</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreef5bc39094891b89fe7a3f95b7c3415de5d243145targetblankf5bc390a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/f5bc39094891b89fe7a3f95b7c3415de5d243145" target="_blank">f5bc390</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree176eca570f593d533a994f2a267c2a9cbf8f3429targetblank176eca5a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreef5bc39094891b89fe7a3f95b7c3415de5d243145targetblankf5bc390a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/176eca570f593d533a994f2a267c2a9cbf8f3429" target="_blank">176eca5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/f5bc39094891b89fe7a3f95b7c3415de5d243145" target="_blank">f5bc390</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -434,6 +434,9 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  figure/index.Rmd/animatedgraph-1.gif
 
 Unstaged changes:
     Modified:   animatedUNPKO.gif
@@ -475,6 +478,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/f5bc39094891b89fe7a3f95b7c3415de5d243145/analysis/index.Rmd" target="_blank">f5bc390</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Updating the stupid animated graph hope it will render
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/6bcd4056a357692ed4a41dda4e48ac17d74a0819/docs/index.html" target="_blank">6bcd405</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2129,7 +2166,9 @@ Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + g
         axis.text.x=element_text(angle=45, vjust=0.5)) 
 Plot1</code></pre>
 <p><img src="figure/index.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>##Visualizing deployment locations</p>
+</div>
+<div id="visualizing-deployment-locations" class="section level2">
+<h2>Visualizing deployment locations</h2>
 <p>We want to have a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
 <pre class="r"><code>GeoPKO$No.troops &lt;- as.numeric(GeoPKO$No.troops)</code></pre>
 <pre><code>Warning: NAs introduced by coercion</code></pre>
@@ -2369,12 +2408,11 @@ p2</code></pre>
   mutate(ave.no.troops = as.integer(mean(No.troops, na.rm=TRUE))) %&gt;% select(-No.troops) %&gt;% distinct() %&gt;% drop_na(ave.no.troops)</code></pre>
 <p>Next, we add animation to the above map using the package <code>gganimate</code>.</p>
 <pre class="r"><code>library(gganimate)
-library(gifski)
 
 # Transforming the &quot;year&quot; variable into a discrete variable.
 gif_df$year &lt;- as.factor(gif_df$year)
 
-p3 &lt;-  ggplot(data=Africa) + geom_sf() + 
+ggplot(data=Africa) + geom_sf() + 
   geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
   scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option=&quot;cividis&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
@@ -2393,10 +2431,8 @@ p3 &lt;-  ggplot(data=Africa) + geom_sf() +
   transition_states(states=year, transition_length = 3, state_length=3)+
   labs(title=&quot;UN Peacekeeping in Africa: {closest_state}&quot;, 
        color=&quot;Average Deployment Size&quot;)+
-  enter_fade()
-
-animate(p3)</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-9.gif" style="display: block; margin: auto;" /></p>
+  enter_fade()</code></pre>
+<p><img src="figure/index.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#run the following command to save the plot
 #anim_save(&quot;animatedUNPKO.gif&quot;, p3)</code></pre>
 <br>
@@ -2422,13 +2458,13 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gifski_0.8.6            gganimate_1.0.6         viridis_0.5.1          
- [4] viridisLite_0.3.0       ggrepel_0.8.2           sf_0.9-4               
- [7] rnaturalearthdata_0.1.0 rnaturalearth_0.1.0     kableExtra_1.1.0       
-[10] knitr_1.28              ggthemes_4.2.0          forcats_0.5.0          
-[13] stringr_1.4.0           dplyr_0.8.3             purrr_0.3.4            
-[16] readr_1.3.1             tidyr_1.0.0             tibble_3.0.1           
-[19] ggplot2_3.3.1           tidyverse_1.3.0         workflowr_1.6.2        
+ [1] gganimate_1.0.6         viridis_0.5.1           viridisLite_0.3.0      
+ [4] ggrepel_0.8.2           sf_0.9-4                rnaturalearthdata_0.1.0
+ [7] rnaturalearth_0.1.0     kableExtra_1.1.0        knitr_1.29.3           
+[10] ggthemes_4.2.0          forcats_0.5.0           stringr_1.4.0          
+[13] dplyr_0.8.3             purrr_0.3.4             readr_1.3.1            
+[16] tidyr_1.0.0             tibble_3.0.1            ggplot2_3.3.1          
+[19] tidyverse_1.3.0         workflowr_1.6.2        
 
 loaded via a namespace (and not attached):
  [1] nlme_3.1-137       fs_1.4.1           lubridate_1.7.8    webshot_0.5.2     
@@ -2445,10 +2481,11 @@ loaded via a namespace (and not attached):
 [45] stringi_1.4.6      whisker_0.4        yaml_2.2.1         plyr_1.8.6        
 [49] grid_3.5.2         promises_1.1.0     crayon_1.3.4       lattice_0.20-38   
 [53] haven_2.2.0        hms_0.5.3          pillar_1.4.4       reprex_0.3.0      
-[57] glue_1.4.1         evaluate_0.14      modelr_0.1.5       vctrs_0.3.1       
-[61] tweenr_1.0.1       httpuv_1.5.2       cellranger_1.1.0   gtable_0.3.0      
-[65] assertthat_0.2.1   xfun_0.14          broom_0.5.6        e1071_1.7-3       
-[69] later_1.0.0        class_7.3-14       units_0.6-6        ellipsis_0.3.0    </code></pre>
+[57] glue_1.4.1         evaluate_0.14      gifski_0.8.6       modelr_0.1.5      
+[61] vctrs_0.3.1        tweenr_1.0.1       httpuv_1.5.2       cellranger_1.1.0  
+[65] gtable_0.3.0       assertthat_0.2.1   xfun_0.15          broom_0.5.6       
+[69] e1071_1.7-3        later_1.0.0        class_7.3-14       units_0.6-6       
+[73] ellipsis_0.3.0    </code></pre>
 </div>
 </div>
 
