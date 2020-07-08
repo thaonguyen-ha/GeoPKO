@@ -110,7 +110,7 @@ gif_df <- GeoPKO %>% select(Mission, year, location, latitude, longitude, No.tro
 
 Next, we add animation to the above map using the package `gganimate`.
 
-```{r, warning=FALSE, fig.show='animate'}
+```{r, warning=FALSE, animation.hook='ffmpeg', ffmpeg.format='gif', dev='jpeg'}
 library(gganimate)
 library(gifski)
 
@@ -144,8 +144,6 @@ animate(p3)
 #anim_save("animatedUNPKO.gif", p3)
 
 ```
-
-
 
 
 
