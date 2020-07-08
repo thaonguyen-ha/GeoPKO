@@ -48,7 +48,7 @@ Plot1
 
 ```
 
-##Visualizing deployment locations
+##  Visualizing deployment locations
 
 We want to have a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
 
@@ -110,14 +110,13 @@ gif_df <- GeoPKO %>% select(Mission, year, location, latitude, longitude, No.tro
 
 Next, we add animation to the above map using the package `gganimate`.
 
-```{r, warning=FALSE, fig.show='animate'}
+```{r, animatedgraph, warning=FALSE, dev="png", interval=0.5}
 library(gganimate)
-library(gifski)
 
 # Transforming the "year" variable into a discrete variable.
 gif_df$year <- as.factor(gif_df$year)
 
-p3 <-  ggplot(data=Africa) + geom_sf() + 
+ggplot(data=Africa) + geom_sf() + 
   geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
   scale_size_continuous(name="Average Troop Deployment", range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option="cividis", breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name="Average Troop Deployment" ) +
@@ -137,15 +136,10 @@ p3 <-  ggplot(data=Africa) + geom_sf() +
   labs(title="UN Peacekeeping in Africa: {closest_state}", 
        color="Average Deployment Size")+
   enter_fade()
-
-animate(p3)
-
 #run the following command to save the plot
 #anim_save("animatedUNPKO.gif", p3)
 
 ```
-
-
 
 
 
