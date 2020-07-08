@@ -55,7 +55,7 @@ We want to have a quick snapshot of the deployment size in 2018, as well as the 
 ```{r}
 GeoPKO$No.troops <- as.numeric(GeoPKO$No.troops)
 map2018df <- GeoPKO %>% filter(year==2018) %>% 
-  select(Mission, year, location, latitude, longitude, No.troops, HQ)
+  select(Mission, year, location, latitude, longitude, No.troops, HQ, country)
 map2018df1 <- map2018df %>% group_by(location, Mission) %>% 
   mutate(ave = mean(No.troops, na.rm=TRUE)) %>% distinct()
 kable(map2018df1[90:95,], caption = "A preview of this dataframe") %>% kable_styling()
@@ -83,8 +83,7 @@ p2 <-  ggplot(data=Africa) + geom_sf() +
   guides( colour = guide_legend()) +
   geom_point(data = map2018df1 %>% filter(HQ==3), aes (x=longitude, y=latitude), color = "red", shape = 4, size=7)+
   geom_label_repel(data = map2018df1 %>% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission)) +
-  labs (title ="UN Peacekeeping Deployment in Africa - 2018 (approx.)") +
-  labs(color='Average Troop Deployment') +
+  labs (title ="UN Peacekeeping Deployment in Africa - 2018 (approx.)", color='Average Troop Deployment') +
   theme(
     text = element_text(color = "#22211d"),
     plot.background = element_rect(fill = "#f5f5f2", color = NA), 
@@ -95,7 +94,6 @@ p2 <-  ggplot(data=Africa) + geom_sf() +
     axis.title=element_blank(),
     axis.ticks=element_blank(),
     axis.text=element_blank(),
-    panel.background=element_blank(),
     legend.key=element_blank()
   )
 p2
@@ -104,7 +102,7 @@ p2
 
 Here is the same map, but this time the points show both troop size and country.
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, out.width="100%"}
 p3 <- ggplot(data=Africa) + geom_sf() +
     geom_point(data=map2018df1, 
                 aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4)+
@@ -112,9 +110,9 @@ p3 <- ggplot(data=Africa) + geom_sf() +
                 aes(x=longitude, y=latitude), color="black", shape=16, size=2)+
     geom_label_repel(data=map2018df1 %>% filter(HQ==3), 
                 aes(x=longitude, y=latitude, label=Mission))+
-    labs(title="UN Peacekeeping Deployment in Africa - 2018 (approx.)")+
-    scale_size(range = c(2, 16))+
-    labs(size="Average number of troops (continuous scale)",col="Country")+
+    labs(title="UN Peacekeeping Deployment in Africa - 2018")+
+    scale_size(range = c(1, 12))+
+    labs(size="Average number of troops \n(continuous scale)",col="Country")+
     theme(text = element_text(color = "#22211d"),
     plot.background = element_rect(fill = "#f5f5f2", color = NA), 
     panel.background = element_rect(fill = "#f5f5f2", color = NA), 
@@ -124,8 +122,9 @@ p3 <- ggplot(data=Africa) + geom_sf() +
     axis.title=element_blank(),
     axis.ticks=element_blank(),
     axis.text=element_blank(),
-    panel.background=element_blank(),
-    legend.key=element_blank()
+    legend.key=element_blank(),
+    legend.position="right",
+    legend.box="horizontal"
   )
 p3
 ```
@@ -166,6 +165,6 @@ ggplot(data=Africa) + geom_sf() +
        color="Average Deployment Size")+
   enter_fade()
 #run the following command to save the plot
-#anim_save("animatedUNPKO.gif", p3)
+#anim_save("animatedUNPKO.gif", p4)
 
 ```
