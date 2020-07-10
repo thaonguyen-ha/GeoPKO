@@ -47,9 +47,9 @@ Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom
 Plot1
 
 ```
-## Overview of the included missions
+### What missions are included?
 
-The following table aims to provide users with an overview of the missions that are included in the dataset and what years of the mission the dataset covers.
+The following table provides users with a list of missions and the duration for which they are covered by the dataset.
 ```{r}
 GeoPKO$Start <- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
 GeoPKO$End <- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
@@ -58,9 +58,13 @@ Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
 kable(Years[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
 ```
 
+### Number of troops
+
 ##  Visualizing deployment locations
 
-We want to have a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
+An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize *where* active troops are in a mission. Below are some examples of visuaization.
+
+First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
 
 ```{r}
 GeoPKO$No.troops <- as.numeric(GeoPKO$No.troops)
@@ -109,7 +113,6 @@ p2 <-  ggplot(data=Africa) + geom_sf() +
 p2
 ```
 
-
 Here is the same map, but this time the points show both troop size and country.
 
 ```{r, warning=FALSE, message=FALSE, out.width="100%"}
@@ -139,7 +142,8 @@ p3 <- ggplot(data=Africa) + geom_sf() +
 p3
 ```
 
-How has this changed over the period covered by the dataset? For that, we attempted to make an animated graph. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year. 
+How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year. 
+
 ```{r}
 gif_df <- GeoPKO %>% select(Mission, year, location, latitude, longitude, No.troops, HQ) %>%
   group_by(Mission, year, location) %>%
