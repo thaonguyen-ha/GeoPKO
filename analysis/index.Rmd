@@ -159,10 +159,12 @@ ggplot(data=Africa) + geom_sf() +
     axis.text=element_blank(),
     axis.ticks=element_blank(),
     axis.title=element_blank(),
-    legend.key=element_blank())+
+    legend.key=element_blank(),
+    plot.caption=element_text(hjust=0, face="italic"))+
   transition_states(states=year, transition_length = 3, state_length=3)+
-  labs(title="UN Peacekeeping in Africa: {closest_state}", 
-       color="Average Deployment Size")+
+  labs(title="UN Peacekeeping in intrastate armed conflicts in Africa: {closest_state}", 
+       color="Average Deployment Size", 
+       caption="Source: The GeoPKO dataset 1.2")+
   enter_fade()
 #run the following command to save the plot
 #anim_save("animatedUNPKO.gif", p4)
