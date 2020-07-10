@@ -47,6 +47,16 @@ Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom
 Plot1
 
 ```
+## Overview of the included missions
+
+The following table aims to provide users with an overview of the missions that are included in the dataset and what years of the mission the dataset covers.
+```{r}
+GeoPKO$Start <- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
+GeoPKO$End <- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
+Years <- GeoPKO %>% select(Mission, Start, End)
+Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
+kable(Years[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
+```
 
 ##  Visualizing deployment locations
 
