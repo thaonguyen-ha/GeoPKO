@@ -51,14 +51,14 @@ Plot1
 
 The following table provides users with a list of missions and the duration for which they are covered by the dataset.
 ```{r}
-GeoPKO$Start <- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
-GeoPKO$End <- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
+GeoPKO$monthyear <- paste(GeoPKO$year,GeoPKO$month)
+GeoPKO$Start <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = min)
+GeoPKO$End <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = max)
 Years <- GeoPKO %>% select(Mission, Start, End)
 Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
 years2 <- Years[order(Years$Start, Years$End),] 
 kable(years2[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
 ```
-
 
 
 ##  Visualizing deployment locations
