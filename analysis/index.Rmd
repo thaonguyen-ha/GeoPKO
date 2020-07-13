@@ -51,7 +51,7 @@ The following plot aims to  provide a visual overview of the included missions a
 ```{r}
 library(forcats)
 #Create a new dataframe without the months
-library(forcats)
+
 GeoPKO$Start2 <- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
 GeoPKO$End2 <- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
 Years3 <- GeoPKO %>% select(Mission, Start2, End2)
