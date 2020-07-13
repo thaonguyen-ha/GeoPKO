@@ -55,10 +55,12 @@ GeoPKO$Start <- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
 GeoPKO$End <- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
 Years <- GeoPKO %>% select(Mission, Start, End)
 Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
-kable(Years[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
+years2 <- Years[order(Years$Start, Years$End),] 
+kable(years2[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
+
 ```
 
-### Number of troops
+
 
 ##  Visualizing deployment locations
 
@@ -66,6 +68,7 @@ An advantage to the Geo-PKO dataset is that it records the numbers of troops by 
 
 First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
 
+### Number of troops
 ```{r}
 GeoPKO$No.troops <- as.numeric(GeoPKO$No.troops)
 map2018df <- GeoPKO %>% filter(year==2018) %>% 
