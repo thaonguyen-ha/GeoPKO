@@ -20,6 +20,7 @@ library(readr)
 library(ggthemes)
 library(knitr)
 library(kableExtra)
+library(ggplot2)
 ```
 Import the dataset. 
 
@@ -47,7 +48,22 @@ Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom
 Plot1
 ```
 
+
+### What missions are included?
+
+The following table provides users with a list of missions and the duration for which they are covered by the dataset.
+```{r}
+GeoPKO$monthyear <- paste(GeoPKO$year,GeoPKO$month)
+GeoPKO$Start <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = min)
+GeoPKO$End <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = max)
+Years <- GeoPKO %>% select(Mission, Start, End)
+Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
+years2 <- Years[order(Years$Start, Years$End),] 
+kable(years2[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
+```
+
 The following plot aims to  provide a visual overview of the included missions as well as the timeframe of each mission that is covered by the dataset.
+
 ```{r}
 library(forcats)
 #Create a new dataframe without the months
@@ -74,19 +90,6 @@ Years3 <- Years3 %>% group_by(Start2, End2, Mission)  %>% distinct()
   xlab("Active Years") +
   ylab("UN Missions")+
   ggtitle("Overview of the UN Missions included in GeoPKO 1.2")
-```
-
-### What missions are included?
-
-The following table provides users with a list of missions and the duration for which they are covered by the dataset.
-```{r}
-GeoPKO$monthyear <- paste(GeoPKO$year,GeoPKO$month)
-GeoPKO$Start <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = min)
-GeoPKO$End <- ave(GeoPKO$monthyear, GeoPKO$Mission, FUN = max)
-Years <- GeoPKO %>% select(Mission, Start, End)
-Years <- Years %>% group_by(Start, End, Mission)  %>% distinct()
-years2 <- Years[order(Years$Start, Years$End),] 
-kable(years2[,], caption = "UN Missions in the GeoPKO dataset") %>% kable_styling()
 ```
 
 
