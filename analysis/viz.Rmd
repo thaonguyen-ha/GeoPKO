@@ -1,0 +1,168 @@
+---
+title: "Mapping blue helmets"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+##  Visualizing deployment locations
+
+An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize *where* active troops are in a mission. Below are some examples of visuaization.
+
+First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(readr)
+library(ggthemes)
+library(knitr)
+library(kableExtra)
+
+GeoPKO <- read_csv("data/geopko.csv",  
+                   col_types = cols(.default="c")) #importing the dataset
+
+GeoPKO$No.troops <- as.numeric(GeoPKO$No.troops) #changing the variable class for the number of troops
+GeoPKO$latitude <- as.numeric(GeoPKO$latitude)
+GeoPKO$longitude <- as.numeric(GeoPKO$longitude)
+
+map2018df <- GeoPKO %>% filter(year==2018) %>%  
+  select(Mission, year, location, latitude, longitude, No.troops, HQ, country) %>% #generating dataframe for 2018
+  group_by(location, Mission, latitude, longitude) %>% 
+  mutate(ave = mean(No.troops, na.rm=TRUE)) %>% select(-No.troops) %>% 
+  group_by(location, Mission) %>%
+  arrange(desc(HQ)) %>% slice(1)
+
+kable(map2018df[90:95,], caption = "A preview of this dataframe") %>% kable_styling()
+```
+
+Next, we obtain the geometric shapes from the package `rnaturalearth`, and filter for countries in Africa.
+```{r, warning=FALSE, message=FALSE}
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+Africa <- world %>% filter(region_un == "Africa")
+```
+
+Creating a prototype map showing size of deployment in 2018. 
+```{r, warning=FALSE, message=FALSE}
+library(ggrepel)
+library(viridis)
+
+p2 <-  ggplot(data=Africa) + geom_sf() + 
+  geom_point(data = map2018df, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
+  scale_size_continuous(name="Average Troop Deployment", range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
+  scale_color_viridis(option="cividis", breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name="Average Troop Deployment" ) +
+  guides( colour = guide_legend()) +
+  geom_point(data = map2018df %>% filter(HQ==3), aes (x=longitude, y=latitude, shape="HQ"), 
+             fill = "red", size=2, color="red", alpha=.8)+
+  scale_shape_manual(values=c(23), labels=c("HQ"="Mission HQ"), name="")+
+  geom_label_repel(data = map2018df %>% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission),
+                   min.segment.length = 0.2, label.size = 0.5,
+                  box.padding = 2,
+                  size = 3, 
+                  fill = alpha(c("white"),0.7),
+                  shape=16, size=2) +
+  labs(title ="UN Peacekeeping in Africa - 2018", color='Average Troop Deployment') +
+  theme(
+    text = element_text(color = "#22211d"),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+    panel.grid=element_blank(),
+    axis.title=element_blank(),
+    axis.ticks=element_blank(),
+    axis.text=element_blank(),
+    legend.key=element_blank()
+  )
+
+p2
+```
+
+Here is a similar visualization, but this time the color aesthetic for geom_point is mapped to shown country instead.
+```{r, warning=FALSE, message=FALSE}
+
+p3 <- ggplot(data=Africa) + geom_sf() +
+    geom_point(data=map2018df, 
+               aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4, shape=20)+
+    geom_point(data=map2018df %>% 
+                   filter(HQ==3), 
+               aes(x=longitude, y=latitude), color="black", shape=16, size=2
+    ) +
+    geom_label_repel(
+        data=map2018df %>% 
+            filter(HQ==3),
+        min.segment.length = 0.2,
+        label.size = 0.5,
+        box.padding = 2,
+        size = 3,
+        fill = alpha(c("white"),0.7),
+        aes(x=longitude, y=latitude, label=Mission)
+    ) +
+    labs(title="UN Peacekeeping Deployment and Mission HQs in Africa, 2018")+
+    scale_size(range = c(2, 16))+
+    labs(size="Average number of troops\n(continuous scale)",color="Country",shape="HQ")+
+    theme(
+        plot.background = element_rect(fill = "#f5f5f2", color = NA),
+        legend.background = element_rect(fill = "#f5f5f2", color = NA),
+        plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+        panel.grid=element_blank(),
+        axis.title=element_blank(),
+        axis.ticks=element_blank(),
+        axis.text=element_blank(),
+        panel.background=element_blank(),
+        legend.key = element_rect(fill = "#f5f5f2", color = NA),
+        legend.key.size = unit(1, 'lines')
+    )+
+  guides(colour=guide_legend(ncol=2,override.aes = list(size=5)),
+         size=guide_legend(ncol=2))
+p3
+```
+
+How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year, for every year between 1994 and 2018. 
+
+```{r}
+gif_df <- GeoPKO %>% select(Mission, year, location, latitude, longitude, No.troops, HQ) %>%
+  group_by(Mission, year, location) %>%
+  mutate(ave.no.troops = as.integer(mean(No.troops, na.rm=TRUE))) %>% select(-No.troops) %>% distinct() %>% drop_na(ave.no.troops)
+```
+
+The animated graph is built on the above code for static graphics, using the cool package `gganimate`.
+
+```{r, animatedgraph, warning=FALSE, dev="png", interval=0.5}
+library(gganimate)
+
+# Transforming the "year" variable into a discrete variable.
+gif_df$year <- as.factor(gif_df$year)
+
+ggplot(data=Africa) + geom_sf() + 
+  geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  scale_size_continuous(name="Average Troop Deployment", range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
+  scale_color_viridis(option="cividis", breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name="Average Troop Deployment" ) +
+  guides(colour = guide_legend()) +
+  theme(
+    text = element_text(color = "#22211d"),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+    panel.grid=element_blank(),
+    axis.text=element_blank(),
+    axis.ticks=element_blank(),
+    axis.title=element_blank(),
+    legend.key=element_blank(),
+    plot.caption=element_text(hjust=0, face="italic"))+
+  transition_states(states=year, transition_length = 3, state_length=3)+
+  labs(title="UN Peacekeeping in intrastate armed conflicts in Africa: {closest_state}", 
+       color="Average Deployment Size", 
+       caption="Source: The GeoPKO dataset 1.2")+
+  enter_fade()
+#run the following command to save the plot
+#anim_save("animatedUNPKO.gif", p4)
+
+```
