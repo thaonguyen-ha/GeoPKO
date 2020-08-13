@@ -5,6 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Mapping blue helmets
+    href: viz.html
   - text: About
     href: about.html
 output:
