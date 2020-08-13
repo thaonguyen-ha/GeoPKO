@@ -325,7 +325,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-10
+<strong>Last updated:</strong> 2020-08-13
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -416,16 +416,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree9ec337bf2653404d559baa6e89f242a8a811abaatargetblank9ec337ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/9ec337bf2653404d559baa6e89f242a8a811abaa" target="_blank">9ec337b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7targetblank3c3a981a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7" target="_blank">3c3a981</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree9ec337bf2653404d559baa6e89f242a8a811abaatargetblank9ec337ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7targetblank3c3a981a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/9ec337bf2653404d559baa6e89f242a8a811abaa" target="_blank">9ec337b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7" target="_blank">3c3a981</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -434,6 +434,13 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  2020_07_21.R
+    Untracked:  figure/viz.Rmd/
+
+Unstaged changes:
+    Modified:   figure/index.Rmd/animatedgraph-1.gif
 
 </code></pre>
 <p>
@@ -472,6 +479,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7/analysis/index.Rmd" target="_blank">3c3a981</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-13
+</td>
+<td>
+Updating new maps, new pages
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/7cb84d7ece74e1b15b2247ff9679fcf725d76f2e/analysis/index.Rmd" target="_blank">7cb84d7</a>
+</td>
+<td>
+Tanushree Rao
+</td>
+<td>
+2020-08-10
+</td>
+<td>
+updating map
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/e72567fd26edcb11083347ed065e947340431648/docs/index.html" target="_blank">e72567f</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-07-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1040,7 +1098,7 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset, as well as the version used here, can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
+<p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset, as well as the version used here, can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>. Note that the current version of this report is produced using version 1.2.</p>
 <div id="setting-up" class="section level2">
 <h2>Setting up</h2>
 <p>Load packages.</p>
@@ -1048,15 +1106,193 @@ Start workflowr project.
 library(readr)
 library(ggthemes)
 library(knitr)
-library(kableExtra)</code></pre>
-<p>Import the dataset.</p>
-<pre class="r"><code>GeoPKO &lt;- read_csv(&quot;data/geopko.csv&quot;)</code></pre>
+library(kableExtra)
+library(lubridate)</code></pre>
+<p>We start by importing the dataset. To get a sense of how <code>read_csv</code> would parse the dataset, run <code>spec_csv()</code> on the dataset beforehand.</p>
+<pre class="r"><code>specs &lt;- spec_csv(&quot;data/geopko.csv&quot;)</code></pre>
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_double(),
+  Source = col_character(),
+  Mission = col_character(),
+  location = col_character(),
+  country = col_character(),
+  No.troops = col_character(),
+  RPF = col_logical(),
+  RPF_No = col_logical(),
+  No.TCC = col_character(),
+  name.of.TCC1 = col_character(),
+  No.troops.per.TCC1 = col_character(),
+  name.of.TCC2 = col_character(),
+  No.troops.per.TCC2 = col_character(),
+  name.of.TCC3 = col_character(),
+  name.of.TCC4 = col_character(),
+  name.of.TCC5 = col_character(),
+  name.of.TCC6 = col_character(),
+  name.of.TCC7 = col_character(),
+  name.of.TCC8 = col_character(),
+  name.of.TCC9 = col_character(),
+  name.of.TCC10 = col_logical()
+  # ... with 18 more columns
+)</code></pre>
+<pre><code>See spec(...) for full column specifications.</code></pre>
+<p>This shows that R might arbitrarily parse our columns as logical, which may mess up the data. Here, we are going to dodge this issue by telling R to parse all columns as character.</p>
+<pre class="r"><code>GeoPKO &lt;- read_csv(&quot;data/geopko.csv&quot;,  
+                   col_types = cols(.default=&quot;c&quot;))</code></pre>
 </div>
 <div id="an-overview" class="section level2">
 <h2>An overview</h2>
-<p>Let’s have a quick look at the first few rows of the dataset.</p>
+<p>Let’s have a quick look at the dataset.</p>
+<pre class="r"><code>str(GeoPKO)</code></pre>
+<pre><code>tibble [12,190 x 71] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Source             : chr [1:12190] &quot;Map no. 4309&quot; &quot;Map no. 4309 Rev. 1&quot; &quot;Map no. 4203 Rev. 2&quot; &quot;Map no. 4203 Rev. 3&quot; ...
+ $ Mission            : chr [1:12190] &quot;BINUB&quot; &quot;BINUB&quot; &quot;MINUCI&quot; &quot;MINUCI&quot; ...
+ $ year               : chr [1:12190] &quot;2007&quot; &quot;2009&quot; &quot;2003&quot; &quot;2003&quot; ...
+ $ month              : chr [1:12190] &quot;3&quot; &quot;8&quot; &quot;8&quot; &quot;11&quot; ...
+ $ location           : chr [1:12190] &quot;Bujumbura&quot; &quot;Bujumbura&quot; &quot;Abidjan&quot; &quot;Abidjan&quot; ...
+ $ country            : chr [1:12190] &quot;Burundi&quot; &quot;Burundi&quot; &quot;Ivory Coast&quot; &quot;Ivory Coast&quot; ...
+ $ latitude           : chr [1:12190] &quot;-3.3822&quot; &quot;-3.3822&quot; &quot;5.309657&quot; &quot;5.309657&quot; ...
+ $ longitude          : chr [1:12190] &quot;29.3644&quot; &quot;29.3644&quot; &quot;-4.012656&quot; &quot;-4.012656&quot; ...
+ $ No.troops          : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ RPF                : chr [1:12190] NA NA NA NA ...
+ $ RPF_No             : chr [1:12190] NA NA NA NA ...
+ $ RES                : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ RES_No             : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ FP                 : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ FP_No              : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ No.TCC             : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ name.of.TCC1       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC1 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC2       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC2 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC3       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC3 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC4       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC4 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC5       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC5 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC6       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC6 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC7       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC7 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC8       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC8 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC9       : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC9 : chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC10      : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC10: chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC11      : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC11: chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC12      : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC12: chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC13      : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC13: chr [1:12190] NA NA NA NA ...
+ $ name.of.TCC14      : chr [1:12190] NA NA NA NA ...
+ $ No.troops.per.TCC14: chr [1:12190] NA NA NA NA ...
+ $ UNPOL..dummy.      : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ UNMO..dummy.       : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ HQ                 : chr [1:12190] &quot;3&quot; &quot;3&quot; &quot;3&quot; &quot;3&quot; ...
+ $ LO                 : chr [1:12190] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ comments           : chr [1:12190] NA NA &quot;MINUCI HQ; Also ECOWAS main HQ; France HQ&quot; &quot;MINUCI HQ; Also ECOWAS main HQ; France HQ; Fanci HQ&quot; ...
+ $ cow_code           : chr [1:12190] &quot;516&quot; &quot;516&quot; &quot;437&quot; &quot;437&quot; ...
+ $ gwno               : chr [1:12190] &quot;516&quot; &quot;516&quot; &quot;437&quot; &quot;437&quot; ...
+ $ name               : chr [1:12190] &quot;Burundi&quot; &quot;Burundi&quot; &quot;Cote D’Ivoire&quot; &quot;Cote D’Ivoire&quot; ...
+ $ TCC1               : chr [1:12190] NA NA NA NA ...
+ $ TCC2               : chr [1:12190] NA NA NA NA ...
+ $ TCC3               : chr [1:12190] NA NA NA NA ...
+ $ TCC4               : chr [1:12190] NA NA NA NA ...
+ $ TCC5               : chr [1:12190] NA NA NA NA ...
+ $ TCC6               : chr [1:12190] NA NA NA NA ...
+ $ TCC7               : chr [1:12190] NA NA NA NA ...
+ $ TCC8               : chr [1:12190] NA NA NA NA ...
+ $ TCC9               : chr [1:12190] NA NA NA NA ...
+ $ TCC10              : chr [1:12190] NA NA NA NA ...
+ $ TCC11              : chr [1:12190] NA NA NA NA ...
+ $ TCC12              : chr [1:12190] NA NA NA NA ...
+ $ TCC13              : chr [1:12190] NA NA NA NA ...
+ $ TCC14              : chr [1:12190] NA NA NA NA ...
+ $ ADM1_id            : chr [1:12190] &quot;3348&quot; &quot;3348&quot; &quot;3411&quot; &quot;3411&quot; ...
+ $ ADM1_name          : chr [1:12190] &quot;Bujumbura Mairie&quot; &quot;Bujumbura Mairie&quot; &quot;Lagunes&quot; &quot;Lagunes&quot; ...
+ $ ADM2_id            : chr [1:12190] &quot;20147&quot; &quot;20147&quot; &quot;40389&quot; &quot;40389&quot; ...
+ $ ADM2_name          : chr [1:12190] &quot;Roherero&quot; &quot;Roherero&quot; &quot;Abidjan&quot; &quot;Abidjan&quot; ...
+ $ PRIOID             : chr [1:12190] &quot;124979&quot; &quot;124979&quot; &quot;137152&quot; &quot;137152&quot; ...
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   .default = col_character(),
+  ..   Source = col_character(),
+  ..   Mission = col_character(),
+  ..   year = col_character(),
+  ..   month = col_character(),
+  ..   location = col_character(),
+  ..   country = col_character(),
+  ..   latitude = col_character(),
+  ..   longitude = col_character(),
+  ..   No.troops = col_character(),
+  ..   RPF = col_character(),
+  ..   RPF_No = col_character(),
+  ..   RES = col_character(),
+  ..   RES_No = col_character(),
+  ..   FP = col_character(),
+  ..   FP_No = col_character(),
+  ..   No.TCC = col_character(),
+  ..   name.of.TCC1 = col_character(),
+  ..   No.troops.per.TCC1 = col_character(),
+  ..   name.of.TCC2 = col_character(),
+  ..   No.troops.per.TCC2 = col_character(),
+  ..   name.of.TCC3 = col_character(),
+  ..   No.troops.per.TCC3 = col_character(),
+  ..   name.of.TCC4 = col_character(),
+  ..   No.troops.per.TCC4 = col_character(),
+  ..   name.of.TCC5 = col_character(),
+  ..   No.troops.per.TCC5 = col_character(),
+  ..   name.of.TCC6 = col_character(),
+  ..   No.troops.per.TCC6 = col_character(),
+  ..   name.of.TCC7 = col_character(),
+  ..   No.troops.per.TCC7 = col_character(),
+  ..   name.of.TCC8 = col_character(),
+  ..   No.troops.per.TCC8 = col_character(),
+  ..   name.of.TCC9 = col_character(),
+  ..   No.troops.per.TCC9 = col_character(),
+  ..   name.of.TCC10 = col_character(),
+  ..   No.troops.per.TCC10 = col_character(),
+  ..   name.of.TCC11 = col_character(),
+  ..   No.troops.per.TCC11 = col_character(),
+  ..   name.of.TCC12 = col_character(),
+  ..   No.troops.per.TCC12 = col_character(),
+  ..   name.of.TCC13 = col_character(),
+  ..   No.troops.per.TCC13 = col_character(),
+  ..   name.of.TCC14 = col_character(),
+  ..   No.troops.per.TCC14 = col_character(),
+  ..   UNPOL..dummy. = col_character(),
+  ..   UNMO..dummy. = col_character(),
+  ..   HQ = col_character(),
+  ..   LO = col_character(),
+  ..   comments = col_character(),
+  ..   cow_code = col_character(),
+  ..   gwno = col_character(),
+  ..   name = col_character(),
+  ..   TCC1 = col_character(),
+  ..   TCC2 = col_character(),
+  ..   TCC3 = col_character(),
+  ..   TCC4 = col_character(),
+  ..   TCC5 = col_character(),
+  ..   TCC6 = col_character(),
+  ..   TCC7 = col_character(),
+  ..   TCC8 = col_character(),
+  ..   TCC9 = col_character(),
+  ..   TCC10 = col_character(),
+  ..   TCC11 = col_character(),
+  ..   TCC12 = col_character(),
+  ..   TCC13 = col_character(),
+  ..   TCC14 = col_character(),
+  ..   ADM1_id = col_character(),
+  ..   ADM1_name = col_character(),
+  ..   ADM2_id = col_character(),
+  ..   ADM2_name = col_character(),
+  ..   PRIOID = col_character()
+  .. )</code></pre>
 <pre class="r"><code>kable(GeoPKO[1:5,]) %&gt;% kable_styling() %&gt;%
-  scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;)</code></pre>
+  scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;) #displaying the first five rows</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -1067,10 +1303,10 @@ Source
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 Mission
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 year
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 month
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -1079,10 +1315,10 @@ location
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 country
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 latitude
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 longitude
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -1094,16 +1330,16 @@ RPF
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 RPF_No
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 RES
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 RES_No
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 FP
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 FP_No
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -1124,43 +1360,43 @@ No.troops.per.TCC2
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC3
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC3
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC4
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC4
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC5
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC5
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC6
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC6
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC7
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC7
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC8
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC8
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name.of.TCC9
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC9
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -1193,55 +1429,55 @@ name.of.TCC14
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops.per.TCC14
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 UNPOL..dummy.
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 UNMO..dummy.
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 HQ
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 LO
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 comments
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 cow_code
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 gwno
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC1
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC2
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC3
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC4
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC5
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC6
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC7
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC8
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC9
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -1259,19 +1495,19 @@ TCC13
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 TCC14
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 ADM1_id
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 ADM1_name
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 ADM2_id
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 ADM2_name
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 PRIOID
 </th>
 </tr>
@@ -1284,10 +1520,10 @@ Map no. 4309
 <td style="text-align:left;">
 BINUB
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 2007
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 3
 </td>
 <td style="text-align:left;">
@@ -1296,32 +1532,11 @@ Bujumbura
 <td style="text-align:left;">
 Burundi
 </td>
-<td style="text-align:right;">
--3.382200
-</td>
-<td style="text-align:right;">
-29.364400
+<td style="text-align:left;">
+-3.3822
 </td>
 <td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
+29.3644
 </td>
 <td style="text-align:left;">
 0
@@ -1333,132 +1548,141 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 516
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 516
 </td>
 <td style="text-align:left;">
 Burundi
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
@@ -1476,19 +1700,31 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
 3348
 </td>
 <td style="text-align:left;">
 Bujumbura Mairie
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 20147
 </td>
 <td style="text-align:left;">
 Roherero
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 124979
 </td>
 </tr>
@@ -1499,10 +1735,10 @@ Map no. 4309 Rev. 1
 <td style="text-align:left;">
 BINUB
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 2009
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 8
 </td>
 <td style="text-align:left;">
@@ -1511,32 +1747,11 @@ Bujumbura
 <td style="text-align:left;">
 Burundi
 </td>
-<td style="text-align:right;">
--3.382200
-</td>
-<td style="text-align:right;">
-29.364400
+<td style="text-align:left;">
+-3.3822
 </td>
 <td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
+29.3644
 </td>
 <td style="text-align:left;">
 0
@@ -1548,132 +1763,141 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 516
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 516
 </td>
 <td style="text-align:left;">
 Burundi
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
@@ -1691,19 +1915,31 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
 3348
 </td>
 <td style="text-align:left;">
 Bujumbura Mairie
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 20147
 </td>
 <td style="text-align:left;">
 Roherero
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 124979
 </td>
 </tr>
@@ -1714,10 +1950,10 @@ Map no. 4203 Rev. 2
 <td style="text-align:left;">
 MINUCI
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 2003
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 8
 </td>
 <td style="text-align:left;">
@@ -1726,10 +1962,10 @@ Abidjan
 <td style="text-align:left;">
 Ivory Coast
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 5.309657
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 -4.012656
 </td>
 <td style="text-align:left;">
@@ -1741,154 +1977,142 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 MINUCI HQ; Also ECOWAS main HQ; France HQ
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
 <td style="text-align:left;">
 Cote D’Ivoire
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
@@ -1906,19 +2130,31 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
 3411
 </td>
 <td style="text-align:left;">
 Lagunes
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 40389
 </td>
 <td style="text-align:left;">
 Abidjan
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 137152
 </td>
 </tr>
@@ -1929,10 +2165,10 @@ Map no. 4203 Rev. 3
 <td style="text-align:left;">
 MINUCI
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 2003
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 11
 </td>
 <td style="text-align:left;">
@@ -1941,10 +2177,10 @@ Abidjan
 <td style="text-align:left;">
 Ivory Coast
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 5.309657
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 -4.012656
 </td>
 <td style="text-align:left;">
@@ -1956,154 +2192,142 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 MINUCI HQ; Also ECOWAS main HQ; France HQ; Fanci HQ
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
 <td style="text-align:left;">
 Cote D’Ivoire
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
@@ -2121,19 +2345,31 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
 3411
 </td>
 <td style="text-align:left;">
 Lagunes
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 40389
 </td>
 <td style="text-align:left;">
 Abidjan
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 137152
 </td>
 </tr>
@@ -2144,10 +2380,10 @@ Map no. 4203 Rev. 4
 <td style="text-align:left;">
 MINUCI
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 2004
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 1
 </td>
 <td style="text-align:left;">
@@ -2156,10 +2392,10 @@ Abidjan
 <td style="text-align:left;">
 Ivory Coast
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 5.309657
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 -4.012656
 </td>
 <td style="text-align:left;">
@@ -2171,154 +2407,142 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 MINUCI HQ; ECOWAS main HQ; France HQ; Fanci HQ
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 437
 </td>
 <td style="text-align:left;">
 Cote D’Ivoire
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 NA
 </td>
 <td style="text-align:left;">
@@ -2336,677 +2560,395 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
 3411
 </td>
 <td style="text-align:left;">
 Lagunes
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 40389
 </td>
 <td style="text-align:left;">
 Abidjan
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 137152
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The dataset covers UN peacekeeping missions in Africa between 1994 and 2018. We can use the dataset to extract the number of active missions during this period.</p>
-<pre class="r"><code>NoMission &lt;- GeoPKO %&gt;% select(year, Mission) %&gt;% distinct(year, Mission) %&gt;% count(year)
-Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
-  scale_x_continuous(&quot;Year&quot;, breaks=seq(1994, 2018, 1))+theme_classic()+
-  scale_y_continuous(&quot;Number of missions&quot;, breaks=seq(0,10,1)) +
-  theme(panel.grid=element_blank(), 
-        axis.text.x=element_text(angle=45, vjust=0.5)) 
-Plot1</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /> ### What missions are included?</p>
-<p>The following table provides users with a list of missions and the duration for which they are covered by the dataset.</p>
-<pre class="r"><code>GeoPKO$Start &lt;- ave(GeoPKO$year, GeoPKO$Mission, FUN = min)
-GeoPKO$End &lt;- ave(GeoPKO$year, GeoPKO$Mission, FUN = max)
-Years &lt;- GeoPKO %&gt;% select(Mission, Start, End)
-Years &lt;- Years %&gt;% group_by(Start, End, Mission)  %&gt;% distinct()
-kable(Years[,], caption = &quot;UN Missions in the GeoPKO dataset&quot;) %&gt;% kable_styling()</code></pre>
+<p>Whew, this list was kind of long, but this was because the GeoPKO includes 12,190 rows and 73 columns.</p>
+<div id="what-missions-are-included" class="section level3">
+<h3>What missions are included?</h3>
+<p>To see what missions are available in the dataset, run the following lines.</p>
+<pre class="r"><code>unique(GeoPKO$Mission)</code></pre>
+<pre><code> [1] &quot;BINUB&quot;      &quot;MINUCI&quot;     &quot;MINURCA&quot;    &quot;MINURCAT&quot;   &quot;MINURSO&quot;   
+ [6] &quot;MINUSCA&quot;    &quot;MINUSMA&quot;    &quot;MONUA&quot;      &quot;MONUC&quot;      &quot;MONUSCO&quot;   
+[11] &quot;ONUB&quot;       &quot;ONUMOZ&quot;     &quot;UNAMID&quot;     &quot;UNAMIR&quot;     &quot;UNAMSIL&quot;   
+[16] &quot;UNAVEM II&quot;  &quot;UNAVEM III&quot; &quot;UNIOSIL&quot;    &quot;UNIPSIL&quot;    &quot;UNISFA&quot;    
+[21] &quot;UNMIL&quot;      &quot;UNMIS&quot;      &quot;UNMISS&quot;     &quot;UNOCI&quot;      &quot;UNOMIL&quot;    
+[26] &quot;UNOMSIL&quot;    &quot;UNOSOM II&quot; </code></pre>
+<p>The dataset covers the period of 1994-2018. Some missions are still ongoing to this day, while others begun before 1994. From when till when are these missions covered?</p>
+<pre class="r"><code>GeoPKO %&gt;% select(Mission, year, month) %&gt;% 
+  mutate(date=zoo::as.yearmon(str_c(year, month, sep=&quot;-&quot;))) %&gt;% group_by(Mission) %&gt;%
+  summarize(start_date=min(date), end_date=max(date)) %&gt;% arrange(start_date) -&gt; mission.period
+
+
+kable(mission.period, caption= &quot;Missions arranged by the earliest start date&quot;,
+      col.names=c(&quot;Mission&quot;, &quot;Starting point&quot;, &quot;End point&quot;)) %&gt;% kable_styling() %&gt;%
+  scroll_box(width = &quot;100%&quot;, height = &quot;300px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-UN Missions in the GeoPKO dataset
+Missions arranged by the earliest start date
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 Mission
 </th>
-<th style="text-align:right;">
-Start
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Starting point
 </th>
-<th style="text-align:right;">
-End
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+End point
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-BINUB
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-2009
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUCI
-</td>
-<td style="text-align:right;">
-2003
-</td>
-<td style="text-align:right;">
-2004
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINURCA
-</td>
-<td style="text-align:right;">
-1998
-</td>
-<td style="text-align:right;">
-2000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINURCAT
-</td>
-<td style="text-align:right;">
-2008
-</td>
-<td style="text-align:right;">
-2010
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINURSO
-</td>
-<td style="text-align:right;">
-1995
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUSCA
-</td>
-<td style="text-align:right;">
-2014
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUSMA
-</td>
-<td style="text-align:right;">
-2014
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUA
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-1999
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUC
-</td>
-<td style="text-align:right;">
-1999
-</td>
-<td style="text-align:right;">
-2010
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2010
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ONUB
-</td>
-<td style="text-align:right;">
-2004
-</td>
-<td style="text-align:right;">
-2006
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 ONUMOZ
 </td>
-<td style="text-align:right;">
-1994
-</td>
-<td style="text-align:right;">
-1994
-</td>
-</tr>
-<tr>
 <td style="text-align:left;">
-UNAMID
+Feb 1994
 </td>
-<td style="text-align:right;">
-2008
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
 <td style="text-align:left;">
-UNAMIR
-</td>
-<td style="text-align:right;">
-1994
-</td>
-<td style="text-align:right;">
-1995
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNAMSIL
-</td>
-<td style="text-align:right;">
-1999
-</td>
-<td style="text-align:right;">
-2005
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNAVEM II
-</td>
-<td style="text-align:right;">
-1994
-</td>
-<td style="text-align:right;">
-1994
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNAVEM III
-</td>
-<td style="text-align:right;">
-1995
-</td>
-<td style="text-align:right;">
-1997
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNIOSIL
-</td>
-<td style="text-align:right;">
-2006
-</td>
-<td style="text-align:right;">
-2008
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNIPSIL
-</td>
-<td style="text-align:right;">
-2008
-</td>
-<td style="text-align:right;">
-2008
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNISFA
-</td>
-<td style="text-align:right;">
-2011
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNMIL
-</td>
-<td style="text-align:right;">
-2003
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNMIS
-</td>
-<td style="text-align:right;">
-2005
-</td>
-<td style="text-align:right;">
-2011
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNMISS
-</td>
-<td style="text-align:right;">
-2011
-</td>
-<td style="text-align:right;">
-2018
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-UNOCI
-</td>
-<td style="text-align:right;">
-2004
-</td>
-<td style="text-align:right;">
-2017
+Oct 1994
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 UNOMIL
 </td>
-<td style="text-align:right;">
-1994
+<td style="text-align:left;">
+Apr 1994
 </td>
-<td style="text-align:right;">
-1997
+<td style="text-align:left;">
+Sep 1997
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-UNOMSIL
+UNAMIR
 </td>
-<td style="text-align:right;">
-1998
+<td style="text-align:left;">
+May 1994
 </td>
-<td style="text-align:right;">
-1999
+<td style="text-align:left;">
+Nov 1995
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 UNOSOM II
 </td>
-<td style="text-align:right;">
-1994
+<td style="text-align:left;">
+Jun 1994
 </td>
-<td style="text-align:right;">
-1994
+<td style="text-align:left;">
+Jun 1994
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM II
+</td>
+<td style="text-align:left;">
+Jul 1994
+</td>
+<td style="text-align:left;">
+Jul 1994
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+Mar 1995
+</td>
+<td style="text-align:left;">
+Sep 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+Mar 1995
+</td>
+<td style="text-align:left;">
+Apr 1997
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+Aug 1997
+</td>
+<td style="text-align:left;">
+Feb 1999
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCA
+</td>
+<td style="text-align:left;">
+Jun 1998
+</td>
+<td style="text-align:left;">
+Jan 2000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOMSIL
+</td>
+<td style="text-align:left;">
+Aug 1998
+</td>
+<td style="text-align:left;">
+Sep 1999
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUC
+</td>
+<td style="text-align:left;">
+Nov 1999
+</td>
+<td style="text-align:left;">
+Apr 2010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMSIL
+</td>
+<td style="text-align:left;">
+Dec 1999
+</td>
+<td style="text-align:left;">
+Dec 2005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUCI
+</td>
+<td style="text-align:left;">
+Aug 2003
+</td>
+<td style="text-align:left;">
+Jan 2004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+Dec 2003
+</td>
+<td style="text-align:left;">
+Mar 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ONUB
+</td>
+<td style="text-align:left;">
+Mar 2004
+</td>
+<td style="text-align:left;">
+Dec 2006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+May 2004
+</td>
+<td style="text-align:left;">
+Jan 2017
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+Jun 2005
+</td>
+<td style="text-align:left;">
+Apr 2011
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIOSIL
+</td>
+<td style="text-align:left;">
+Mar 2006
+</td>
+<td style="text-align:left;">
+Apr 2008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BINUB
+</td>
+<td style="text-align:left;">
+Mar 2007
+</td>
+<td style="text-align:left;">
+Aug 2009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+Apr 2008
+</td>
+<td style="text-align:left;">
+Oct 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIPSIL
+</td>
+<td style="text-align:left;">
+Sep 2008
+</td>
+<td style="text-align:left;">
+Sep 2008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+Dec 2008
+</td>
+<td style="text-align:left;">
+Nov 2010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+Jul 2010
+</td>
+<td style="text-align:left;">
+Dec 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+Oct 2011
+</td>
+<td style="text-align:left;">
+Oct 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+Oct 2011
+</td>
+<td style="text-align:left;">
+Nov 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+Mar 2014
+</td>
+<td style="text-align:left;">
+Dec 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+Oct 2014
+</td>
+<td style="text-align:left;">
+Oct 2018
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+<p>One thing to note from the above table: the starting and end points are not necessarily the official start and end dates of the missions. Since data in GeoPKO is collected from deployment maps, these timestamps reflect the publication dates.</p>
+<p>We can also extract the numbers of active missions during 1994-2018 and present the results with a simple line plot.</p>
+<pre class="r"><code>NoMission &lt;- GeoPKO %&gt;% select(year, Mission) %&gt;% distinct(year, Mission) %&gt;% count(year)
+
+Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
+  scale_x_continuous(&quot;Year&quot;, breaks=seq(1994, 2018, 1))+theme_classic()+
+  scale_y_continuous(&quot;Number of missions&quot;, breaks=seq(0,10,1)) +
+  theme(panel.grid=element_blank(), 
+        axis.text.x=element_text(angle=45, vjust=0.5)) 
+Plot1</code></pre>
+<p><img src="figure/index.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
 <div id="number-of-troops" class="section level3">
 <h3>Number of troops</h3>
+<p>Placeholder for average troops by year calculation.</p>
 </div>
-</div>
-<div id="visualizing-deployment-locations" class="section level2">
-<h2>Visualizing deployment locations</h2>
-<p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission. Below are some examples of visuaization.</p>
-<p>First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
-<pre class="r"><code>GeoPKO$No.troops &lt;- as.numeric(GeoPKO$No.troops)</code></pre>
-<pre><code>Warning: NAs introduced by coercion</code></pre>
-<pre class="r"><code>map2018df &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;% 
-  select(Mission, year, location, latitude, longitude, No.troops, HQ, country)
-map2018df1 &lt;- map2018df %&gt;% group_by(location, Mission) %&gt;% 
-  mutate(ave = mean(No.troops, na.rm=TRUE)) %&gt;% distinct()
-kable(map2018df1[90:95,], caption = &quot;A preview of this dataframe&quot;) %&gt;% kable_styling()</code></pre>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-A preview of this dataframe
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Mission
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:left;">
-location
-</th>
-<th style="text-align:right;">
-latitude
-</th>
-<th style="text-align:right;">
-longitude
-</th>
-<th style="text-align:right;">
-No.troops
-</th>
-<th style="text-align:right;">
-HQ
-</th>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:right;">
-ave
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Butembo
-</td>
-<td style="text-align:right;">
-0.114283
-</td>
-<td style="text-align:right;">
-29.30141
-</td>
-<td style="text-align:right;">
-150
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-150
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Kinshasa
-</td>
-<td style="text-align:right;">
--4.329722
-</td>
-<td style="text-align:right;">
-15.31500
-</td>
-<td style="text-align:right;">
-1250
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-1190
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Tshikapa
-</td>
-<td style="text-align:right;">
--6.423230
-</td>
-<td style="text-align:right;">
-20.79399
-</td>
-<td style="text-align:right;">
-150
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-150
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Kalemie
-</td>
-<td style="text-align:right;">
--5.903344
-</td>
-<td style="text-align:right;">
-29.19230
-</td>
-<td style="text-align:right;">
-800
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-680
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Dungu
-</td>
-<td style="text-align:right;">
-3.616667
-</td>
-<td style="text-align:right;">
-28.56667
-</td>
-<td style="text-align:right;">
-300
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-820
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MONUSCO
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-Bunia
-</td>
-<td style="text-align:right;">
-1.562500
-</td>
-<td style="text-align:right;">
-30.24842
-</td>
-<td style="text-align:right;">
-900
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-DRC
-</td>
-<td style="text-align:right;">
-1150
-</td>
-</tr>
-</tbody>
-</table>
-<p>Next, we obtain the geometric shapes from <code>rnaturalearth</code>, and filter for countries in Africa.</p>
-<pre class="r"><code>library(rnaturalearth)
-library(rnaturalearthdata)
-library(sf)
-
-world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
-Africa &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
-<pre class="r"><code>library(ggrepel)
-library(viridis)
-
-p2 &lt;-  ggplot(data=Africa) + geom_sf() + 
-  geom_point(data = map2018df1, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
-  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
-  scale_color_viridis(option=&quot;cividis&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
-  guides( colour = guide_legend()) +
-  geom_point(data = map2018df1 %&gt;% filter(HQ==3), aes (x=longitude, y=latitude), color = &quot;red&quot;, shape = 4, size=7)+
-  geom_label_repel(data = map2018df1 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission)) +
-  labs (title =&quot;UN Peacekeeping Deployment in Africa - 2018 (approx.)&quot;, color=&#39;Average Troop Deployment&#39;) +
-  theme(
-    text = element_text(color = &quot;#22211d&quot;),
-    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-    plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
-    panel.grid=element_blank(),
-    axis.title=element_blank(),
-    axis.ticks=element_blank(),
-    axis.text=element_blank(),
-    legend.key=element_blank()
-  )
-p2</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Here is the same map, but this time the points show both troop size and country.</p>
-<pre class="r"><code>p3 &lt;- ggplot(data=Africa) + geom_sf() +
-    geom_point(data=map2018df1, 
-                aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4)+
-    geom_point(data=map2018df1 %&gt;% filter(HQ==3), 
-                aes(x=longitude, y=latitude), color=&quot;black&quot;, shape=16, size=2)+
-    geom_label_repel(data=map2018df1 %&gt;% filter(HQ==3), 
-                aes(x=longitude, y=latitude, label=Mission))+
-    labs(title=&quot;UN Peacekeeping Deployment in Africa - 2018&quot;)+
-    scale_size(range = c(1, 12))+
-    labs(size=&quot;Average number of troops \n(continuous scale)&quot;,col=&quot;Country&quot;)+
-    theme(text = element_text(color = &quot;#22211d&quot;),
-    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-    plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
-    panel.grid=element_blank(),
-    axis.title=element_blank(),
-    axis.ticks=element_blank(),
-    axis.text=element_blank(),
-    legend.key=element_blank(),
-    legend.position=&quot;right&quot;,
-    legend.box=&quot;horizontal&quot;
-  )
-p3</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year.</p>
-<pre class="r"><code>gif_df &lt;- GeoPKO %&gt;% select(Mission, year, location, latitude, longitude, No.troops, HQ) %&gt;%
-  group_by(Mission, year, location) %&gt;%
-  mutate(ave.no.troops = as.integer(mean(No.troops, na.rm=TRUE))) %&gt;% select(-No.troops) %&gt;% distinct() %&gt;% drop_na(ave.no.troops)</code></pre>
-<p>Next, we add animation to the above map using the package <code>gganimate</code>.</p>
-<pre class="r"><code>library(gganimate)
-
-# Transforming the &quot;year&quot; variable into a discrete variable.
-gif_df$year &lt;- as.factor(gif_df$year)
-
-ggplot(data=Africa) + geom_sf() + 
-  geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
-  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
-  scale_color_viridis(option=&quot;cividis&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
-  guides(colour = guide_legend()) +
-  theme(
-    text = element_text(color = &quot;#22211d&quot;),
-    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-    plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
-    panel.grid=element_blank(),
-    axis.text=element_blank(),
-    axis.ticks=element_blank(),
-    axis.title=element_blank(),
-    legend.key=element_blank(),
-    plot.caption=element_text(hjust=0, face=&quot;italic&quot;))+
-  transition_states(states=year, transition_length = 3, state_length=3)+
-  labs(title=&quot;UN Peacekeeping in intrastate armed conflicts in Africa: {closest_state}&quot;, 
-       color=&quot;Average Deployment Size&quot;, 
-       caption=&quot;Source: The GeoPKO dataset 1.2&quot;)+
-  enter_fade()</code></pre>
-<p><img src="figure/index.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#run the following command to save the plot
-#anim_save(&quot;animatedUNPKO.gif&quot;, p4)</code></pre>
+<div id="other-queries" class="section level3">
+<h3>Other queries</h3>
+<p>Placeholder for other queries related to HQ, UNMO, UNPOL, etc.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -3030,34 +2972,28 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gganimate_1.0.6         viridis_0.5.1           viridisLite_0.3.0      
- [4] ggrepel_0.8.2           sf_0.9-4                rnaturalearthdata_0.1.0
- [7] rnaturalearth_0.1.0     kableExtra_1.1.0        knitr_1.29.3           
-[10] ggthemes_4.2.0          forcats_0.5.0           stringr_1.4.0          
-[13] dplyr_0.8.3             purrr_0.3.4             readr_1.3.1            
-[16] tidyr_1.0.0             tibble_3.0.1            ggplot2_3.3.1          
-[19] tidyverse_1.3.0         workflowr_1.6.2        
+ [1] lubridate_1.7.8  kableExtra_1.1.0 knitr_1.29.3     ggthemes_4.2.0  
+ [5] forcats_0.5.0    stringr_1.4.0    dplyr_0.8.3      purrr_0.3.4     
+ [9] readr_1.3.1      tidyr_1.0.0      tibble_3.0.1     ggplot2_3.3.2   
+[13] tidyverse_1.3.0  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-137       fs_1.4.1           lubridate_1.7.8    webshot_0.5.2     
- [5] progress_1.2.2     httr_1.4.1         rprojroot_1.3-2    tools_3.5.2       
- [9] backports_1.1.7    rgdal_1.4-8        R6_2.4.1           KernSmooth_2.23-15
-[13] rgeos_0.5-2        DBI_1.1.0          colorspace_1.4-1   withr_2.2.0       
-[17] sp_1.4-2           tidyselect_0.2.5   gridExtra_2.3      prettyunits_1.1.1 
-[21] compiler_3.5.2     git2r_0.27.1       cli_2.0.2          rvest_0.3.5       
-[25] xml2_1.3.2         labeling_0.3       scales_1.1.1       classInt_0.4-3    
-[29] digest_0.6.25      rmarkdown_1.18     pkgconfig_2.0.3    htmltools_0.4.0   
-[33] dbplyr_1.4.2       highr_0.8          rlang_0.4.6        readxl_1.3.1      
-[37] rstudioapi_0.11    farver_2.0.3       generics_0.0.2     jsonlite_1.6.1    
-[41] magrittr_1.5       Rcpp_1.0.4.6       munsell_0.5.0      fansi_0.4.1       
-[45] lifecycle_0.2.0    stringi_1.4.6      whisker_0.4        yaml_2.2.1        
-[49] plyr_1.8.6         grid_3.5.2         promises_1.1.0     crayon_1.3.4      
-[53] lattice_0.20-38    haven_2.2.0        hms_0.5.3          pillar_1.4.4      
-[57] reprex_0.3.0       glue_1.4.1         evaluate_0.14      gifski_0.8.6      
-[61] modelr_0.1.5       vctrs_0.3.1        tweenr_1.0.1       httpuv_1.5.2      
-[65] cellranger_1.1.0   gtable_0.3.0       assertthat_0.2.1   xfun_0.15         
-[69] broom_0.5.6        e1071_1.7-3        later_1.0.0        class_7.3-14      
-[73] units_0.6-6        ellipsis_0.3.0    </code></pre>
+ [1] Rcpp_1.0.4.6      lattice_0.20-38   zoo_1.8-8         assertthat_0.2.1 
+ [5] rprojroot_1.3-2   digest_0.6.25     R6_2.4.1          cellranger_1.1.0 
+ [9] backports_1.1.7   reprex_0.3.0      evaluate_0.14     httr_1.4.1       
+[13] highr_0.8         pillar_1.4.4      rlang_0.4.7       readxl_1.3.1     
+[17] rstudioapi_0.11   whisker_0.4       rmarkdown_1.18    webshot_0.5.2    
+[21] munsell_0.5.0     broom_0.5.6       compiler_3.5.2    httpuv_1.5.2     
+[25] modelr_0.1.5      xfun_0.15         pkgconfig_2.0.3   htmltools_0.5.0  
+[29] tidyselect_0.2.5  fansi_0.4.1       viridisLite_0.3.0 crayon_1.3.4     
+[33] dbplyr_1.4.2      withr_2.2.0       later_1.0.0       grid_3.5.2       
+[37] nlme_3.1-137      jsonlite_1.6.1    gtable_0.3.0      lifecycle_0.2.0  
+[41] DBI_1.1.0         git2r_0.27.1      magrittr_1.5      scales_1.1.1     
+[45] cli_2.0.2         stringi_1.4.6     farver_2.0.3      fs_1.4.1         
+[49] promises_1.1.0    xml2_1.3.2        ellipsis_0.3.1    generics_0.0.2   
+[53] vctrs_0.3.1       tools_3.5.2       glue_1.4.1        hms_0.5.3        
+[57] yaml_2.2.1        colorspace_1.4-1  rvest_0.3.5       haven_2.2.0      </code></pre>
+</div>
 </div>
 </div>
 
