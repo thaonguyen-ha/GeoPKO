@@ -7,9 +7,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-This project intends to demonstrate the use of the Geo-PKO dataset. 
+In these pages, we demonstrate the various uses of the Geo-PKO dataset using R. This includes simple commands to extract information from the dataset and visualization. 
 
-Members:
+For more information on the dataset, please visit the [official homepage](https://www.pcr.uu.se/data/geo-pko/). 
+
+Contributors to this report: 
 - Nguyen Ha
 - Lou van Roozendaal
 - Tanushree Rao
