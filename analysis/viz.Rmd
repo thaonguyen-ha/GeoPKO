@@ -10,9 +10,9 @@ editor_options:
 
 ##  Visualizing deployment locations
 
-An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize *where* active troops are in a mission. Below are some examples of visuaization.
+An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize *where* active troops are in a mission. Below are some examples of visualization.
 
-First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
+First, we can produce a quick snapshot of the deployment of all the missions that were active in 2018. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.
 
 ```{r, warning=FALSE, message=FALSE}
 library(tidyverse)

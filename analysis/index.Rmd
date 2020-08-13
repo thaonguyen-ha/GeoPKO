@@ -8,7 +8,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset, as well as the version used here, can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). Note that the current version of this report is produced using version 1.2.
 
 ## Setting up

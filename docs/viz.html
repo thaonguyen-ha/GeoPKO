@@ -419,16 +419,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree4343536420aa1782131a4f74a83b47bddb96a004targetblank4343536a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/4343536420aa1782131a4f74a83b47bddb96a004" target="_blank">4343536</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree4343536420aa1782131a4f74a83b47bddb96a004targetblank4343536a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/4343536420aa1782131a4f74a83b47bddb96a004" target="_blank">4343536</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -479,6 +479,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/03c68977e3bcd904dbd5fef3fb460905779011bd/analysis/viz.Rmd" target="_blank">03c6897</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-13
+</td>
+<td>
+wflow_publish(all = TRUE)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/34eb60eb7294762ca7532c67a1ce9a07c2d11a90/docs/viz.html" target="_blank">34eb60e</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -539,8 +573,8 @@ Updating new maps, new pages
 </div>
 <div id="visualizing-deployment-locations" class="section level2">
 <h2>Visualizing deployment locations</h2>
-<p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission. Below are some examples of visuaization.</p>
-<p>First, we can produce a quick snapshot of the deployment size in 2018, as well as the missions that were active in that year. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
+<p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission. Below are some examples of visualization.</p>
+<p>First, we can produce a quick snapshot of the deployment of all the missions that were active in 2018. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
 <pre class="r"><code>library(tidyverse)
 library(readr)
 library(ggthemes)
