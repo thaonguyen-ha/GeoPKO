@@ -166,3 +166,8 @@ ggplot(data=Africa) + geom_sf() +
 #anim_save("animatedUNPKO.gif", p4)
 
 ```
+
+
+## Single-mission visualization
+
+Placeholder. 
