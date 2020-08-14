@@ -51,6 +51,20 @@ To see what missions are available in the dataset, run the following lines.
 unique(GeoPKO$Mission)
 ```
 
+In total there are 54 missions in 45 different countries included in the Dataset
+```{r}
+str(TotalCount <- with(GeoPKO, table(Mission, Country)))
+```
+The following table shows missions (bottom row) and countries (top row).
+It can so be derived that 40 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.
+```{r}
+table(TotalCount. <- rowSums(TotalCount>0))
+```
+To see what missions are active in more than three countries we can do the following:
+```{r}
+rownames(TotalCount)[TotalCount.>3]
+```
+
 The dataset covers the period of 1994-2018. Some missions are still ongoing to this day, while others begun before 1994. From when till when are these missions covered?
 
 ```{r}
