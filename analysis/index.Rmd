@@ -46,15 +46,16 @@ Whew, this list was kind of long, but this was because the GeoPKO includes 12,19
 
 ### What missions are included?
 
-To see what missions are available in the dataset, run the following lines.
 ```{r}
 unique(GeoPKO$Mission)
 ```
 
-In total there are 54 missions in 45 different countries included in the Dataset
+In total there are 27 missions in 23 different countries included in the version 1.2 of the dataset.
+
 ```{r}
-str(TotalCount <- with(GeoPKO, table(Mission, Country)))
+str(TotalCount <- with(GeoPKO, table(Mission, country)))
 ```
+
 The following table shows missions (bottom row) and countries (top row).
 It can so be derived that 40 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.
 ```{r}
