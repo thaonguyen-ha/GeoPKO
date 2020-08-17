@@ -57,7 +57,7 @@ str(TotalCount <- with(GeoPKO, table(Mission, country)))
 ```
 
 The following table shows missions (bottom row) and countries (top row).
-It can so be derived that 40 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.
+It can so be derived that 21 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.
 ```{r}
 table(TotalCount. <- rowSums(TotalCount>0))
 ```
@@ -95,10 +95,20 @@ Plot1
 
 ```
 
-
 ### Number of troops
+The following shows how to calculate the average number of troops per year. In addition, any rows with not troop deployment are excluded.
+```{r}
+GeoPKO$NoTroops<-as.numeric(GeoPKO$No.troops)
+AverageperYear <- GeoPKO %>% select(Mission, Year, Country, Location, Latitude, Longitude, NoTroops) %>%
+  group_by(Mission, Year, Location, Country) %>%
+  mutate(Ave.no.troops = as.integer(mean(NoTroops, na.rm=TRUE))) %>% select(-NoTroops) %>% distinct() %>% drop_na(Ave.no.troops)
 
-Placeholder for average troops by year calculation. 
+AverageperYear<-AverageperYear %>% filter(Ave.no.troops>0)
+
+kable(AverageperYear[1:5,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "200px") #displaying the first five rows
+```
+
 
 ### Other queries
 
