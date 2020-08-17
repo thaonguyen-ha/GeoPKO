@@ -20,6 +20,8 @@ library(ggthemes)
 library(knitr)
 library(kableExtra)
 library(lubridate)
+library(tidyr)
+library(dplyr)
 ```
 
 We start by importing the dataset. To get a sense of how `read_csv` would parse the dataset, run `spec_csv()` on the dataset beforehand. 
