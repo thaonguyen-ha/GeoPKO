@@ -328,7 +328,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-13
+<strong>Last updated:</strong> 2020-08-17
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -419,16 +419,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -479,6 +479,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/b846f76b349a5cd8cd9ed2693e30b3324a6f5600/analysis/index.Rmd" target="_blank">b846f76</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+adding Lou’s update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/c70e8b006aa0057d5f1659dc841bf381211c2ec2/analysis/index.Rmd" target="_blank">c70e8b0</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-08-14
+</td>
+<td>
+descriptivstatistics
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/7447d5c243266d761ca484c32e3670b7eaa71488/docs/index.html" target="_blank">7447d5c</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2628,7 +2679,6 @@ Abidjan
 <p>Whew, this list was kind of long, but this was because the GeoPKO includes 12,190 rows and 73 columns.</p>
 <div id="what-missions-are-included" class="section level3">
 <h3>What missions are included?</h3>
-<p>To see what missions are available in the dataset, run the following lines.</p>
 <pre class="r"><code>unique(GeoPKO$Mission)</code></pre>
 <pre><code> [1] &quot;BINUB&quot;      &quot;MINUCI&quot;     &quot;MINURCA&quot;    &quot;MINURCAT&quot;   &quot;MINURSO&quot;   
  [6] &quot;MINUSCA&quot;    &quot;MINUSMA&quot;    &quot;MONUA&quot;      &quot;MONUC&quot;      &quot;MONUSCO&quot;   
@@ -2636,6 +2686,20 @@ Abidjan
 [16] &quot;UNAVEM II&quot;  &quot;UNAVEM III&quot; &quot;UNIOSIL&quot;    &quot;UNIPSIL&quot;    &quot;UNISFA&quot;    
 [21] &quot;UNMIL&quot;      &quot;UNMIS&quot;      &quot;UNMISS&quot;     &quot;UNOCI&quot;      &quot;UNOMIL&quot;    
 [26] &quot;UNOMSIL&quot;    &quot;UNOSOM II&quot; </code></pre>
+<p>In total there are 27 missions in 23 different countries included in the version 1.2 of the dataset.</p>
+<pre class="r"><code>str(TotalCount &lt;- with(GeoPKO, table(Mission, country)))</code></pre>
+<pre><code> &#39;table&#39; int [1:27, 1:23] 0 0 0 0 75 0 0 0 0 0 ...
+ - attr(*, &quot;dimnames&quot;)=List of 2
+  ..$ Mission: chr [1:27] &quot;BINUB&quot; &quot;MINUCI&quot; &quot;MINURCA&quot; &quot;MINURCAT&quot; ...
+  ..$ country: chr [1:23] &quot;Algeria&quot; &quot;Angola&quot; &quot;Burundi&quot; &quot;Central African Republic&quot; ...</code></pre>
+<p>The following table shows missions (bottom row) and countries (top row). It can so be derived that 40 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.</p>
+<pre class="r"><code>table(TotalCount. &lt;- rowSums(TotalCount&gt;0))</code></pre>
+<pre><code>
+ 1  2  3  4  9 
+21  2  2  1  1 </code></pre>
+<p>To see what missions are active in more than three countries we can do the following:</p>
+<pre class="r"><code>rownames(TotalCount)[TotalCount.&gt;3]</code></pre>
+<pre><code>[1] &quot;MONUC&quot; &quot;UNMIS&quot;</code></pre>
 <p>The dataset covers the period of 1994-2018. Some missions are still ongoing to this day, while others begun before 1994. From when till when are these missions covered?</p>
 <pre class="r"><code>GeoPKO %&gt;% select(Mission, year, month) %&gt;% 
   mutate(date=zoo::as.yearmon(str_c(year, month, sep=&quot;-&quot;))) %&gt;% group_by(Mission) %&gt;%
@@ -2974,7 +3038,7 @@ Plot1 &lt;- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + g
   theme(panel.grid=element_blank(), 
         axis.text.x=element_text(angle=45, vjust=0.5)) 
 Plot1</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/index.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="number-of-troops" class="section level3">
 <h3>Number of troops</h3>
