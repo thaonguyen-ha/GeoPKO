@@ -328,7 +328,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-17
+<strong>Last updated:</strong> 2020-08-24
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -419,16 +419,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree611e4588289ab1870c674c0bd4a9970dcf122887targetblank611e458a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/611e4588289ab1870c674c0bd4a9970dcf122887" target="_blank">611e458</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree611e4588289ab1870c674c0bd4a9970dcf122887targetblank611e458a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/611e4588289ab1870c674c0bd4a9970dcf122887" target="_blank">611e458</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -479,6 +479,91 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/611e4588289ab1870c674c0bd4a9970dcf122887/analysis/index.Rmd" target="_blank">611e458</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-24
+</td>
+<td>
+new build
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/2e94be527bb82b5d4bc59d0da380bf0d80adb41c/analysis/index.Rmd" target="_blank">2e94be5</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-08-20
+</td>
+<td>
+update Lou
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/2d92ecac7da1e74f22756241f838be68fae5623a/analysis/index.Rmd" target="_blank">2d92eca</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+packages
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/6538fb85672f8a95e4efb85c4f61cb02949a5584/analysis/index.Rmd" target="_blank">6538fb8</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+troop count
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/658018add77bacbf48737d145e295a340fab702b/docs/index.html" target="_blank">658018a</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1192,7 +1277,9 @@ library(readr)
 library(ggthemes)
 library(knitr)
 library(kableExtra)
-library(lubridate)</code></pre>
+library(lubridate)
+library(tidyr)
+library(dplyr)</code></pre>
 <p>We start by importing the dataset. To get a sense of how <code>read_csv</code> would parse the dataset, run <code>spec_csv()</code> on the dataset beforehand.</p>
 <pre class="r"><code>specs &lt;- spec_csv(&quot;data/geopko.csv&quot;)</code></pre>
 <pre><code>Parsed with column specification:
@@ -2692,7 +2779,7 @@ Abidjan
  - attr(*, &quot;dimnames&quot;)=List of 2
   ..$ Mission: chr [1:27] &quot;BINUB&quot; &quot;MINUCI&quot; &quot;MINURCA&quot; &quot;MINURCAT&quot; ...
   ..$ country: chr [1:23] &quot;Algeria&quot; &quot;Angola&quot; &quot;Burundi&quot; &quot;Central African Republic&quot; ...</code></pre>
-<p>The following table shows missions (bottom row) and countries (top row). It can so be derived that 40 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.</p>
+<p>The following table shows missions (bottom row) and countries (top row). It can so be derived that 21 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.</p>
 <pre class="r"><code>table(TotalCount. &lt;- rowSums(TotalCount&gt;0))</code></pre>
 <pre><code>
  1  2  3  4  9 
@@ -3042,11 +3129,1418 @@ Plot1</code></pre>
 </div>
 <div id="number-of-troops" class="section level3">
 <h3>Number of troops</h3>
-<p>Placeholder for average troops by year calculation.</p>
+<p>The following shows how to calculate the average number of troops per year. In addition, any rows with not troop deployment are excluded.</p>
+<pre class="r"><code>GeoPKO$NoTroops&lt;-as.numeric(GeoPKO$No.troops)</code></pre>
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>AverageperYear &lt;- GeoPKO %&gt;% select(Mission, year, country, location, latitude, longitude, NoTroops) %&gt;%
+  group_by(Mission, year, location, country) %&gt;%
+  mutate(Ave.no.troops = as.integer(mean(NoTroops, na.rm=TRUE))) %&gt;% select(-NoTroops) %&gt;% distinct() %&gt;% drop_na(Ave.no.troops)
+
+AverageperYear&lt;-AverageperYear %&gt;% filter(Ave.no.troops&gt;0)
+
+kable(AverageperYear[1:10,]) %&gt;% kable_styling() %&gt;%
+  scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;) #displaying the first five rows</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Mission
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+year
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+country
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+location
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+latitude
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+longitude
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Ave.no.troops
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MINURCA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+Bangui
+</td>
+<td style="text-align:left;">
+4.383333
+</td>
+<td style="text-align:left;">
+18.566667
+</td>
+<td style="text-align:right;">
+1385
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCA
+</td>
+<td style="text-align:left;">
+1999
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+Bangui
+</td>
+<td style="text-align:left;">
+4.383333
+</td>
+<td style="text-align:left;">
+18.566667
+</td>
+<td style="text-align:right;">
+1485
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+Birao
+</td>
+<td style="text-align:left;">
+10.284879
+</td>
+<td style="text-align:left;">
+22.788184
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Abeche
+</td>
+<td style="text-align:left;">
+13.816667
+</td>
+<td style="text-align:left;">
+20.816667
+</td>
+<td style="text-align:right;">
+3685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Bahai
+</td>
+<td style="text-align:left;">
+15.55
+</td>
+<td style="text-align:left;">
+22.91
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Farchana
+</td>
+<td style="text-align:left;">
+13.59744
+</td>
+<td style="text-align:left;">
+21.81167
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Goz Beida
+</td>
+<td style="text-align:left;">
+12.216667
+</td>
+<td style="text-align:left;">
+21.4166667
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Guereda
+</td>
+<td style="text-align:left;">
+14.516667
+</td>
+<td style="text-align:left;">
+22.083333
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Iriba
+</td>
+<td style="text-align:left;">
+15.116667
+</td>
+<td style="text-align:left;">
+22.25
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURCAT
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:left;">
+Koukou Angaraha
+</td>
+<td style="text-align:left;">
+12.016667
+</td>
+<td style="text-align:left;">
+21.683333
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="other-queries" class="section level3">
-<h3>Other queries</h3>
-<p>Placeholder for other queries related to HQ, UNMO, UNPOL, etc.</p>
+</div>
+<div id="troop-contributing-countries" class="section level3">
+<h3>Troop contributing countries</h3>
+<p>The GeoPKO dataset contains information on troop-contributing countries per location, but what if we are interested in unique troop-contributing countries for the entire mission?</p>
+</div>
+<div id="other-interesting-queries" class="section level3">
+<h3>Other interesting queries</h3>
+<p>Which mission has both UNMO and UNPOL at the same time?</p>
+<pre class="r"><code>GeoPKO %&gt;% filter(UNMO..dummy.==1, UNPOL..dummy.==1) %&gt;% distinct(Mission, year, month) %&gt;% 
+  kable() %&gt;% kable_styling() %&gt;% scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Mission
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+year
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+month
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1999
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUA
+</td>
+<td style="text-align:left;">
+1999
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1995
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1995
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1995
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1995
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1995
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1996
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1996
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1996
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1996
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAVEM III
+</td>
+<td style="text-align:left;">
+1997
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIS
+</td>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNOCI
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
