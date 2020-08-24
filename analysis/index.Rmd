@@ -121,6 +121,15 @@ kable(MOPOL[1:20,]) %>% kable_styling() %>%
 nrow(MOPOL)
 ```
 
-### Other queries
+### Troop contributing countries
+The GeoPKO dataset contains information on troop-contributing countries per location, but what if we are interested in unique troop-contributing countries for the entire mission? 
 
-Placeholder for other queries related to HQ, UNMO, UNPOL, etc. 
+### Other interesting queries
+
+Which mission has both UNMO and UNPOL at the same time?
+```{r}
+GeoPKO %>% filter(UNMO..dummy.==1, UNPOL..dummy.==1) %>% distinct(Mission, year, month) %>% 
+  kable() %>% kable_styling() %>% scroll_box(width = "100%", height = "200px")
+```
+
+
