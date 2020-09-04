@@ -47,12 +47,12 @@ A note on this: to use the published Geo-PKO dataset, you'll need to merge ViEWS
 
 ### Filtering, joining and subsetting the datasets at the PRIO-grid level
 
-The Geo-PKO dataset we're working with includes data from 1994 onwards. The predictor database is current as at July 2020 and forecasts the next 36 months ahead. So we'll filter Geo-PKO data to include the year prior to July 2020. Both the Geo-PKO and ViEWS datasets include `pg_id`, a unique code that corresponds to a specific grid square on the map. This is what we'll use to merge the datasets.
+The predictor database begins with June 2020 and forecasts the next 36 months ahead. The Geo-PKO dataset we're working with includes data from 1994 onwards. We just want the year prior (July 2019 - June 2020), so we'll filter the data to include only that period. Both the Geo-PKO and ViEWS datasets include `pg_id`, a unique code that corresponds to a specific grid square on the map. This is what we'll use to merge the datasets
 
 ```{r}
 # filtering for troop deployments over the most recent year
 geopkoviews2 <- geopkoviews %>%
-  filter(between(month_id, 510, 522))
+  filter(between(month_id, 475, 486))
 
 # merging geopko with priogrid predictor data
 priogriddf <- left_join(
@@ -179,7 +179,7 @@ Now we're going to go through the same steps as above, but use country-level dat
 
 # filtering geo-pko for the most recent 12 months
 countrygeopkoviews2 <- countrygeopkoviews %>%
-  filter(between(month_id, 510, 522))
+  filter(between(month_id, 475, 486))
 
 # selecting relevant variables from the predictor dataset
 countrypredict2 <- countrypredict %>%
