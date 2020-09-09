@@ -33,8 +33,8 @@ library(htmltools)
 library(htmlwidgets)
 ```
 
-## Geo-PKO x ViEWS
-First, we import the datasets. We're  using two sets of data from ViEWS. Both forecast the risk of state-based conflict, non-state conflict, and one-sided violence over the next 36 months in Africa. One is at country level, and the other is at PRIO-grid level, an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares. We're using a version of Geo-PKO data that has been coded to the ViEWS format and includes numerical month IDs and PRIO-GRID IDs. And lastly, we're also importing a version of the Geo-PKO data at the country level.
+### Geo-PKO x ViEWS
+First, we import the datasets. We're  using two sets of forecast data from ViEWS. Both forecast the risk of state-based conflict, non-state conflict, and one-sided violence over the next 36 months in Africa. One is at country level, and the other is at PRIO-grid level, an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares. We're using a version of Geo-PKO data that has been coded to the ViEWS format and includes numerical month IDs and PRIO-GRID IDs. And lastly, we're also importing a version of the Geo-PKO data at the country level.
 
 ```{r}
  geopkoviews <- read.csv("geopko_pgm.csv")
@@ -43,11 +43,25 @@ First, we import the datasets. We're  using two sets of data from ViEWS. Both fo
  countrygeopkoviews <- read.csv("geopko_cm.csv")
 ```
 
-A note on this: to use the published Geo-PKO dataset, you'll need to merge ViEWS' `month_id` with Geo-PKO's `month' and `year` fields. This page will be updated when the new dataset is published, including how to do this merge.
+Here's what the Geo-PKO dataset looks like in the ViEWS format, showing five rows within the database.
+ 
+```{r}
+kable(geopkoviews[90545:90550,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "200px")
+```
+
+Months are coded numerically and rather than coordinates, the data is mapped to a PRIO-grid ID. `pg_month_id` gives a unique month identifier to each PRIO-grid square. To use the published Geo-PKO dataset (as opposed to the ViEWS version), you'll need to merge ViEWS' `month_id` with Geo-PKO's `month' and `year` fields. This page will be updated when the new dataset is published, including how to do this merge.
 
 ### Filtering, joining and subsetting the datasets at the PRIO-grid level
 
-The predictor database begins with June 2020 and forecasts the next 36 months ahead. The Geo-PKO dataset we're working with includes data from 1994 onwards. We just want the year prior (July 2019 - June 2020), so we'll filter the data to include only that period. Both the Geo-PKO and ViEWS datasets include `pg_id`, a unique code that corresponds to a specific grid square on the map. This is what we'll use to merge the datasets
+The predictor database begins with July 2020 and forecasts the risk of conflict over the next 36 months ahead. Here's a preview of the data within it, showing state-based (`sb`), non-state (`ns`) and one-sided violence (`os`) forecasts.
+
+```{r}
+kable(predictors[90545:90550,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "200px")
+```
+
+The Geo-PKO dataset we're working with includes data from previous years, but we just want the past year (July 2019 - June 2020), so we'll filter the data to include only that period. Both the Geo-PKO and ViEWS datasets include `pg_id`, a unique code that corresponds to a specific grid square on the map. This is what we'll use to merge the datasets. _Please note the ViEWS-adapted version of the Geo-PKO dataset is actual only to month 474 (2018), and has not yet been updated to actual data from months following this. Therefore in this exercise we are working with extrapolated data for months 475-486. This page will be updated when the new datasets are published._
 
 ```{r}
 # filtering for troop deployments over the most recent year
@@ -92,7 +106,14 @@ Like we mentioned before, the PRIO-grid unit involves dividing the entire world 
 shapefile <- rgdal::readOGR(".../ViEWS/pgc.geojson")
 ```
 
-To work with the data within this shapefile, which includes geospatial polygons and data that corresponds to the ViEWS dataset, we need to fortify the shapefile. We also convert the IDs to rownames to make it easier to work with. And, finally, we merge it with `pgnewdf2`, which we created earlier.
+The shapefile contains both geospatial polygon data and numerical data that corresponds to the ViEWS dataset; specifically, a PRIO-grid ID and a country ID. Here's what the non-spatial data looks like, showing five rows in the dataset.
+ 
+```{r}
+kable(shapefile@data[101:106,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "200px")
+```
+
+To work with the data within this shapefile, we need to fortify the shapefile. We also convert the IDs to rownames to make it easier to work with. And, finally, we merge it with `pgnewdf2`, which we created earlier.
 
 ```{r}
 
@@ -106,6 +127,7 @@ shapefile.df <- merge(shapefile, pgnewdf2, by.x = "pg_id", by.y = "pg_id", all.x
 # checking it worked - shapefile.df has the new attributes, yay
 View(shapefile.df)
 ```
+
 ### Mapping Geo-PKO and ViEWS data
 
 To map the data, we're going to use the `leaflet` package (and a bunch of others to support it). The first thing we do is set up our colour palette and bins. The other thing we include is a small segment of code that fixes spacing between any NA value in the legend, and the remainder of the legend.
