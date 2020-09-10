@@ -71,7 +71,7 @@ geopkoviews2 <- geopkoviews %>%
 # merging geopko with priogrid predictor data
 priogriddf <- left_join(
   geopkoviews2, predictors,
-  by = c("pg_id", "month_id"), 
+  by = c("pg_id"), 
   na.rm = TRUE)
 ```
 
@@ -80,6 +80,7 @@ That's the dataset merged! Now, to work with it, we'll need to change the class 
 ```{r}
 priogriddf$no_troops<-as.numeric(priogriddf$no_troops)
 priogriddf$pg_id<-as.numeric(priogriddf$pg_id)
+priogriddf$pg_id<-as.numeric(priogriddf$month_id)
 ```
 
 Next, we're going to take the maximum value of `no_troops` over the year we're working with (July 2019 - June 2020), so we can compare conflict forecasts with the maximum number of troops deployed to a location in the year prior. We're also taking the maximum value of `average_allwthematic_sb` for each location, and removing duplicates so we're left with only one row per location.
