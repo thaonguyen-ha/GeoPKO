@@ -36,7 +36,7 @@ library(htmlwidgets)
 First, we import the datasets. We're using the published Geo-PKO dataset, and conflict forecast data from ViEWS for state-based conflict, non-state conflict, and one-sided violence over the next 36 months in Africa. Both datasets offer insights into the sub-national level, using a unique "PRIO-grid" identifier. The PRIO-grid is an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares, allowing geographic analysis beyond the country level to be streamlined.
 
 ```{r}
- geopko <- read.csv("Geo_PKO_v2.csv")
+ geopko <- read.csv("geopko.csv")
  predictors <- read.csv("ensemble_pgm.csv")
 ```
 
@@ -74,6 +74,8 @@ geopko3 <- geopko2 %>%
   dplyr::mutate(No.troops = mean(No.troops, na.rm=TRUE)) %>%
   ungroup() %>%
   filter (! duplicated(No.troops))
+
+geopko3$No.troops <- round(geopko3$No.troops)
 
 ```
 
@@ -129,9 +131,6 @@ shapefile.df <- fortify(shapefile, region = "id")
 # merge data of interest
 shapefile.df <- merge(shapefile, priogriddf, by.x = "pg_id", by.y = "pg_id", all.x=F, all.y=T, duplicateGeoms=TRUE)
 
-# round numbers
-shapefile.df@data <- shapefile.df@data %>% 
-  mutate_if(is.numeric, round)
 ```
 
 So now `shapefile.df` has the new attributes, including variables from both Geo-PKO and ViEWS. `id` is a variable that ties the 'polygon', or a single square on the grid, to its location on the map
@@ -208,7 +207,7 @@ map
 
 ```
 
-And there we have it: an interactive map to view recent peacekeeping deployments (2019-2020) and projected conflict risk over the next 36 months. Extensions of this visualisation can be even more useful, particularly with a time-slider that can help us identify how the risk of conflict changes given peacekeeping deployments (and vice versa). That might be a project for the future.
+And here we have it: an interactive map to view recent peacekeeping deployments (2019-2020) and projected conflict risk over the next 36 months. Extensions of this visualisation can be even more useful, particularly with a time-slider that can help us identify how the risk of conflict changes given peacekeeping deployments (and vice versa). That might be a project for the future.
 
 ### Geo-PKO x UCDP
 
