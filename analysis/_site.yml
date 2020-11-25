@@ -1,14 +1,17 @@
-name: "GeoPKO"
+name: "Geo-sPKO"
 output_dir: ../docs
 navbar:
-  title: "GeoPKO"
+  title: "Geo-PKO"
   left:
-  - text: Home
+  - text: Explore Geo-PKO v2.0
     href: index.html
   - text: Mapping blue helmets
     href: viz.html
+  - text: Merging datasets
+  - href: merge.html
   - text: About
     href: about.html
+
 output:
   workflowr::wflow_html:
     toc: yes

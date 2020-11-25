@@ -8,13 +8,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset, as well as the version used here, can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). Note that the current version of this report is produced using version 1.2.
+This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). 
 
 ## Setting up
 
 Load packages.
 ```{r, warning=FALSE, message=FALSE}
-library(tidyverse)
 library(readr)
 library(ggthemes)
 library(knitr)
@@ -24,112 +23,124 @@ library(tidyr)
 library(dplyr)
 ```
 
+## Overview
 We start by importing the dataset. To get a sense of how `read_csv` would parse the dataset, run `spec_csv()` on the dataset beforehand. 
 ```{r}
-specs <- spec_csv("data/geopko.csv")
+specs <- spec_csv("data/Geo_PKO_v2_ISO3.csv")
 ```
 
-This shows that R might arbitrarily parse our columns as logical, which may mess up the data. Here, we are going to dodge this issue by telling R to parse all columns as character. 
-```{r, warning=FALSE, message =FALSE}
-GeoPKO <- read_csv("data/geopko.csv",  
-                   col_types = cols(.default="c"))
-```
+This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. Here, we are going to dodge this issue by telling R to parse all columns as character. Running `str()` can help us ensure that the process was carried out correctly. The next two code lines show us that the dataframe contains `r nrow(GeoPKO)` observations and `r ncol(GeoPKO)` columns. 
 
-## An overview
-Let's have a quick look at the dataset. 
- 
-```{r}
+```{r, warning=FALSE, message =FALSE, results="hide"}
+GeoPKO <- readr::read_csv("data/Geo_PKO_v2_ISO3.csv", col_types = cols(.default="c"),
+                          locale=readr::locale(encoding="latin1"))
 str(GeoPKO)
+nrow(GeoPKO)
+ncol(GeoPKO)
+```
+The output from `str()` could get rather clunky, so here is a prettier snippet produced by `kableExtra`.
+
+```{r, warning=FALSE}
 
 kable(GeoPKO[1:5,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px") #displaying the first five rows
 ```
-Whew, this list was kind of long, but this was because the GeoPKO includes 12,190 rows and 73 columns. 
-
 ### What missions are included?
 
+Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 -- the latest to date -- brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries (rather than 45, since there is a disputed location between Ethiopia and Eritrea in UNMEE). 
 ```{r}
-unique(GeoPKO$Mission)
-```
 
-In total there are 27 missions in 23 different countries included in the version 1.2 of the dataset.
-
-```{r}
 str(TotalCount <- with(GeoPKO, table(Mission, country)))
+unique(GeoPKO$Mission)
+unique(GeoPKO$country)
 ```
 
-The following table shows missions (bottom row) and countries (top row).
-It can so be derived that 21 missions are active in only 1 country. Only 1 mission is active in 9 countries at the same time.
+The following table shows missions (bottom row) and countries (top row). From this, we can see that most missions are active in only one single country. Only 1 mission is active in 9 countries at the same time.
+
 ```{r}
 table(TotalCount. <- rowSums(TotalCount>0))
 ```
 To see what missions are active in more than three countries we can do the following:
-```{r}
-rownames(TotalCount)[TotalCount.>3]
+
+```{r} 
+rownames(TotalCount)[TotalCount.>2] #listing missions active in three countries or more
+rownames(TotalCount)[TotalCount.>3] #missions active in four or more countries
+rownames(TotalCount)[TotalCount.>4] #mission active in 9 countries
 ```
 
-The dataset covers the period of 1994-2018. Some missions are still ongoing to this day, while others begun before 1994. From when till when are these missions covered?
+Geo-PKO v2.0 covers the period of 1994-2019. Some missions that are included here were already well underway before 1994, and several are still ongoing to this date. Since data in GeoPKO is collected from deployment maps, these timestamps reflect the publication dates of the maps. Many UN peacekeeping missions release these maps on a regular basis, which could be once a year or once every three months. We can have a look at the specific periods for which each mission is coded in the dataset, arranged by the earliest starting timepoint. Note that this is not necessarily the start and end dates of a missions. 
 
 ```{r}
+library(zoo)
 
 GeoPKO %>% select(Mission, year, month) %>% 
-  mutate(date=zoo::as.yearmon(str_c(year, month, sep="-"))) %>% group_by(Mission) %>%
-  summarize(start_date=min(date), end_date=max(date)) %>% arrange(start_date) -> mission.period
-
-
-kable(mission.period, caption= "Missions arranged by the earliest start date",
-      col.names=c("Mission", "Starting point", "End point")) %>% kable_styling() %>%
-  scroll_box(width = "100%", height = "300px")
-```
-One thing to note from the above table: the starting and end points are not necessarily the official start and end dates of the missions. Since data in GeoPKO is collected from deployment maps, these timestamps reflect the publication dates. 
-
-We can also extract the numbers of active missions during 1994-2018 and present the results with a simple line plot.
-
-```{r}
-NoMission <- GeoPKO %>% select(year, Mission) %>% distinct(year, Mission) %>% count(year)
-
-Plot1 <- ggplot(NoMission, aes(x=(as.numeric(year)), y=n)) + geom_point() + geom_line(size=0.5) +
-  scale_x_continuous("Year", breaks=seq(1994, 2018, 1))+theme_classic()+
-  scale_y_continuous("Number of missions", breaks=seq(0,10,1)) +
-  theme(panel.grid=element_blank(), 
-        axis.text.x=element_text(angle=45, vjust=0.5)) 
-Plot1
-
+  mutate(month=as.numeric(month),
+         MonthChr=as.character(month(month, label=TRUE, abbr= FALSE))) %>%   #turn numeric months into words 
+  unite(timepoint, c("year", "MonthChr"), sep=" ") %>% 
+  mutate(timepoint=zoo::as.yearmon(timepoint, "%Y %B")) %>% #parse our joined date string as date to arrange
+  group_by(Mission) %>%
+  summarize(start_date=min(timepoint), end_date=max(timepoint)) %>% arrange(start_date) %>% 
+  kable(., caption= "Missions arranged by the earliest start date",
+        col.names=c("Mission", "Starting point", "End point")) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "300px") 
 ```
 
-### Number of troops
-The following shows how to calculate the average number of troops per year. In addition, any rows with not troop deployment are excluded.
+### Deployment size
+
+Because the dataset gathers observations by deployment maps, depending on how often the maps are published, for certain years a location may have multiple observations. This makes it a bit tricky especially when we want to run analysis at the yearly level. There are several ways to aggregate the data by year, such as taking the yearly average, or taking the first or last observations of the year. The code below uses the first method to obtain the deployment size figures per location-year. For the sake of simplicity, we're starting first with only MINUSMA, but the same method could be applied to the entire dataset (with some reservations - more on this later). 
+
 ```{r}
-GeoPKO$NoTroops<-as.numeric(GeoPKO$No.troops)
-AverageperYear <- GeoPKO %>% select(Mission, year, country, location, latitude, longitude, NoTroops) %>%
-  group_by(Mission, year, location, country) %>%
-  mutate(Ave.no.troops = as.integer(mean(NoTroops, na.rm=TRUE))) %>% select(-NoTroops) %>% distinct() %>% drop_na(Ave.no.troops)
-
-AverageperYear<-AverageperYear %>% filter(Ave.no.troops>0)
-
-kable(AverageperYear[1:10,]) %>% kable_styling() %>%
+GeoPKO %>% 
+  filter(Mission=="MINUSMA") %>% 
+  mutate(No.troops=as.numeric(No.troops)) %>% 
+  group_by(Mission, year, location) %>% 
+  summarise(YearlyAverage = round(mean(No.troops, na.rm=TRUE))) %>% 
+  pivot_wider(names_from=year, values_from=YearlyAverage) %>% # turning the dataframe from long to wide format for easier viewing
+  kable() %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px") #displaying the first ten rows
 ```
 
-### UNMO and UNPOL
-The following shows how to extract locations that have both UNPOL and UNMO deployments. 
-A total of 1286 have a combination of UNPOL and UNMO deployment.
+### Other features of the dataset
+
+Other than locations and deployment size, version 2.0 also includes variables capturing other dimensions of peacekeeping activities. Components such as military observers, civilian and formed police, and liaison offices also make important contributions to the outcome of a mission. This information could be use to complement troop sizes in analysis, or to compare between missions.
+
+To illustrate, we start by looking at UN mission observers and the UN police. Which mission has both UNMO and UNPOL at the same time, and when? In other words, we are looking for missions for which, at one given time, both UNMO and UNPOL bodies were present regardless of location. To do this, we want to filter for any source map that has _at least_ one UNMO _and_ one UNPOL deployment. This gives us seven missions. 
+
 ```{r}
-MOPOL <- GeoPKO %>% select(Mission, year, month, location, UNPOL..dummy., UNMO..dummy.) %>%filter(UNMO..dummy.>0, UNPOL..dummy.>0)
-kable(MOPOL[1:20,]) %>% kable_styling() %>%
-  scroll_box(width = "100%", height = "200px") #displaying the first five rows
-nrow(MOPOL)
+GeoPKO %>% select(Source, Mission, location, UNMO.dummy, UNPOL.dummy) %>%   group_by(Source) %>% filter(any(UNMO.dummy==1)& any(UNPOL.dummy==1)) %>%  ungroup() -> UNMO.UNPOL
+
+unique(UNMO.UNPOL$Mission)
 ```
 
-### Troop contributing countries
-The GeoPKO dataset contains information on troop-contributing countries per location, but what if we are interested in unique troop-contributing countries for the entire mission? 
+Focusing on UNOCI, we can also run a cross-table to find out whether these UNMO and UNPOL were lodged together or not. When UNMO and UNPOL were both present in UNOCI, it seems that both often appeared at the same location. 
 
-### Other interesting queries
-
-Which mission has both UNMO and UNPOL at the same time?
 ```{r}
-GeoPKO %>% filter(UNMO..dummy.==1, UNPOL..dummy.==1) %>% distinct(Mission, year, month) %>% 
-  kable() %>% kable_styling() %>% scroll_box(width = "100%", height = "200px")
+UNMO.UNPOL %>% filter(Mission =="UNOCI") %>% {table(.$UNPOL.dummy, .$UNMO.dummy)} #the curly braces allow us to run table() directly within a pipe, rather than having to save the filtered tibble as a new object. 
+```
+
+Version 2.0 also records information on the type of military units deployed. While infantry units are the most common type, missions also make use of other military functions, such as engineer, medical, air force, and demining. Refer to the codebook for a full list of this type of variables. Overall, this may give us a better grasp on a mission's various capabilities. 
+
+As an example, the following code snippet reveals that both MINUSCA and MINUSMA employ Unmanned Aerial Vehicles in their activities. 
+```{r}
+GeoPKO %>% filter(UAV==1) %>% distinct(Mission)
+```
+
+We can also see if missions become more specialized over time, here with MINUSMA as an example. Disregarding variations by location, for each source map we want to find out which troop functions were available in the mission. Then we calculate the number of troops functions at each time period. 
+
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+GeoPKO %>% filter(Mission=="MINUSMA") %>%   unite(timepoint, c("year", "month"), sep=" ") %>% 
+  mutate(timepoint=zoo::as.yearmon(timepoint, "%Y %m")) %>% 
+  select(timepoint, Mission, location, RPF, `Inf`, FPU, RES, FP, Eng:UAV) %>%
+  mutate_at(vars(RPF:UAV), as.integer) %>%
+  group_by(timepoint, Mission) %>% 
+  summarise_at(vars(RPF:UAV), funs(case_when(any(.) ==1 ~ 1, TRUE ~ 0))) %>% 
+  mutate(TroopCap=rowSums(across(RPF:UAV), na.rm=TRUE)) %>% # at this point this seems about right, but the dates are all over the place, so we rearrange them using a similar code from above
+  select(timepoint, Mission, TroopCap) %>% 
+  arrange(timepoint) %>% 
+  ggplot(aes(timepoint, TroopCap))+
+  geom_line()
 ```
 
 

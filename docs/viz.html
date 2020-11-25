@@ -13,6 +13,7 @@
 
 <title>Mapping blue helmets</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
@@ -310,7 +311,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -319,7 +320,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -328,10 +329,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-13
+<strong>Last updated:</strong> 2020-11-24
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>GeoPKO/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -347,12 +348,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -419,28 +420,33 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreed744c0d82559ef2fb116edcf3c36ef54ec14900etargetblankd744c0da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/d744c0d82559ef2fb116edcf3c36ef54ec14900e" target="_blank">d744c0d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree03c68977e3bcd904dbd5fef3fb460905779011bdtargetblank03c6897a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreed744c0d82559ef2fb116edcf3c36ef54ec14900etargetblankd744c0da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/03c68977e3bcd904dbd5fef3fb460905779011bd" target="_blank">03c6897</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/d744c0d82559ef2fb116edcf3c36ef54ec14900e" target="_blank">d744c0d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  2020_07_21.R
-    Untracked:  figure/viz.Rmd/
+    Untracked:  data/Geo_PKO_v2_ISO3.csv
+
+Unstaged changes:
+    Modified:   analysis/about.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/viz.Rmd
+    Modified:   data/README.md
+    Deleted:    data/geopko.csv
 
 </code></pre>
 <p>
@@ -479,6 +485,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/7447d5c243266d761ca484c32e3670b7eaa71488/docs/viz.html" target="_blank">7447d5c</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -573,32 +596,28 @@ Updating new maps, new pages
 </div>
 <div id="visualizing-deployment-locations" class="section level2">
 <h2>Visualizing deployment locations</h2>
-<p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission. Below are some examples of visualization.</p>
-<p>First, we can produce a quick snapshot of the deployment of all the missions that were active in 2018. We start by subsetting the main dataset to include entries for the year of 2018 and our variables of interests. GeoPKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded.</p>
-<pre class="r"><code>library(tidyverse)
+<p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission, be it for a specific mission or a region. Below are some examples of visualization.</p>
+<p>To start with, we can take a snapshot of the deployment of all the missions that were active in 2018 in Africa. We start by subsetting the main dataset to include only entries for the year of 2018 in the continent Africa, as well as our variables of interests. Geo-PKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded. We should end up with something similar to the table below.</p>
+<pre class="r"><code>library(dplyr)
+library(tidyr)
 library(readr)
-library(ggthemes)
 library(knitr)
-library(kableExtra)
+library(kableExtra) 
 
-GeoPKO &lt;- read_csv(&quot;data/geopko.csv&quot;,  
-                   col_types = cols(.default=&quot;c&quot;)) #importing the dataset
+GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v2_ISO3.csv&quot;, col_types = cols(.default=&quot;c&quot;),
+                          locale=readr::locale(encoding=&quot;latin1&quot;)) #importing the dataset
 
-GeoPKO$No.troops &lt;- as.numeric(GeoPKO$No.troops) #changing the variable class for the number of troops
-GeoPKO$latitude &lt;- as.numeric(GeoPKO$latitude)
-GeoPKO$longitude &lt;- as.numeric(GeoPKO$longitude)
-
-map2018df &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;%  
-  select(Mission, year, location, latitude, longitude, No.troops, HQ, country) %&gt;% #generating dataframe for 2018
+GeoPKO2018 &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;%  
+  select(Mission, year, location, latitude, longitude, No.troops, HQ, country, iso3c) %&gt;%
+  mutate_at(vars(latitude, longitude, No.troops), as.numeric) %&gt;% 
   group_by(location, Mission, latitude, longitude) %&gt;% 
-  mutate(ave = mean(No.troops, na.rm=TRUE)) %&gt;% select(-No.troops) %&gt;% 
-  group_by(location, Mission) %&gt;%
+  mutate(YearlyAverage = round(mean(No.troops, na.rm=TRUE))) %&gt;%
   arrange(desc(HQ)) %&gt;% slice(1)
 
-kable(map2018df[90:95,], caption = &quot;A preview of this dataframe&quot;) %&gt;% kable_styling()</code></pre>
+kable(GeoPKO2018, caption = &quot;An extract of the 2018 dataframe&quot;) %&gt;% kable_styling()</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-A preview of this dataframe
+An extract of the 2018 dataframe
 </caption>
 <thead>
 <tr>
@@ -617,14 +636,20 @@ latitude
 <th style="text-align:right;">
 longitude
 </th>
+<th style="text-align:right;">
+No.troops
+</th>
 <th style="text-align:left;">
 HQ
 </th>
 <th style="text-align:left;">
 country
 </th>
+<th style="text-align:left;">
+iso3c
+</th>
 <th style="text-align:right;">
-ave
+YearlyAverage
 </th>
 </tr>
 </thead>
@@ -637,19 +662,3449 @@ UNISFA
 2018
 </td>
 <td style="text-align:left;">
-Madingthon
+Abyei Camp
 </td>
 <td style="text-align:right;">
-9.601344
+9.6270950
 </td>
 <td style="text-align:right;">
-28.43138
+28.434498
+</td>
+<td style="text-align:right;">
+1050
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+1170
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Adikivu
+</td>
+<td style="text-align:right;">
+-2.3257290
+</td>
+<td style="text-align:right;">
+28.812325
+</td>
+<td style="text-align:right;">
+1250
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+796
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Agany Toak
+</td>
+<td style="text-align:right;">
+9.5274830
+</td>
+<td style="text-align:right;">
+28.434313
+</td>
+<td style="text-align:right;">
+35
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Agok
+</td>
+<td style="text-align:right;">
+9.3574860
+</td>
+<td style="text-align:right;">
+28.582579
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Aguelhok
+</td>
+<td style="text-align:right;">
+19.4613900
+</td>
+<td style="text-align:right;">
+0.858890
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+335
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Agwanit
+</td>
+<td style="text-align:right;">
+22.1934000
+</td>
+<td style="text-align:right;">
+-13.140930
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Al Da’ein
+</td>
+<td style="text-align:right;">
+11.4618600
+</td>
+<td style="text-align:right;">
+26.125830
+</td>
+<td style="text-align:right;">
+370
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+269
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Alal
+</td>
+<td style="text-align:right;">
+9.7936640
+</td>
+<td style="text-align:right;">
+28.339436
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Ansongo
+</td>
+<td style="text-align:right;">
+15.6597000
+</td>
+<td style="text-align:right;">
+0.502200
+</td>
+<td style="text-align:right;">
+950
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+950
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Athienou
+</td>
+<td style="text-align:right;">
+35.0618300
+</td>
+<td style="text-align:right;">
+33.541660
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Athony
+</td>
+<td style="text-align:right;">
+9.4705590
+</td>
+<td style="text-align:right;">
+28.464043
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+335
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Aweil
+</td>
+<td style="text-align:right;">
+8.7681570
+</td>
+<td style="text-align:right;">
+27.400190
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Awsard
+</td>
+<td style="text-align:right;">
+22.5516390
+</td>
+<td style="text-align:right;">
+-14.331643
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bamako
+</td>
+<td style="text-align:right;">
+12.6500000
+</td>
+<td style="text-align:right;">
+-8.000000
+</td>
+<td style="text-align:right;">
+705
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+705
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bambari
+</td>
+<td style="text-align:right;">
+5.7638800
+</td>
+<td style="text-align:right;">
+20.670733
+</td>
+<td style="text-align:right;">
+800
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+1017
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bangassou
+</td>
+<td style="text-align:right;">
+4.7379210
+</td>
+<td style="text-align:right;">
+22.816399
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bangui
+</td>
+<td style="text-align:right;">
+4.3937970
+</td>
+<td style="text-align:right;">
+18.559861
+</td>
+<td style="text-align:right;">
+4085
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+4308
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Banton
+</td>
+<td style="text-align:right;">
+9.5063890
+</td>
+<td style="text-align:right;">
+28.470323
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+335
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Baraka
+</td>
+<td style="text-align:right;">
+-4.1043250
+</td>
+<td style="text-align:right;">
+29.089285
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Batangafo
+</td>
+<td style="text-align:right;">
+7.3009280
+</td>
+<td style="text-align:right;">
+18.289260
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bendera
+</td>
+<td style="text-align:right;">
+-5.0655560
+</td>
+<td style="text-align:right;">
+28.915556
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Beni
+</td>
+<td style="text-align:right;">
+0.5000000
+</td>
+<td style="text-align:right;">
+29.466667
+</td>
+<td style="text-align:right;">
+800
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+633
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Beni Boikene
+</td>
+<td style="text-align:right;">
+0.5402770
+</td>
+<td style="text-align:right;">
+29.489585
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bentiu
+</td>
+<td style="text-align:right;">
+9.2599050
+</td>
+<td style="text-align:right;">
+29.800110
+</td>
+<td style="text-align:right;">
+1450
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+1450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Ber
+</td>
+<td style="text-align:right;">
+16.8349270
+</td>
+<td style="text-align:right;">
+-2.531944
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Berberati
+</td>
+<td style="text-align:right;">
+4.2573560
+</td>
+<td style="text-align:right;">
+15.787821
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bir Lahlou
+</td>
+<td style="text-align:right;">
+26.3268627
+</td>
+<td style="text-align:right;">
+-9.549474
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Birao
+</td>
+<td style="text-align:right;">
+10.2932620
+</td>
+<td style="text-align:right;">
+22.782273
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bogoro
+</td>
+<td style="text-align:right;">
+1.4102150
+</td>
+<td style="text-align:right;">
+30.279670
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bor
+</td>
+<td style="text-align:right;">
+6.2059310
+</td>
+<td style="text-align:right;">
+31.556326
+</td>
+<td style="text-align:right;">
+1750
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+1750
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bossangoa
+</td>
+<td style="text-align:right;">
+6.4975080
+</td>
+<td style="text-align:right;">
+17.450452
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bouar
+</td>
+<td style="text-align:right;">
+5.9430660
+</td>
+<td style="text-align:right;">
+15.598526
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+1050
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bria
+</td>
+<td style="text-align:right;">
+6.5390230
+</td>
+<td style="text-align:right;">
+21.991110
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+417
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bukavu
+</td>
+<td style="text-align:right;">
+-2.5000000
+</td>
+<td style="text-align:right;">
+28.866667
+</td>
+<td style="text-align:right;">
+600
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bunia
+</td>
+<td style="text-align:right;">
+1.5625000
+</td>
+<td style="text-align:right;">
+30.248417
+</td>
+<td style="text-align:right;">
+1700
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+1108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Bunji
+</td>
+<td style="text-align:right;">
+9.9466650
+</td>
+<td style="text-align:right;">
+33.810268
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Buram
+</td>
+<td style="text-align:right;">
+10.8566980
+</td>
+<td style="text-align:right;">
+25.159272
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Butembo
+</td>
+<td style="text-align:right;">
+0.1142830
+</td>
+<td style="text-align:right;">
+29.301407
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNDOF
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Camp Faouar
+</td>
+<td style="text-align:right;">
+33.2388940
+</td>
+<td style="text-align:right;">
+35.910609
+</td>
+<td style="text-align:right;">
+520
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Syria
+</td>
+<td style="text-align:left;">
+SYR
+</td>
+<td style="text-align:right;">
+432
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNDOF
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Camp Ziouani
+</td>
+<td style="text-align:right;">
+33.1089360
+</td>
+<td style="text-align:right;">
+35.816438
+</td>
+<td style="text-align:right;">
+1485
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Syria
+</td>
+<td style="text-align:left;">
+SYR
+</td>
+<td style="text-align:right;">
+1423
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Cap-HaÃ¯tien
+</td>
+<td style="text-align:right;">
+19.7593800
+</td>
+<td style="text-align:right;">
+-72.198150
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Carnot
+</td>
+<td style="text-align:right;">
+4.9397900
+</td>
+<td style="text-align:right;">
+15.877884
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+DÃ©koa
+</td>
+<td style="text-align:right;">
+6.3188650
+</td>
+<td style="text-align:right;">
+19.077846
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNDOF
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Damascus
+</td>
+<td style="text-align:right;">
+33.5102000
+</td>
+<td style="text-align:right;">
+36.291280
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Syria
+</td>
+<td style="text-align:left;">
+SYR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dhenia
+</td>
+<td style="text-align:right;">
+35.1667500
+</td>
+<td style="text-align:right;">
+33.145990
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dherinia
+</td>
+<td style="text-align:right;">
+35.0648400
+</td>
+<td style="text-align:right;">
+33.960830
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Diffra
+</td>
+<td style="text-align:right;">
+10.0392480
+</td>
+<td style="text-align:right;">
+28.406966
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+335
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dokura
+</td>
+<td style="text-align:right;">
+9.6789860
+</td>
+<td style="text-align:right;">
+28.458475
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Douentza
+</td>
+<td style="text-align:right;">
+15.0015500
+</td>
+<td style="text-align:right;">
+-2.949780
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+1160
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dungoup
+</td>
+<td style="text-align:right;">
+9.6291360
+</td>
+<td style="text-align:right;">
+28.495775
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dungu
+</td>
+<td style="text-align:right;">
+3.6166670
+</td>
+<td style="text-align:right;">
+28.566667
+</td>
+<td style="text-align:right;">
+950
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+733
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dyabali
+</td>
+<td style="text-align:right;">
+14.6937000
+</td>
+<td style="text-align:right;">
+-6.019700
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+1100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+El Fasher
+</td>
+<td style="text-align:right;">
+13.6333333
+</td>
+<td style="text-align:right;">
+25.350000
+</td>
+<td style="text-align:right;">
+935
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+935
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+El Geneina
+</td>
+<td style="text-align:right;">
+13.4500000
+</td>
+<td style="text-align:right;">
+22.450000
+</td>
+<td style="text-align:right;">
+635
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+721
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+El Sireaf
+</td>
+<td style="text-align:right;">
+13.8873030
+</td>
+<td style="text-align:right;">
+23.517703
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Famagusta
+</td>
+<td style="text-align:right;">
+35.1248900
+</td>
+<td style="text-align:right;">
+33.941350
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Farouk
+</td>
+<td style="text-align:right;">
+10.1109360
+</td>
+<td style="text-align:right;">
+28.420397
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Fort-LibertÃ©
+</td>
+<td style="text-align:right;">
+19.6627300
+</td>
+<td style="text-align:right;">
+-71.837980
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Gao
+</td>
+<td style="text-align:right;">
+16.2716700
+</td>
+<td style="text-align:right;">
+-0.044720
+</td>
+<td style="text-align:right;">
+5635
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+5605
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Gok-machar
+</td>
+<td style="text-align:right;">
+9.2154120
+</td>
+<td style="text-align:right;">
+26.859909
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Goli
+</td>
+<td style="text-align:right;">
+9.8485970
+</td>
+<td style="text-align:right;">
+28.477926
+</td>
+<td style="text-align:right;">
+220
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+220
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Golo
+</td>
+<td style="text-align:right;">
+13.1322800
+</td>
+<td style="text-align:right;">
+24.280820
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+188
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Goma
+</td>
+<td style="text-align:right;">
+-1.6833330
+</td>
+<td style="text-align:right;">
+29.233333
+</td>
+<td style="text-align:right;">
+1550
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+1008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+GonaÃ¯ves
+</td>
+<td style="text-align:right;">
+19.4475500
+</td>
+<td style="text-align:right;">
+-72.689280
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Gossi
+</td>
+<td style="text-align:right;">
+15.8229940
+</td>
+<td style="text-align:right;">
+-1.300646
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Goundam
+</td>
+<td style="text-align:right;">
+16.4145300
+</td>
+<td style="text-align:right;">
+-3.670750
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Graida
+</td>
+<td style="text-align:right;">
+11.3394850
+</td>
+<td style="text-align:right;">
+25.139697
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Highway
+</td>
+<td style="text-align:right;">
+9.5526470
+</td>
+<td style="text-align:right;">
+28.467694
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Himbe
+</td>
+<td style="text-align:right;">
+-1.4326730
+</td>
+<td style="text-align:right;">
+28.888605
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Himbi
+</td>
+<td style="text-align:right;">
+-1.6367610
+</td>
+<td style="text-align:right;">
+29.247930
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Hinche
+</td>
+<td style="text-align:right;">
+19.1500000
+</td>
+<td style="text-align:right;">
+-72.016670
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+JÃ©rÃ©mie
+</td>
+<td style="text-align:right;">
+18.6500000
+</td>
+<td style="text-align:right;">
+-74.116670
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Jacmel
+</td>
+<td style="text-align:right;">
+18.2342700
+</td>
+<td style="text-align:right;">
+-72.535390
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Juba
+</td>
+<td style="text-align:right;">
+4.8459720
+</td>
+<td style="text-align:right;">
+31.601203
+</td>
+<td style="text-align:right;">
+3350
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+2830
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kabkabiya
+</td>
+<td style="text-align:right;">
+13.6474600
+</td>
+<td style="text-align:right;">
+24.086729
+</td>
+<td style="text-align:right;">
+185
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kadugli
+</td>
+<td style="text-align:right;">
+11.0105960
+</td>
+<td style="text-align:right;">
+29.713688
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kaga Bandoro
+</td>
+<td style="text-align:right;">
+6.9959470
+</td>
+<td style="text-align:right;">
+19.184232
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+1100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kalemie
+</td>
+<td style="text-align:right;">
+-5.9033440
+</td>
+<td style="text-align:right;">
+29.192303
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+700
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kalma
+</td>
+<td style="text-align:right;">
+12.0155960
+</td>
+<td style="text-align:right;">
+24.998158
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kamango
+</td>
+<td style="text-align:right;">
+0.6177730
+</td>
+<td style="text-align:right;">
+29.901965
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kamanyola
+</td>
+<td style="text-align:right;">
+-2.7404250
+</td>
+<td style="text-align:right;">
+29.004775
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kampala
+</td>
+<td style="text-align:right;">
+0.3155556
+</td>
+<td style="text-align:right;">
+32.565556
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Uganda
+</td>
+<td style="text-align:left;">
+UGA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kananga
+</td>
+<td style="text-align:right;">
+-5.9000000
+</td>
+<td style="text-align:right;">
+22.416667
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+175
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kanyabayonga
+</td>
+<td style="text-align:right;">
+-0.7111110
+</td>
+<td style="text-align:right;">
+29.173056
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kas
+</td>
+<td style="text-align:right;">
+12.5000000
+</td>
+<td style="text-align:right;">
+24.283333
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kato Pyrgos
+</td>
+<td style="text-align:right;">
+35.1782400
+</td>
+<td style="text-align:right;">
+32.684920
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kavumu
+</td>
+<td style="text-align:right;">
+-2.3027780
+</td>
+<td style="text-align:right;">
+28.816111
+</td>
+<td style="text-align:right;">
+625
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Khor Abeche
+</td>
+<td style="text-align:right;">
+12.6602080
+</td>
+<td style="text-align:right;">
+25.337603
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+262
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kidal
+</td>
+<td style="text-align:right;">
+18.4411100
+</td>
+<td style="text-align:right;">
+1.407780
+</td>
+<td style="text-align:right;">
+3135
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+3163
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kigali
+</td>
+<td style="text-align:right;">
+-1.9546000
+</td>
+<td style="text-align:right;">
+30.061000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Rwanda
+</td>
+<td style="text-align:left;">
+RWA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kinshasa
+</td>
+<td style="text-align:right;">
+-4.3297220
+</td>
+<td style="text-align:right;">
+15.315000
+</td>
+<td style="text-align:right;">
+1400
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+1200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kisangani
+</td>
+<td style="text-align:right;">
+0.5000000
+</td>
+<td style="text-align:right;">
+25.200000
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kiwanja
+</td>
+<td style="text-align:right;">
+-1.1400000
+</td>
+<td style="text-align:right;">
+29.439445
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+483
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Komanda
+</td>
+<td style="text-align:right;">
+1.3623420
+</td>
+<td style="text-align:right;">
+29.776738
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kongolo
+</td>
+<td style="text-align:right;">
+-5.3833330
+</td>
+<td style="text-align:right;">
+27.000000
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Korma
+</td>
+<td style="text-align:right;">
+13.8333333
+</td>
+<td style="text-align:right;">
+24.733333
+</td>
+<td style="text-align:right;">
+185
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIK
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kosovska Mitrovica
+</td>
+<td style="text-align:right;">
+42.8833300
+</td>
+<td style="text-align:right;">
+20.866670
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Kosovo
+</td>
+<td style="text-align:left;">
+XKO
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kuacjok
+</td>
+<td style="text-align:right;">
+8.3040400
+</td>
+<td style="text-align:right;">
+27.993269
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Kutum
+</td>
+<td style="text-align:right;">
+14.2000000
+</td>
+<td style="text-align:right;">
+24.666667
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Laayoune
+</td>
+<td style="text-align:right;">
+27.1350000
+</td>
+<td style="text-align:right;">
+-13.162500
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Labado
+</td>
+<td style="text-align:right;">
+12.0908920
+</td>
+<td style="text-align:right;">
+25.410895
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Leer
+</td>
+<td style="text-align:right;">
+8.3017900
+</td>
+<td style="text-align:right;">
+30.141790
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Leonarisso
+</td>
+<td style="text-align:right;">
+35.4689200
+</td>
+<td style="text-align:right;">
+34.138860
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Les Cayes
+</td>
+<td style="text-align:right;">
+18.1933100
+</td>
+<td style="text-align:right;">
+-73.746010
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Linou
+</td>
+<td style="text-align:right;">
+35.0785600
+</td>
+<td style="text-align:right;">
+32.904700
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Lubumbashi
+</td>
+<td style="text-align:right;">
+-11.6666670
+</td>
+<td style="text-align:right;">
+27.466667
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+MÃ©naka
+</td>
+<td style="text-align:right;">
+15.9182000
+</td>
+<td style="text-align:right;">
+2.402200
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Madingthon
+</td>
+<td style="text-align:right;">
+9.6013440
+</td>
+<td style="text-align:right;">
+28.431379
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
 </td>
 <td style="text-align:right;">
 70
@@ -666,16 +4121,22 @@ MINURSO
 Mahbas
 </td>
 <td style="text-align:right;">
-27.424267
+27.4242670
 </td>
 <td style="text-align:right;">
--9.06598
+-9.065980
+</td>
+<td style="text-align:right;">
+0
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
 </td>
 <td style="text-align:right;">
 0
@@ -692,16 +4153,22 @@ UNMISS
 Malakal
 </td>
 <td style="text-align:right;">
-9.533424
+9.5334240
 </td>
 <td style="text-align:right;">
-31.66049
+31.660485
+</td>
+<td style="text-align:right;">
+2050
 </td>
 <td style="text-align:left;">
 2
 </td>
 <td style="text-align:left;">
 South Sudan
+</td>
+<td style="text-align:left;">
+SSD
 </td>
 <td style="text-align:right;">
 1930
@@ -718,16 +4185,22 @@ MONUSCO
 Manono
 </td>
 <td style="text-align:right;">
--7.300000
+-7.3000000
 </td>
 <td style="text-align:right;">
-27.41667
+27.416667
+</td>
+<td style="text-align:right;">
+150
 </td>
 <td style="text-align:left;">
 0
 </td>
 <td style="text-align:left;">
 DRC
+</td>
+<td style="text-align:left;">
+COD
 </td>
 <td style="text-align:right;">
 150
@@ -744,10 +4217,13 @@ UNISFA
 Marial Achak
 </td>
 <td style="text-align:right;">
-9.479328
+9.4793280
 </td>
 <td style="text-align:right;">
-28.62492
+28.624917
+</td>
+<td style="text-align:right;">
+150
 </td>
 <td style="text-align:left;">
 0
@@ -755,8 +4231,43 @@ Marial Achak
 <td style="text-align:left;">
 Sudan
 </td>
+<td style="text-align:left;">
+SDN
+</td>
 <td style="text-align:right;">
 150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Maritime Task Force
+</td>
+<td style="text-align:right;">
+33.1216998
+</td>
+<td style="text-align:right;">
+35.134000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+NaN
 </td>
 </tr>
 <tr>
@@ -770,10 +4281,13 @@ UNAMID
 Masteri
 </td>
 <td style="text-align:right;">
-13.116667
+13.1166667
 </td>
 <td style="text-align:right;">
-22.15000
+22.150000
+</td>
+<td style="text-align:right;">
+150
 </td>
 <td style="text-align:left;">
 0
@@ -781,37 +4295,3347 @@ Masteri
 <td style="text-align:left;">
 Sudan
 </td>
+<td style="text-align:left;">
+SDN
+</td>
 <td style="text-align:right;">
 150
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mavivi
+</td>
+<td style="text-align:right;">
+0.5861170
+</td>
+<td style="text-align:right;">
+29.484516
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+902
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mayimoya
+</td>
+<td style="text-align:right;">
+0.7651220
+</td>
+<td style="text-align:right;">
+29.569722
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mbuji-Mayi
+</td>
+<td style="text-align:right;">
+-6.1500000
+</td>
+<td style="text-align:right;">
+23.600000
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mehaires
+</td>
+<td style="text-align:right;">
+26.1472000
+</td>
+<td style="text-align:right;">
+-11.069200
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Melut
+</td>
+<td style="text-align:right;">
+10.4417950
+</td>
+<td style="text-align:right;">
+32.200806
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Menawashi
+</td>
+<td style="text-align:right;">
+12.6666700
+</td>
+<td style="text-align:right;">
+24.983330
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mijek
+</td>
+<td style="text-align:right;">
+23.4735871
+</td>
+<td style="text-align:right;">
+-12.759754
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+MiragoÃ¢ne
+</td>
+<td style="text-align:right;">
+18.4459900
+</td>
+<td style="text-align:right;">
+-73.089570
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Moba
+</td>
+<td style="text-align:right;">
+-7.0666670
+</td>
+<td style="text-align:right;">
+29.766667
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Monigi Camp
+</td>
+<td style="text-align:right;">
+-1.6349200
+</td>
+<td style="text-align:right;">
+29.248316
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Monrovia
+</td>
+<td style="text-align:right;">
+6.3105560
+</td>
+<td style="text-align:right;">
+-10.804722
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Liberia
+</td>
+<td style="text-align:left;">
+LBR
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mopti/Sevare
+</td>
+<td style="text-align:right;">
+14.5274200
+</td>
+<td style="text-align:right;">
+-4.093440
+</td>
+<td style="text-align:right;">
+950
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+950
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mournei
+</td>
+<td style="text-align:right;">
+12.9500000
+</td>
+<td style="text-align:right;">
+22.866667
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNDOF
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mt Hermon Base
+</td>
+<td style="text-align:right;">
+33.3597330
+</td>
+<td style="text-align:right;">
+35.820466
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Syria
+</td>
+<td style="text-align:left;">
+SYR
+</td>
+<td style="text-align:right;">
+173
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mukhjar
+</td>
+<td style="text-align:right;">
+11.9571480
+</td>
+<td style="text-align:right;">
+23.269138
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Mushake
+</td>
+<td style="text-align:right;">
+-1.5281580
+</td>
+<td style="text-align:right;">
+28.979520
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Naqoura
+</td>
+<td style="text-align:right;">
+33.1117970
+</td>
+<td style="text-align:right;">
+35.125602
+</td>
+<td style="text-align:right;">
+2200
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+2200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Nasser
+</td>
+<td style="text-align:right;">
+8.6000000
+</td>
+<td style="text-align:right;">
+33.066667
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+NdÃ©lÃ©
+</td>
+<td style="text-align:right;">
+8.4110470
+</td>
+<td style="text-align:right;">
+20.647584
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Ndromo
+</td>
+<td style="text-align:right;">
+-1.3595120
+</td>
+<td style="text-align:right;">
+28.733120
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Nertiti
+</td>
+<td style="text-align:right;">
+12.9632500
+</td>
+<td style="text-align:right;">
+24.047643
+</td>
+<td style="text-align:right;">
+950
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+950
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Nicosia
+</td>
+<td style="text-align:right;">
+35.1694400
+</td>
+<td style="text-align:right;">
+33.360810
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Noong
+</td>
+<td style="text-align:right;">
+9.7033280
+</td>
+<td style="text-align:right;">
+28.452392
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Nyala
+</td>
+<td style="text-align:right;">
+12.0500000
+</td>
+<td style="text-align:right;">
+24.883333
+</td>
+<td style="text-align:right;">
+970
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+869
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Obo
+</td>
+<td style="text-align:right;">
+5.3956700
+</td>
+<td style="text-align:right;">
+26.491755
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Oum Dreyga
+</td>
+<td style="text-align:right;">
+24.1666670
+</td>
+<td style="text-align:right;">
+-13.250000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Paoua
+</td>
+<td style="text-align:right;">
+7.2473780
+</td>
+<td style="text-align:right;">
+16.434391
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Pariang
+</td>
+<td style="text-align:right;">
+9.9154200
+</td>
+<td style="text-align:right;">
+29.981090
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Pibor
+</td>
+<td style="text-align:right;">
+6.7985290
+</td>
+<td style="text-align:right;">
+33.130445
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Port-au-Prince
+</td>
+<td style="text-align:right;">
+18.5434900
+</td>
+<td style="text-align:right;">
+-72.338810
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Port-de-Paix
+</td>
+<td style="text-align:right;">
+19.9398400
+</td>
+<td style="text-align:right;">
+-72.830370
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:left;">
+HTI
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 1-0A
+</td>
+<td style="text-align:right;">
+33.1083330
+</td>
+<td style="text-align:right;">
+35.209167
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 1-26
+</td>
+<td style="text-align:right;">
+33.1695210
+</td>
+<td style="text-align:right;">
+35.185870
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 2-1
+</td>
+<td style="text-align:right;">
+33.2576090
+</td>
+<td style="text-align:right;">
+35.312757
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 2-3
+</td>
+<td style="text-align:right;">
+33.1521074
+</td>
+<td style="text-align:right;">
+35.197265
+</td>
+<td style="text-align:right;">
+1250
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+1250
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 2-31
+</td>
+<td style="text-align:right;">
+33.1559650
+</td>
+<td style="text-align:right;">
+35.196764
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 2-45
+</td>
+<td style="text-align:right;">
+33.1291670
+</td>
+<td style="text-align:right;">
+35.391389
+</td>
+<td style="text-align:right;">
+600
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 2-5
+</td>
+<td style="text-align:right;">
+33.2776120
+</td>
+<td style="text-align:right;">
+35.249281
+</td>
+<td style="text-align:right;">
+600
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-2
+</td>
+<td style="text-align:right;">
+33.3688890
+</td>
+<td style="text-align:right;">
+35.623056
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-28
+</td>
+<td style="text-align:right;">
+33.2783330
+</td>
+<td style="text-align:right;">
+35.636111
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-3
+</td>
+<td style="text-align:right;">
+33.3770720
+</td>
+<td style="text-align:right;">
+35.640359
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-30
+</td>
+<td style="text-align:right;">
+33.3265710
+</td>
+<td style="text-align:right;">
+35.641810
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-31
+</td>
+<td style="text-align:right;">
+33.3115033
+</td>
+<td style="text-align:right;">
+35.705589
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 4-7C
+</td>
+<td style="text-align:right;">
+33.3294440
+</td>
+<td style="text-align:right;">
+35.736667
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 5-10
+</td>
+<td style="text-align:right;">
+33.1838310
+</td>
+<td style="text-align:right;">
+35.231681
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 5-20
+</td>
+<td style="text-align:right;">
+33.0898060
+</td>
+<td style="text-align:right;">
+35.370954
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 5-42
+</td>
+<td style="text-align:right;">
+33.1052786
+</td>
+<td style="text-align:right;">
+35.317299
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 5-66
+</td>
+<td style="text-align:right;">
+33.1282430
+</td>
+<td style="text-align:right;">
+35.350073
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 6-43
+</td>
+<td style="text-align:right;">
+33.1910620
+</td>
+<td style="text-align:right;">
+35.392703
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 7-1
+</td>
+<td style="text-align:right;">
+33.2713890
+</td>
+<td style="text-align:right;">
+35.491667
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 7-2
+</td>
+<td style="text-align:right;">
+33.3760410
+</td>
+<td style="text-align:right;">
+35.616939
+</td>
+<td style="text-align:right;">
+900
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+900
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 7-3
+</td>
+<td style="text-align:right;">
+33.3810280
+</td>
+<td style="text-align:right;">
+35.613174
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-30
+</td>
+<td style="text-align:right;">
+33.1836190
+</td>
+<td style="text-align:right;">
+35.505105
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-31
+</td>
+<td style="text-align:right;">
+33.2045920
+</td>
+<td style="text-align:right;">
+35.485374
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-32
+</td>
+<td style="text-align:right;">
+33.1966805
+</td>
+<td style="text-align:right;">
+35.540474
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-33
+</td>
+<td style="text-align:right;">
+33.2091250
+</td>
+<td style="text-align:right;">
+35.534695
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-34
+</td>
+<td style="text-align:right;">
+33.1628270
+</td>
+<td style="text-align:right;">
+35.524991
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 8-36
+</td>
+<td style="text-align:right;">
+33.1299700
+</td>
+<td style="text-align:right;">
+35.492847
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNDOF
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 80
+</td>
+<td style="text-align:right;">
+32.9621450
+</td>
+<td style="text-align:right;">
+35.883407
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Syria
+</td>
+<td style="text-align:left;">
+SYR
+</td>
+<td style="text-align:right;">
+112
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 9-1
+</td>
+<td style="text-align:right;">
+33.2638580
+</td>
+<td style="text-align:right;">
+35.410404
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 9-10
+</td>
+<td style="text-align:right;">
+33.2696800
+</td>
+<td style="text-align:right;">
+35.416412
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 9-2
+</td>
+<td style="text-align:right;">
+33.3029797
+</td>
+<td style="text-align:right;">
+35.449903
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 9-63
+</td>
+<td style="text-align:right;">
+33.2456370
+</td>
+<td style="text-align:right;">
+35.539750
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position 9-66
+</td>
+<td style="text-align:right;">
+33.3021770
+</td>
+<td style="text-align:right;">
+35.564996
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNIFIL
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Position HIN
+</td>
+<td style="text-align:right;">
+33.1049040
+</td>
+<td style="text-align:right;">
+35.277992
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:left;">
+LBN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMIK
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Pristina
+</td>
+<td style="text-align:right;">
+42.6727200
+</td>
+<td style="text-align:right;">
+21.166880
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Kosovo
+</td>
+<td style="text-align:left;">
+XKO
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Pyla
+</td>
+<td style="text-align:right;">
+35.0046900
+</td>
+<td style="text-align:right;">
+33.693810
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Renk
+</td>
+<td style="text-align:right;">
+11.7431000
+</td>
+<td style="text-align:right;">
+32.804900
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Rumajak/Dokura
+</td>
+<td style="text-align:right;">
+9.6789860
+</td>
+<td style="text-align:right;">
+28.458475
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Rumbek
+</td>
+<td style="text-align:right;">
+6.8019960
+</td>
+<td style="text-align:right;">
+29.691227
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Rwindi
+</td>
+<td style="text-align:right;">
+-0.7847220
+</td>
+<td style="text-align:right;">
+29.290556
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+483
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Sake
+</td>
+<td style="text-align:right;">
+-1.5736110
+</td>
+<td style="text-align:right;">
+29.045000
+</td>
+<td style="text-align:right;">
+2750
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+2487
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Sange
+</td>
+<td style="text-align:right;">
+-3.0915510
+</td>
+<td style="text-align:right;">
+29.114144
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Saraf Omra
+</td>
+<td style="text-align:right;">
+13.4500000
+</td>
+<td style="text-align:right;">
+23.266667
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Semuliki Bridge
+</td>
+<td style="text-align:right;">
+0.7392390
+</td>
+<td style="text-align:right;">
+29.789729
+</td>
+<td style="text-align:right;">
+255
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+255
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Shabunda
+</td>
+<td style="text-align:right;">
+-2.6915400
+</td>
+<td style="text-align:right;">
+27.346250
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Shaeria
+</td>
+<td style="text-align:right;">
+12.4426150
+</td>
+<td style="text-align:right;">
+25.586193
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Shangil Tobay
+</td>
+<td style="text-align:right;">
+13.0166670
+</td>
+<td style="text-align:right;">
+25.250000
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Sibut
+</td>
+<td style="text-align:right;">
+5.7314540
+</td>
+<td style="text-align:right;">
+19.087667
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Skouriotissa
+</td>
+<td style="text-align:right;">
+35.0917400
+</td>
+<td style="text-align:right;">
+32.884140
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Smara
+</td>
+<td style="text-align:right;">
+26.7384100
+</td>
+<td style="text-align:right;">
+-11.671940
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Sortony
+</td>
+<td style="text-align:right;">
+13.4505400
+</td>
+<td style="text-align:right;">
+24.397706
+</td>
+<td style="text-align:right;">
+185
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Strovilia
+</td>
+<td style="text-align:right;">
+35.0940970
+</td>
+<td style="text-align:right;">
+33.899095
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tawila
+</td>
+<td style="text-align:right;">
+13.5000000
+</td>
+<td style="text-align:right;">
+24.900000
+</td>
+<td style="text-align:right;">
+185
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tejalei
+</td>
+<td style="text-align:right;">
+9.6736060
+</td>
+<td style="text-align:right;">
+28.593325
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tessalit
+</td>
+<td style="text-align:right;">
+20.2012600
+</td>
+<td style="text-align:right;">
+1.011860
+</td>
+<td style="text-align:right;">
+1320
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+1320
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tifariti
+</td>
+<td style="text-align:right;">
+26.0927780
+</td>
+<td style="text-align:right;">
+-10.608889
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Western Sahara
+</td>
+<td style="text-align:left;">
+MAR
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINURSO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tindouf
+</td>
+<td style="text-align:right;">
+27.6711100
+</td>
+<td style="text-align:right;">
+-8.147430
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:left;">
+DZA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Todach
+</td>
+<td style="text-align:right;">
+9.7347390
+</td>
+<td style="text-align:right;">
+28.472629
+</td>
+<td style="text-align:right;">
+520
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+520
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tombouctou (Timbuktu)
+</td>
+<td style="text-align:right;">
+16.7734800
+</td>
+<td style="text-align:right;">
+-3.007420
+</td>
+<td style="text-align:right;">
+2370
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+MLI
+</td>
+<td style="text-align:right;">
+2370
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Torit
+</td>
+<td style="text-align:right;">
+4.4133330
+</td>
+<td style="text-align:right;">
+32.567778
+</td>
+<td style="text-align:right;">
+300
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+210
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Tshikapa
+</td>
+<td style="text-align:right;">
+-6.4232300
+</td>
+<td style="text-align:right;">
+20.793987
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNISFA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Um Khariet
+</td>
+<td style="text-align:right;">
+9.7781030
+</td>
+<td style="text-align:right;">
+28.637597
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Umm Barru
+</td>
+<td style="text-align:right;">
+15.0500000
+</td>
+<td style="text-align:right;">
+23.716667
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+UNPA
+</td>
+<td style="text-align:right;">
+35.1585509
+</td>
+<td style="text-align:right;">
+33.270104
+</td>
+<td style="text-align:right;">
+255
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+255
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Uvira
+</td>
+<td style="text-align:right;">
+-3.3730550
+</td>
+<td style="text-align:right;">
+29.144967
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+539
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MONUSCO
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Walungu
+</td>
+<td style="text-align:right;">
+-2.6283333
+</td>
+<td style="text-align:right;">
+28.665833
+</td>
+<td style="text-align:right;">
+650
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+DRC
+</td>
+<td style="text-align:left;">
+COD
+</td>
+<td style="text-align:right;">
+483
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Wau
+</td>
+<td style="text-align:right;">
+7.7028610
+</td>
+<td style="text-align:right;">
+27.995300
+</td>
+<td style="text-align:right;">
+950
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+980
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNFICYP
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Xeros
+</td>
+<td style="text-align:right;">
+35.1395200
+</td>
+<td style="text-align:right;">
+32.834310
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Cyprus
+</td>
+<td style="text-align:left;">
+CYP
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Yaloke
+</td>
+<td style="text-align:right;">
+5.3150660
+</td>
+<td style="text-align:right;">
+17.098075
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:left;">
+CAF
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Yambio
+</td>
+<td style="text-align:right;">
+4.5721310
+</td>
+<td style="text-align:right;">
+28.395488
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNMISS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Yei
+</td>
+<td style="text-align:right;">
+4.0950350
+</td>
+<td style="text-align:right;">
+30.677920
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+South Sudan
+</td>
+<td style="text-align:left;">
+SSD
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNAMID
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Zalingei
+</td>
+<td style="text-align:right;">
+12.9095990
+</td>
+<td style="text-align:right;">
+23.474061
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:left;">
+SDN
+</td>
+<td style="text-align:right;">
+309
+</td>
+</tr>
 </tbody>
 </table>
-<p>Next, we obtain the geometric shapes from the package <code>rnaturalearth</code>, and filter for countries in Africa.</p>
+<p>Hold up – the data subset also includes other missions elsewhere in the world. We want to somehow leave out these observations. In the next step, we’re pulling the shapefiles for country outlines from the package <code>rnaturalearth</code>, and filter for countries in Africa. We can also use this data to extract a list of ISO3 codes for African countries and use it to filter out our main dataframe.</p>
 <pre class="r"><code>library(rnaturalearth)
 library(rnaturalearthdata)
 library(sf)
 
 world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
-Africa &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
-<p>Creating a prototype map showing size of deployment in 2018.</p>
-<pre class="r"><code>library(ggrepel)
-library(viridis)
+AFR_sf &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)
+AFR_list &lt;- AFR_sf %&gt;% pull(iso_a3)
+GeoPKO2018 &lt;- GeoPKO2018 %&gt;% filter(iso3c %in% AFR_list)</code></pre>
+<p>With that set, we can start plotting the deployment locations and their respective sizes for UN peacekeeping missions in Africa in 2018.</p>
+<pre class="r"><code>library(ggrepel) #to nudge labels nicely away from geom_point
+library(viridis) #for pretty colors
+library(ggplot2) #to make plots
+library(ggthemes)
 
-p2 &lt;-  ggplot(data=Africa) + geom_sf() + 
-  geom_point(data = map2018df, aes(x=longitude, y=latitude, size= ave, color= ave), alpha=.7)+
-  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
-  scale_color_viridis(option=&quot;cividis&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
+  ggplot(data=AFR_sf) + geom_sf() + 
+  geom_point(data = GeoPKO2018, aes(x=longitude, y=latitude, 
+                                    size=YearlyAverage, color= YearlyAverage), alpha=.7)+
+  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
+                        breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
+  scale_color_viridis(option=&quot;cividis&quot;, 
+                      breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), 
+                      name=&quot;Average Troop Deployment&quot; ) +
   guides( colour = guide_legend()) +
-  geom_point(data = map2018df %&gt;% filter(HQ==3), aes (x=longitude, y=latitude, shape=&quot;HQ&quot;), 
+  geom_point(data = GeoPKO2018 %&gt;% filter(HQ==3), aes (x=longitude, y=latitude, shape=&quot;HQ&quot;),
              fill = &quot;red&quot;, size=2, color=&quot;red&quot;, alpha=.8)+
   scale_shape_manual(values=c(23), labels=c(&quot;HQ&quot;=&quot;Mission HQ&quot;), name=&quot;&quot;)+
-  geom_label_repel(data = map2018df %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission),
-                   min.segment.length = 0.2, label.size = 0.5,
-                  box.padding = 2,
-                  size = 3, 
-                  fill = alpha(c(&quot;white&quot;),0.7),
-                  shape=16, size=2) +
+  geom_label_repel(data = GeoPKO2018 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission),
+                   min.segment.length = 0, 
+                   direction=&quot;both&quot;,
+                   label.size = 0.5,
+                   box.padding = 2,
+                   size = 3, 
+                   fill = alpha(c(&quot;white&quot;),0.5),
+                   shape=16, 
+                   size=2) +
   labs(title =&quot;UN Peacekeeping in Africa - 2018&quot;, color=&#39;Average Troop Deployment&#39;) +
   theme(
     text = element_text(color = &quot;#22211d&quot;),
@@ -824,61 +7648,62 @@ p2 &lt;-  ggplot(data=Africa) + geom_sf() +
     axis.ticks=element_blank(),
     axis.text=element_blank(),
     legend.key=element_blank()
-  )
-
-p2</code></pre>
+  )</code></pre>
 <p><img src="figure/viz.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Here is a similar visualization, but this time the color aesthetic for geom_point is mapped to shown country instead.</p>
-<pre class="r"><code>p3 &lt;- ggplot(data=Africa) + geom_sf() +
-    geom_point(data=map2018df, 
-               aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4, shape=20)+
-    geom_point(data=map2018df %&gt;% 
-                   filter(HQ==3), 
-               aes(x=longitude, y=latitude), color=&quot;black&quot;, shape=16, size=2
-    ) +
-    geom_label_repel(
-        data=map2018df %&gt;% 
-            filter(HQ==3),
-        min.segment.length = 0.2,
-        label.size = 0.5,
-        box.padding = 2,
-        size = 3,
-        fill = alpha(c(&quot;white&quot;),0.7),
-        aes(x=longitude, y=latitude, label=Mission)
-    ) +
-    labs(title=&quot;UN Peacekeeping Deployment and Mission HQs in Africa, 2018&quot;)+
-    scale_size(range = c(2, 16))+
-    labs(size=&quot;Average number of troops\n(continuous scale)&quot;,color=&quot;Country&quot;,shape=&quot;HQ&quot;)+
-    theme(
-        plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-        legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-        plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
-        panel.grid=element_blank(),
-        axis.title=element_blank(),
-        axis.ticks=element_blank(),
-        axis.text=element_blank(),
-        panel.background=element_blank(),
-        legend.key = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-        legend.key.size = unit(1, &#39;lines&#39;)
-    )+
+<pre class="r"><code>p3 &lt;- ggplot(data=AFR_sf) + geom_sf() +
+  geom_point(data=GeoPKO2018, 
+             aes(x=longitude, y=latitude, size=YearlyAverage, color=country), alpha=.4, shape=20)+
+  geom_point(data=GeoPKO2018 %&gt;% filter(HQ==3), 
+             aes(x=longitude, y=latitude), 
+             color=&quot;black&quot;, shape=16, size=2) +
+  geom_label_repel(data=GeoPKO2018 %&gt;% filter(HQ==3),
+    min.segment.length = 0.2,
+    label.size = 0.5,
+    box.padding = 2,
+    size = 3,
+    fill = alpha(c(&quot;white&quot;),0.7),
+    aes(x=longitude, y=latitude, label=Mission)) +
+  labs(title=&quot;UN Peacekeeping Deployment and Mission HQs in Africa, 2018&quot;)+
+  scale_size(range = c(2, 16))+
+  labs(size=&quot;Average number of troops\n(continuous scale)&quot;,color=&quot;Country&quot;,shape=&quot;HQ&quot;)+
+  theme(
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
+    panel.grid=element_blank(),
+    axis.title=element_blank(),
+    axis.ticks=element_blank(),
+    axis.text=element_blank(),
+    panel.background=element_blank(),
+    legend.key = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.key.size = unit(1, &#39;lines&#39;)
+  )+
   guides(colour=guide_legend(ncol=2,override.aes = list(size=5)),
          size=guide_legend(ncol=2))
 p3</code></pre>
 <p><img src="figure/viz.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for 2018. First we would calculate the average number of troops that is deployed to a location per mission per year, for every year between 1994 and 2018.</p>
-<pre class="r"><code>gif_df &lt;- GeoPKO %&gt;% select(Mission, year, location, latitude, longitude, No.troops, HQ) %&gt;%
-  group_by(Mission, year, location) %&gt;%
-  mutate(ave.no.troops = as.integer(mean(No.troops, na.rm=TRUE))) %&gt;% select(-No.troops) %&gt;% distinct() %&gt;% drop_na(ave.no.troops)</code></pre>
+<p>How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for missions taking place in Africa in 2018. First we would calculate the average number of troops that is deployed to a location per mission per year, for every year between 1994 and 2018.</p>
+<pre class="r"><code>gif_df &lt;- GeoPKO %&gt;%   
+  filter(iso3c %in% AFR_list) %&gt;% 
+  select(Mission, year, location, latitude, longitude, No.troops, HQ) %&gt;%
+  mutate_at(vars(latitude, longitude), as.numeric) %&gt;% 
+  group_by_at(vars(-No.troops)) %&gt;%
+  summarise(ave.no.troops = round(mean(as.numeric(No.troops), na.rm=TRUE)))</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;Mission&#39;, &#39;year&#39;, &#39;location&#39;, &#39;latitude&#39;, &#39;longitude&#39; (override with `.groups` argument)</code></pre>
 <p>The animated graph is built on the above code for static graphics, using the cool package <code>gganimate</code>.</p>
 <pre class="r"><code>library(gganimate)
 
 # Transforming the &quot;year&quot; variable into a discrete variable.
 gif_df$year &lt;- as.factor(gif_df$year)
 
-ggplot(data=Africa) + geom_sf() + 
+ggplot(AFR_sf) + geom_sf() + 
   geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
-  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
-  scale_color_viridis(option=&quot;cividis&quot;, breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), name=&quot;Average Troop Deployment&quot; ) +
+  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
+                        breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
+  scale_color_viridis(option=&quot;cividis&quot;, 
+                      breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000),
+                      name=&quot;Average Troop Deployment&quot; ) +
   guides(colour = guide_legend()) +
   theme(
     text = element_text(color = &quot;#22211d&quot;),
@@ -891,19 +7716,15 @@ ggplot(data=Africa) + geom_sf() +
     axis.ticks=element_blank(),
     axis.title=element_blank(),
     legend.key=element_blank(),
-    plot.caption=element_text(hjust=0, face=&quot;italic&quot;))+
+    plot.caption=element_text(hjust=1, face=&quot;italic&quot;))+
   transition_states(states=year, transition_length = 3, state_length=3)+
-  labs(title=&quot;UN Peacekeeping in intrastate armed conflicts in Africa: {closest_state}&quot;, 
-       color=&quot;Average Deployment Size&quot;, 
-       caption=&quot;Source: The GeoPKO dataset 1.2&quot;)+
-  enter_fade()</code></pre>
+  labs(title=&quot;UN Peacekeeping in Armed Conflicts in Africa: {closest_state}&quot;,
+       caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
+  ease_aes()</code></pre>
 <p><img src="figure/viz.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#run the following command to save the plot
 #anim_save(&quot;animatedUNPKO.gif&quot;, p4)</code></pre>
-</div>
-<div id="single-mission-visualization" class="section level2">
-<h2>Single-mission visualization</h2>
-<p>Placeholder.</p>
+<p>With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -912,9 +7733,9 @@ ggplot(data=Africa) + geom_sf() +
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.2 (2018-12-20)
+<pre><code>R version 4.0.2 (2020-06-22)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18362)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
 
@@ -927,34 +7748,29 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gganimate_1.0.6         viridis_0.5.1           viridisLite_0.3.0      
- [4] ggrepel_0.8.2           sf_0.9-4                rnaturalearthdata_0.1.0
- [7] rnaturalearth_0.1.0     kableExtra_1.1.0        knitr_1.29.3           
-[10] ggthemes_4.2.0          forcats_0.5.0           stringr_1.4.0          
-[13] dplyr_0.8.3             purrr_0.3.4             readr_1.3.1            
-[16] tidyr_1.0.0             tibble_3.0.1            ggplot2_3.3.2          
-[19] tidyverse_1.3.0         workflowr_1.6.2        
+ [1] gganimate_1.0.6         ggthemes_4.2.0          viridis_0.5.1          
+ [4] viridisLite_0.3.0       ggrepel_0.8.2           ggplot2_3.3.2          
+ [7] sf_0.9-5                rnaturalearthdata_0.1.0 rnaturalearth_0.1.0    
+[10] kableExtra_1.1.0        knitr_1.29              readr_1.3.1            
+[13] tidyr_1.1.1             dplyr_1.0.2            
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-137       fs_1.4.1           lubridate_1.7.8    webshot_0.5.2     
- [5] progress_1.2.2     httr_1.4.1         rprojroot_1.3-2    tools_3.5.2       
- [9] backports_1.1.7    rgdal_1.4-8        R6_2.4.1           KernSmooth_2.23-15
-[13] rgeos_0.5-2        DBI_1.1.0          colorspace_1.4-1   withr_2.2.0       
-[17] sp_1.4-2           tidyselect_0.2.5   gridExtra_2.3      prettyunits_1.1.1 
-[21] compiler_3.5.2     git2r_0.27.1       cli_2.0.2          rvest_0.3.5       
-[25] xml2_1.3.2         labeling_0.3       scales_1.1.1       classInt_0.4-3    
-[29] digest_0.6.25      rmarkdown_1.18     pkgconfig_2.0.3    htmltools_0.5.0   
-[33] dbplyr_1.4.2       highr_0.8          rlang_0.4.7        readxl_1.3.1      
-[37] rstudioapi_0.11    generics_0.0.2     farver_2.0.3       jsonlite_1.6.1    
-[41] magrittr_1.5       Rcpp_1.0.4.6       munsell_0.5.0      fansi_0.4.1       
-[45] lifecycle_0.2.0    stringi_1.4.6      whisker_0.4        yaml_2.2.1        
-[49] plyr_1.8.6         grid_3.5.2         promises_1.1.0     crayon_1.3.4      
-[53] lattice_0.20-38    haven_2.2.0        hms_0.5.3          pillar_1.4.4      
-[57] reprex_0.3.0       glue_1.4.1         evaluate_0.14      gifski_0.8.6      
-[61] modelr_0.1.5       vctrs_0.3.1        tweenr_1.0.1       httpuv_1.5.2      
-[65] cellranger_1.1.0   gtable_0.3.0       assertthat_0.2.1   xfun_0.15         
-[69] broom_0.5.6        e1071_1.7-3        later_1.0.0        class_7.3-14      
-[73] units_0.6-6        ellipsis_0.3.1    </code></pre>
+ [1] Rcpp_1.0.5         lattice_0.20-41    prettyunits_1.1.1  class_7.3-17      
+ [5] rprojroot_1.3-2    digest_0.6.25      plyr_1.8.6         R6_2.4.1          
+ [9] backports_1.1.7    evaluate_0.14      e1071_1.7-3        httr_1.4.2        
+[13] highr_0.8          pillar_1.4.6       progress_1.2.2     rlang_0.4.7       
+[17] gifski_0.8.6       rstudioapi_0.11    whisker_0.4        rmarkdown_2.3     
+[21] labeling_0.3       webshot_0.5.2      stringr_1.4.0      munsell_0.5.0     
+[25] compiler_4.0.2     httpuv_1.5.4       xfun_0.16          pkgconfig_2.0.3   
+[29] rgeos_0.5-3        htmltools_0.5.0    tidyselect_1.1.0   tibble_3.0.3      
+[33] gridExtra_2.3      workflowr_1.6.2    crayon_1.3.4       withr_2.2.0       
+[37] later_1.1.0.1      grid_4.0.2         gtable_0.3.0       lifecycle_0.2.0   
+[41] DBI_1.1.0          git2r_0.27.1       magrittr_1.5       units_0.6-7       
+[45] scales_1.1.1       KernSmooth_2.23-17 stringi_1.4.6      farver_2.0.3      
+[49] fs_1.5.0           promises_1.1.1     sp_1.4-2           xml2_1.3.2        
+[53] ellipsis_0.3.1     generics_0.0.2     vctrs_0.3.2        tools_4.0.2       
+[57] glue_1.4.1         tweenr_1.0.1       purrr_0.3.4        hms_0.5.3         
+[61] yaml_2.2.1         colorspace_1.4-1   classInt_0.4-3     rvest_0.3.6       </code></pre>
 </div>
 </div>
 
