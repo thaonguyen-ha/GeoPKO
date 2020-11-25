@@ -289,9 +289,8 @@ $(document).ready(function () {
 <li>
   <a href="viz.html">Mapping blue helmets</a>
 </li>
-<li class="dropdown-header">Merging datasets</li>
 <li>
-  <a href="merge.html"></a>
+  <a href="merge.html">Merging datasets</a>
 </li>
 <li>
   <a href="about.html">About</a>
@@ -424,16 +423,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -445,6 +444,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/ViEWS/
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -483,6 +485,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/b6fea7a1e52d679289a27b2b4327f8b41b337830/analysis/viz.Rmd" target="_blank">b6fea7a</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Revised viz, index, incorporated merge attempt 2.rmd
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/2011bdad3a85736850ac50a4ec80ad7289c56ca3/docs/viz.html" target="_blank">2011bda</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -7756,7 +7792,10 @@ ggplot(AFR_sf) + geom_sf() +
   labs(title=&quot;UN Peacekeeping in Armed Conflicts in Africa: {closest_state}&quot;,
        caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
   ease_aes()</code></pre>
-<p><img src="figure/viz.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" /></p>
+<img src="figure/viz.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" />
+<div class="alert alert-warning">
+<strong>Warning!</strong> The custom <code>fig.path</code> you set was ignored by workflowr.
+</div>
 <pre class="r"><code>#run the following command to save the plot
 #anim_save(&quot;animatedUNPKO.gif&quot;, p4)</code></pre>
 <p>With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset.</p>
