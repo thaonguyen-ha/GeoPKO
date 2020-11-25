@@ -142,7 +142,7 @@ gif_df <- GeoPKO %>%
 
 The animated graph is built on the above code for static graphics, using the cool package `gganimate`.
 
-```{r, animatedgraph, warning=FALSE, dev="png", interval=0.8}
+```{r, animatedgraph, fig.path="figure/viz.Rmd", warning=FALSE, dev="png", interval=0.8}
 library(gganimate)
 
 # Transforming the "year" variable into a discrete variable.

@@ -111,7 +111,7 @@ priogriddf <- full_join(
 
 Like we mentioned before, the PRIO-grid unit involves dividing the entire world into roughly 100km x 100km squares. That means that if we want to map it, we'll be working with large files, so keep that in mind when you're reading in the shapefile:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 shapefile <- rgdal::readOGR("data/ViEWS/priogrid.geojson")
 ```
 
