@@ -8,7 +8,7 @@ navbar:
   - text: Mapping blue helmets
     href: viz.html
   - text: Merging datasets
-  - href: merge.html
+    href: merge.html
   - text: About
     href: about.html
 
