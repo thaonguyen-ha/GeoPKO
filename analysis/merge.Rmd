@@ -36,13 +36,15 @@ library(htmlwidgets)
 First, we import the datasets. We're using the published Geo-PKO dataset, and conflict forecast data from ViEWS for state-based conflict, non-state conflict, and one-sided violence over the next 36 months in Africa. Both datasets offer insights into the sub-national level, using a unique "PRIO-grid" identifier. The PRIO-grid is an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares, allowing geographic analysis beyond the country level to be streamlined.
 
 ```{r}
- geopko <- read.csv("geopko.csv")
- predictors <- read.csv("ensemble_pgm.csv")
+geopko <- read.csv("data/Geo_PKO_v2_ISO3.csv") #replace file later
+#unzip("data/ViEWS.zip", exdir="data/ViEWS")
+predictors <- read.csv("data/ViEWS/ensemble_pgm.csv")
 ```
 
 The Geo-PKO dataset includes detail on troop deployment numbers, types of troops, non-troop deployments, and contributing countries.
  
 ```{r}
+library(kableExtra)
 kable(geopko[9546:9550,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px")
 ```
@@ -110,7 +112,7 @@ priogriddf <- full_join(
 Like we mentioned before, the PRIO-grid unit involves dividing the entire world into roughly 100km x 100km squares. That means that if we want to map it, we'll be working with large files, so keep that in mind when you're reading in the shapefile:
 
 ```{r}
-shapefile <- rgdal::readOGR(".../ViEWS/pgc.geojson")
+shapefile <- rgdal::readOGR("data/ViEWS/priogrid.geojson")
 ```
 
 The shapefile contains both geospatial polygon data and numerical data that corresponds to the ViEWS dataset; specifically, a PRIO-grid ID and a country ID. Here's what the non-spatial data looks like, showing five rows in the dataset.
