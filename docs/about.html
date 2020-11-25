@@ -13,6 +13,7 @@
 
 <title>About</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
@@ -277,15 +278,19 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">GeoPKO</a>
+      <a class="navbar-brand" href="index.html">Geo-PKO</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">Explore Geo-PKO v2.0</a>
 </li>
 <li>
   <a href="viz.html">Mapping blue helmets</a>
+</li>
+<li class="dropdown-header">Merging datasets</li>
+<li>
+  <a href="merge.html"></a>
 </li>
 <li>
   <a href="about.html">About</a>
@@ -327,7 +332,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-17
+<strong>Last updated:</strong> 2020-11-25
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -358,16 +363,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb846f76b349a5cd8cd9ed2693e30b3324a6f5600targetblankb846f76a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b846f76b349a5cd8cd9ed2693e30b3324a6f5600" target="_blank">b846f76</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -378,8 +383,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  2020_07_21.R
-    Untracked:  figure/viz.Rmd/
+    Untracked:  data/ViEWS/
 
 </code></pre>
 <p>
@@ -418,6 +422,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/analysis/about.Rmd" target="_blank">f2f9e90</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Before building with wflowr
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/658018add77bacbf48737d145e295a340fab702b/docs/about.html" target="_blank">658018a</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -629,9 +667,9 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>In these pages, we demonstrate the various uses of the Geo-PKO dataset using R. This includes simple commands to extract information from the dataset and visualization.</p>
-<p>For more information on the dataset, please visit the <a href="https://www.pcr.uu.se/data/geo-pko/">official homepage</a>.</p>
-<p>Contributors to this report: - Nguyen Ha - Lou van Roozendaal - Tanushree Rao</p>
+<p>These pages demonstrate the various uses of the Geo-PKO dataset using R. This includes simple commands to extract information from the dataset and visualization. A large portion of these scripts have also been used to put together the Geo-PKO Shiny app (add link here).</p>
+<p>For more information on the dataset, please consult the <a href="https://www.pcr.uu.se/data/geo-pko/">official homepage</a>.</p>
+<p>Contributors to this GitHub site: - Nguyen Ha - Lou van Roozendaal - Tanushree Rao</p>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using

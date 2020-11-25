@@ -279,15 +279,19 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">GeoPKO</a>
+      <a class="navbar-brand" href="index.html">Geo-PKO</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">Explore Geo-PKO v2.0</a>
 </li>
 <li>
   <a href="viz.html">Mapping blue helmets</a>
+</li>
+<li class="dropdown-header">Merging datasets</li>
+<li>
+  <a href="merge.html"></a>
 </li>
 <li>
   <a href="about.html">About</a>
@@ -311,7 +315,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -320,7 +324,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -329,10 +333,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-24
+<strong>Last updated:</strong> 2020-11-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>GeoPKO/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -348,12 +352,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -420,33 +424,27 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreed744c0d82559ef2fb116edcf3c36ef54ec14900etargetblankd744c0da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/d744c0d82559ef2fb116edcf3c36ef54ec14900e" target="_blank">d744c0d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreed744c0d82559ef2fb116edcf3c36ef54ec14900etargetblankd744c0da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree448b94c6836a91ac68fc5831234d1b56ee6f38e9targetblank448b94ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/d744c0d82559ef2fb116edcf3c36ef54ec14900e" target="_blank">d744c0d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/448b94c6836a91ac68fc5831234d1b56ee6f38e9" target="_blank">448b94c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/Geo_PKO_v2_ISO3.csv
-
-Unstaged changes:
-    Modified:   analysis/about.Rmd
-    Modified:   analysis/index.Rmd
-    Modified:   analysis/viz.Rmd
-    Modified:   data/README.md
-    Deleted:    data/geopko.csv
+    Untracked:  data/ViEWS/
 
 </code></pre>
 <p>
@@ -485,6 +483,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/analysis/viz.Rmd" target="_blank">f2f9e90</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Before building with wflowr
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/docs/viz.html" target="_blank">f2f9e90</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Before building with wflowr
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -614,41 +646,43 @@ GeoPKO2018 &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;%
   mutate(YearlyAverage = round(mean(No.troops, na.rm=TRUE))) %&gt;%
   arrange(desc(HQ)) %&gt;% slice(1)
 
-kable(GeoPKO2018, caption = &quot;An extract of the 2018 dataframe&quot;) %&gt;% kable_styling()</code></pre>
+kable(GeoPKO2018, caption = &quot;An extract of the 2018 dataframe&quot;) %&gt;% kable_styling() %&gt;% 
+  scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 An extract of the 2018 dataframe
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 Mission
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 year
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 location
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 latitude
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 longitude
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 No.troops
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 HQ
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 country
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 iso3c
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 YearlyAverage
 </th>
 </tr>
@@ -7600,6 +7634,7 @@ SDN
 </tr>
 </tbody>
 </table>
+</div>
 <p>Hold up – the data subset also includes other missions elsewhere in the world. We want to somehow leave out these observations. In the next step, we’re pulling the shapefiles for country outlines from the package <code>rnaturalearth</code>, and filter for countries in Africa. We can also use this data to extract a list of ISO3 codes for African countries and use it to filter out our main dataframe.</p>
 <pre class="r"><code>library(rnaturalearth)
 library(rnaturalearthdata)
@@ -7752,7 +7787,7 @@ other attached packages:
  [4] viridisLite_0.3.0       ggrepel_0.8.2           ggplot2_3.3.2          
  [7] sf_0.9-5                rnaturalearthdata_0.1.0 rnaturalearth_0.1.0    
 [10] kableExtra_1.1.0        knitr_1.29              readr_1.3.1            
-[13] tidyr_1.1.1             dplyr_1.0.2            
+[13] tidyr_1.1.1             dplyr_1.0.2             workflowr_1.6.2        
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5         lattice_0.20-41    prettyunits_1.1.1  class_7.3-17      
@@ -7763,14 +7798,14 @@ loaded via a namespace (and not attached):
 [21] labeling_0.3       webshot_0.5.2      stringr_1.4.0      munsell_0.5.0     
 [25] compiler_4.0.2     httpuv_1.5.4       xfun_0.16          pkgconfig_2.0.3   
 [29] rgeos_0.5-3        htmltools_0.5.0    tidyselect_1.1.0   tibble_3.0.3      
-[33] gridExtra_2.3      workflowr_1.6.2    crayon_1.3.4       withr_2.2.0       
-[37] later_1.1.0.1      grid_4.0.2         gtable_0.3.0       lifecycle_0.2.0   
-[41] DBI_1.1.0          git2r_0.27.1       magrittr_1.5       units_0.6-7       
-[45] scales_1.1.1       KernSmooth_2.23-17 stringi_1.4.6      farver_2.0.3      
-[49] fs_1.5.0           promises_1.1.1     sp_1.4-2           xml2_1.3.2        
-[53] ellipsis_0.3.1     generics_0.0.2     vctrs_0.3.2        tools_4.0.2       
-[57] glue_1.4.1         tweenr_1.0.1       purrr_0.3.4        hms_0.5.3         
-[61] yaml_2.2.1         colorspace_1.4-1   classInt_0.4-3     rvest_0.3.6       </code></pre>
+[33] gridExtra_2.3      crayon_1.3.4       withr_2.2.0        later_1.1.0.1     
+[37] grid_4.0.2         gtable_0.3.0       lifecycle_0.2.0    DBI_1.1.0         
+[41] git2r_0.27.1       magrittr_1.5       units_0.6-7        scales_1.1.1      
+[45] KernSmooth_2.23-17 stringi_1.4.6      farver_2.0.3       fs_1.5.0          
+[49] promises_1.1.1     sp_1.4-2           xml2_1.3.2         ellipsis_0.3.1    
+[53] generics_0.0.2     vctrs_0.3.2        tools_4.0.2        glue_1.4.1        
+[57] tweenr_1.0.1       purrr_0.3.4        hms_0.5.3          yaml_2.2.1        
+[61] colorspace_1.4-1   classInt_0.4-3     rvest_0.3.6       </code></pre>
 </div>
 </div>
 
