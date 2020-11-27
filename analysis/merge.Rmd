@@ -58,26 +58,26 @@ kable(predictors[90545:90550,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px")
 ```
 
-The Geo-PKO dataset we're working with includes data from previous years, but for this visualisation, we will only use the latest year (July 2019 - June 2020). First, we need to filter the data to include only that period. This way we'll be looking at deployment status against projected conflict risk from the end of that period until three years from that period. You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id or PRIOID`), which corresponds to a specific grid square on the map. This is what we'll use to merge the datasets. In addition to filtering for the time period we want, we will also calculate the average number of troops deployed over that time period.
+The Geo-PKO dataset we're working with includes data from previous years, but for this visualisation, we will only use the latest year (July 2019 - June 2020). First, we need to filter the data to include only that period. This way we'll be looking at deployment status against projected conflict risk from the end of that period until three years from that period. You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id or prio_id`), which corresponds to a specific grid square on the map. This is what we'll use to merge the datasets. In addition to filtering for the time period we want, we will also calculate the average number of troops deployed over that time period.
 
 ```{r}
 # filtering for troop deployments over Jul 2019 - Jun 2020
 
 geopko2 <- geopko %>%
-  select(Mission, year, month, PRIOID, No.troops, country, location, latitude, longitude) %>%
+  select(mission, year, month, prio_id, no.troops, country, location, latitude, longitude) %>%
   filter(year==2019 & month>6 | year==2020 & month<7)
 
-geopko2$No.troops <- as.numeric(geopko2$No.troops)
+geopko2$no.troops <- as.numeric(geopko2$no.troops)
 
 # calculating an average number of troops
 
 geopko3 <- geopko2 %>% 
-  group_by(PRIOID) %>%
-  dplyr::mutate(No.troops = mean(No.troops, na.rm=TRUE)) %>%
+  group_by(prio_id) %>%
+  dplyr::mutate(no.troops = mean(no.troops, na.rm=TRUE)) %>%
   ungroup() %>%
-  filter (! duplicated(No.troops))
+  filter (! duplicated(no.troops))
 
-geopko3$No.troops <- round(geopko3$No.troops)
+geopko3$no.troops <- round(geopko3$no.troops)
 
 ```
 
@@ -98,7 +98,7 @@ Finally, we merge the two datasets.
 ```{r}
 # merging geopko with conflict forecast data
 
-geopko3$pg_id <- geopko3$PRIOID
+geopko3$pg_id <- geopko3$prio_id
 
 priogriddf <- full_join(
   geopko3, predictors2,
@@ -178,12 +178,12 @@ map <- leaflet(shapefile.df) %>%
               group = "One-Sided Violence",
               highlightOptions = highlightOptions(color = "white", weight = 2,
                                                   bringToFront = FALSE)) %>%
-    addCircleMarkers((data = shapefile.df@data$No.troops>0), lat = ~latitude, lng = ~longitude, 
+    addCircleMarkers((data = shapefile.df@data$no.troops>0), lat = ~latitude, lng = ~longitude, 
               weight = 1, radius = 2, fillOpacity = 0.6, color = "darkblue") %>%
   addPolygons(color = "#444444", weight = 0.1, smoothFactor = 0.5,
               opacity = 0.0, fillOpacity = 0.0,
-              fillColor = ~pal(shapefile.df$No.troops),
-              label=paste("Troops Deployed: ", shapefile.df$No.troops),
+              fillColor = ~pal(shapefile.df$no.troops),
+              label=paste("Troops Deployed: ", shapefile.df$no.troops),
               labelOptions = labelOptions(
                 style = list("font-weight" = "normal", padding = "3px 8px", color="blue"),
                 textsize = "15px", direction = "auto"),
@@ -227,18 +227,18 @@ The UCDP data has different variables you could use, in this example we took "be
 ```{r}
 # Preparing the GeoPKO dataset
 GeoPKO_dataUCDP <- geopko %>% 
-  select(Mission, Year, Location, Latitude, Longitude, No.troops) %>% #Select only the variables you need
-  group_by(Mission, Year, Location) %>% 
-  mutate(ave.no.troops = as.integer(mean(No.troops, na.rm=TRUE))) %>% #Sum the troop numbers by year through using a combination of group_by & mutate
-  select(-No.troops) %>% #Deselect the previous troop number variable
+  select(mission, year, location, latitude, longitude, no.troops) %>% #Select only the variables you need
+  group_by(mission, year, location) %>% 
+  mutate(ave.no.troops = as.integer(mean(no.troops, na.rm=TRUE))) %>% #Sum the troop numbers by year through using a combination of group_by & mutate
+  select(-no.troops) %>% #Deselect the previous troop number variable
   distinct() %>% #Delete any duplicate rows
   drop_na(ave.no.troops)%>% #Remove NAs from the average troop count
   filter(ave.no.troops > 0) # Exclude any troop numbers under the value of 0
 
 # Preparing the UCDP dataset
 UCDP_dataframe <- UCDP %>% 
-  select(year, longitude, latitude, where_coordinates, best,deaths_civilians)%>% 
-  drop_na(latitude,longitude)  %>% 
+  select(year, longitude, latitude, where_coordinates, best, deaths_civilians)%>% 
+  drop_na(latitude, longitude)  %>% 
   group_by(year, where_coordinates) %>% 
   mutate(best = as.integer(mean(best, na.rm=TRUE))) %>% #Take the mean of the "best" variable
   mutate(deaths_civilians = as.integer(mean(deaths_civilians, na.rm=TRUE)))%>% #Take the mean of the "deaths_civilians" variable
@@ -266,7 +266,7 @@ UCDP_Overview_Map <- leaflet() %>%
   clearShapes()%>% 
   addLegend("topright",
             pal = pal3,
-            values = UCDP2$best,
+            values = UCDP_dataframe$best,
             title = "Fatalities",
              opacity = 1) %>%
   addLegend("topright",
@@ -276,12 +276,12 @@ UCDP_Overview_Map <- leaflet() %>%
             opacity = 1) %>% 
   addLayersControl(baseGroups = c("2019", "2018","2015","2010", "2005","2000","1995"),
                    options = layersControlOptions(collapsed = FALSE), position = "topleft")%>% 
-  addCircleMarkers(data=(GeoPKO2019<-GeoPKO_dataUCDP %>% filter(Year==2019)), 
+  addCircleMarkers(data=(GeoPKO2019<-GeoPKO_dataUCDP %>% filter(year==2019)), 
                    color = ~pal2(ave.no.troops), radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2019",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2019$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2019$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2019",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2019$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2019$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2019$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2019<-UCDP_dataframe %>% filter(year==2019)),
@@ -293,12 +293,12 @@ UCDP_Overview_Map <- leaflet() %>%
                                "<br/><strong>Total deaths:</strong>", UCDP2019$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2019$deaths_civilians)%>% 
                      lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO2018<-GeoPKO_dataUCDP %>%filter(Year==2018)), 
+  addCircleMarkers(data=(GeoPKO2018<-GeoPKO_dataUCDP %>%filter(year==2018)), 
                    color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2018",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2018$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2018$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2018",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2018$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2018$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2018$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2018<-UCDP_dataframe %>%filter(year==2018)),
@@ -309,12 +309,12 @@ UCDP_Overview_Map <- leaflet() %>%
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP2018$where_coordinates,
                                "<br/><strong>Total deaths:</strong>", UCDP2018$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2018$deaths_civilians)%>%  lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO2015<-GeoPKO_dataUCDP %>%filter(Year==2015)), 
+  addCircleMarkers(data=(GeoPKO2015<-GeoPKO_dataUCDP %>%filter(year==2015)), 
                    color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2015",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2015$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2015$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2015",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2015$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2015$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2015$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2015<-UCDP_dataframe %>%filter(year==2015)),
@@ -325,12 +325,12 @@ UCDP_Overview_Map <- leaflet() %>%
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP2015$where_coordinates,
                                "<br/><strong>Total deaths:</strong>", UCDP2015$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2015$deaths_civilians)%>%  lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO2010<-GeoPKO_dataUCDP %>%filter(Year==2010)), 
+  addCircleMarkers(data=(GeoPKO2010<-GeoPKO_dataUCDP %>%filter(year==2010)), 
                    color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2010",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2010$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2010$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2010",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2010$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2010$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2010$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2010<-UCDP_dataframe %>%filter(year==2010)),
@@ -341,12 +341,12 @@ UCDP_Overview_Map <- leaflet() %>%
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP2010$where_coordinates,
                                "<br/><strong>Total deaths:</strong>", UCDP2010$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2010$deaths_civilians)%>%  lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO2005<-GeoPKO_dataUCDP %>%filter(Year==2005)), 
+  addCircleMarkers(data=(GeoPKO2005<-GeoPKO_dataUCDP %>%filter(year==2005)), 
                    color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2005",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2005$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2005$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2005",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2005$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2005$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2005$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2005<-UCDP_dataframe %>%filter(year==2005)),
@@ -357,11 +357,12 @@ UCDP_Overview_Map <- leaflet() %>%
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP2005$where_coordinates,
                                "<br/><strong>Total deaths:</strong>", UCDP2005$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2005$deaths_civilians)%>%  lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO2000<-GeoPKO_dataUCDP %>%filter(Year==2000)), color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
+  addCircleMarkers(data=(GeoPKO2000<-GeoPKO_dataUCDP %>%filter(year==2000)), 
+                   color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
                    opacity = 0.15, fillOpacity = 0.5,
-                   lng = ~Longitude, lat = ~Latitude, group = "2000",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2000$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO2000$Location,
+                   lng = ~longitude, lat = ~latitude, group = "2000",
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO2000$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO2000$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO2000$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>%
   addCircleMarkers(data = (UCDP2000<-UCDP_dataframe %>%filter(year==2000)),
@@ -372,16 +373,17 @@ UCDP_Overview_Map <- leaflet() %>%
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP2000$where_coordinates,
                                "<br/><strong>Total deaths:</strong>", UCDP2000$best,
                                "<br/><strong>Civilian deaths:</strong>", UCDP2000$deaths_civilians)%>%  lapply(htmltools::HTML)) %>%
-  addCircleMarkers(data=(GeoPKO1995<-GeoPKO_dataUCDP %>%filter(Year==1995)), color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
-                    lng = ~Longitude, lat = ~Latitude,
+  addCircleMarkers(data=(GeoPKO1995<-GeoPKO_dataUCDP %>%filter(year==1995)), color = ~pal2(ave.no.troops),radius = ~(ave.no.troops)^(1/3),
+                    lng = ~longitude, lat = ~latitude,
                    opacity = 0.15, fillOpacity = 0.5,
                    group = "1995",
-                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO1995$Mission,
-                               "<br/><strong>Location:</strong>",GeoPKO1995$Location,
+                   label=paste("<strong>UN Peacekeeping Site<br/>Mission:</strong>",GeoPKO1995$mission,
+                               "<br/><strong>Location:</strong>",GeoPKO1995$location,
                                "<br/><strong>Troops Deployed:</strong>", GeoPKO1995$ave.no.troops)%>% 
                      lapply(htmltools::HTML)) %>% 
   addCircleMarkers(data = (UCDP1995<-UCDP_dataframe %>%filter(year==1995)),
-                   lng = ~longitude, lat = ~latitude, color = ~pal3(best),radius = ~(best)^(1/3),
+                   lng = ~longitude, lat = ~latitude, 
+                   color = ~pal3(best),radius = ~(best)^(1/3),
                    opacity = 0.05, fillOpacity = 0.4,
                    group = "1995",
                    label=paste("<strong>UCDP Reported Fatalities<br/>Location:</strong>", UCDP1995$where_coordinates,
@@ -402,7 +404,7 @@ If you do want to combine the two datasets into one dataframe there are differen
 
 ```{r}
 # Rename several variables
-UCDP_dataframeMerge = UCDP_dataframe %>% rename (Latitude=latitude, Longitude= longitude, Year=year, location=where_coordinates)
+UCDP_dataframeMerge = UCDP_dataframe %>% rename (location=where_coordinates)
 
 # Merge the datasets
 Combined_UCDP_GeoPKO<- bind_rows(UCDP_dataframeMerge, GeoPKO_dataUCDP)
