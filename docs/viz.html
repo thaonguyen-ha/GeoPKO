@@ -332,7 +332,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-25
+<strong>Last updated:</strong> 2020-12-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -423,16 +423,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -443,10 +443,11 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/ViEWS/
+    Untracked:  data/Geo_PKO_v2.0.csv
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Deleted:    data/Geo_PKO_v2_ISO3.csv
+    Modified:   figure/viz.Rmd/animatedgraph-1.gif
 
 </code></pre>
 <p>
@@ -485,6 +486,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/eafa002c5ba37e0bac4a4425ee129f16e26e63d1/analysis/viz.Rmd" target="_blank">eafa002</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-03
+</td>
+<td>
+adapting to new dataset version
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/acee4ed45acd6a5b4677faf498a38b4478b83658/docs/viz.html" target="_blank">acee4ed</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -665,22 +700,32 @@ Updating new maps, new pages
 <div id="visualizing-deployment-locations" class="section level2">
 <h2>Visualizing deployment locations</h2>
 <p>An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize <em>where</em> active troops are in a mission, be it for a specific mission or a region. Below are some examples of visualization.</p>
-<p>To start with, we can take a snapshot of the deployment of all the missions that were active in 2018 in Africa. We start by subsetting the main dataset to include only entries for the year of 2018 in the continent Africa, as well as our variables of interests. Geo-PKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded. We should end up with something similar to the table below.</p>
-<pre class="r"><code>library(dplyr)
-library(tidyr)
-library(readr)
+<p>To start with, we can take a snapshot of the deployment of all the missions that were active in 2018 in Africa. We start by pulling the shapefiles for country outlines from the package <code>rnaturalearth</code>, and filter for countries in Africa.</p>
+<pre class="r"><code>library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+
+world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
+library(dplyr)
+AFR_sf &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
+<p>Did that work? We can plot the shapefiles to find out.</p>
+<pre class="r"><code>library(ggplot2)
+
+ggplot(data=AFR_sf) + geom_sf()</code></pre>
+<p><img src="figure/viz.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Next, we need to subset the main dataset to include only entries (1) for the year of 2018 and (2) in the continent Africa, all with (3) our variables of interests. Geo-PKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded. We should end up with something similar to the table below.</p>
+<pre class="r"><code>library(readr)
 library(knitr)
 library(kableExtra) 
 
-GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v2_ISO3.csv&quot;, col_types = cols(.default=&quot;c&quot;),
-                          locale=readr::locale(encoding=&quot;latin1&quot;)) #importing the dataset
+GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v2.0.csv&quot;, col_types = cols(.default=&quot;c&quot;)) 
 
 GeoPKO2018 &lt;- GeoPKO %&gt;% filter(year==2018) %&gt;%  
-  select(Mission, year, location, latitude, longitude, No.troops, HQ, country, iso3c) %&gt;%
-  mutate_at(vars(latitude, longitude, No.troops), as.numeric) %&gt;% 
-  group_by(location, Mission, latitude, longitude) %&gt;% 
-  mutate(YearlyAverage = round(mean(No.troops, na.rm=TRUE))) %&gt;%
-  arrange(desc(HQ)) %&gt;% slice(1)
+  select(mission, year, location, latitude, longitude, no.troops, hq, country) %&gt;%
+  mutate_at(vars(latitude, longitude, no.troops), as.numeric) %&gt;% 
+  group_by(location, mission, latitude, longitude) %&gt;% 
+  mutate(YearlyAverage = round(mean(no.troops, na.rm=TRUE))) %&gt;%
+  arrange(desc(hq)) %&gt;% slice(1)
 
 kable(GeoPKO2018, caption = &quot;An extract of the 2018 dataframe&quot;) %&gt;% kable_styling() %&gt;% 
   scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;)</code></pre>
@@ -692,7 +737,7 @@ An extract of the 2018 dataframe
 <thead>
 <tr>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Mission
+mission
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 year
@@ -707,16 +752,13 @@ latitude
 longitude
 </th>
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
-No.troops
+no.troops
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-HQ
+hq
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 country
-</th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-iso3c
 </th>
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 YearlyAverage
@@ -749,9 +791,6 @@ Abyei Camp
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 1170
 </td>
@@ -780,9 +819,6 @@ Adikivu
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 796
@@ -813,9 +849,6 @@ Agany Toak
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 35
 </td>
@@ -844,9 +877,6 @@ Agok
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 91
@@ -877,9 +907,6 @@ Aguelhok
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 335
 </td>
@@ -908,9 +935,6 @@ Agwanit
 </td>
 <td style="text-align:left;">
 Western Sahara
-</td>
-<td style="text-align:left;">
-MAR
 </td>
 <td style="text-align:right;">
 0
@@ -941,9 +965,6 @@ Al Da’ein
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 269
 </td>
@@ -972,9 +993,6 @@ Alal
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -1005,9 +1023,6 @@ Ansongo
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 950
 </td>
@@ -1036,9 +1051,6 @@ Athienou
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 35
@@ -1069,9 +1081,6 @@ Athony
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 335
 </td>
@@ -1100,9 +1109,6 @@ Aweil
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 150
@@ -1133,9 +1139,6 @@ Awsard
 <td style="text-align:left;">
 Western Sahara
 </td>
-<td style="text-align:left;">
-MAR
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -1164,9 +1167,6 @@ Bamako
 </td>
 <td style="text-align:left;">
 Mali
-</td>
-<td style="text-align:left;">
-MLI
 </td>
 <td style="text-align:right;">
 705
@@ -1197,9 +1197,6 @@ Bambari
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 1017
 </td>
@@ -1228,9 +1225,6 @@ Bangassou
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 650
@@ -1261,9 +1255,6 @@ Bangui
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 4308
 </td>
@@ -1292,9 +1283,6 @@ Banton
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 335
@@ -1325,9 +1313,6 @@ Baraka
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -1356,9 +1341,6 @@ Batangafo
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 0
@@ -1389,9 +1371,6 @@ Bendera
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -1420,9 +1399,6 @@ Beni
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 633
@@ -1453,9 +1429,6 @@ Beni Boikene
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -1484,9 +1457,6 @@ Bentiu
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 1450
@@ -1517,9 +1487,6 @@ Ber
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -1548,9 +1515,6 @@ Berberati
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 650
@@ -1581,9 +1545,6 @@ Bir Lahlou
 <td style="text-align:left;">
 Western Sahara
 </td>
-<td style="text-align:left;">
-MAR
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -1612,9 +1573,6 @@ Birao
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 650
@@ -1645,9 +1603,6 @@ Bogoro
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -1676,9 +1631,6 @@ Bor
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 1750
@@ -1709,9 +1661,6 @@ Bossangoa
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 650
 </td>
@@ -1740,9 +1689,6 @@ Bouar
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 1050
@@ -1773,9 +1719,6 @@ Bria
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 417
 </td>
@@ -1804,9 +1747,6 @@ Bukavu
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 600
@@ -1837,9 +1777,6 @@ Bunia
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 1108
 </td>
@@ -1868,9 +1805,6 @@ Bunji
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 150
@@ -1901,9 +1835,6 @@ Buram
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -1932,9 +1863,6 @@ Butembo
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -1965,9 +1893,6 @@ Camp Faouar
 <td style="text-align:left;">
 Syria
 </td>
-<td style="text-align:left;">
-SYR
-</td>
 <td style="text-align:right;">
 432
 </td>
@@ -1997,9 +1922,6 @@ Camp Ziouani
 <td style="text-align:left;">
 Syria
 </td>
-<td style="text-align:left;">
-SYR
-</td>
 <td style="text-align:right;">
 1423
 </td>
@@ -2012,7 +1934,7 @@ MINUJUSTH
 2018
 </td>
 <td style="text-align:left;">
-Cap-HaÃ¯tien
+Cap-Haïtien
 </td>
 <td style="text-align:right;">
 19.7593800
@@ -2028,9 +1950,6 @@ NA
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 NaN
@@ -2061,41 +1980,6 @@ Carnot
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUSCA
-</td>
-<td style="text-align:left;">
-2018
-</td>
-<td style="text-align:left;">
-DÃ©koa
-</td>
-<td style="text-align:right;">
-6.3188650
-</td>
-<td style="text-align:right;">
-19.077846
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -2125,8 +2009,34 @@ Damascus
 <td style="text-align:left;">
 Syria
 </td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
 <td style="text-align:left;">
-SYR
+MINUSCA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Dékoa
+</td>
+<td style="text-align:right;">
+6.3188650
+</td>
+<td style="text-align:right;">
+19.077846
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Central African Republic
 </td>
 <td style="text-align:right;">
 0
@@ -2157,9 +2067,6 @@ Dhenia
 <td style="text-align:left;">
 Cyprus
 </td>
-<td style="text-align:left;">
-CYP
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -2188,9 +2095,6 @@ Dherinia
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 35
@@ -2221,9 +2125,6 @@ Diffra
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 335
 </td>
@@ -2252,9 +2153,6 @@ Dokura
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 300
@@ -2285,9 +2183,6 @@ Douentza
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 1160
 </td>
@@ -2316,9 +2211,6 @@ Dungoup
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -2349,9 +2241,6 @@ Dungu
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 733
 </td>
@@ -2380,9 +2269,6 @@ Dyabali
 </td>
 <td style="text-align:left;">
 Mali
-</td>
-<td style="text-align:left;">
-MLI
 </td>
 <td style="text-align:right;">
 1100
@@ -2413,9 +2299,6 @@ El Fasher
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 935
 </td>
@@ -2444,9 +2327,6 @@ El Geneina
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 721
@@ -2477,9 +2357,6 @@ El Sireaf
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -2508,9 +2385,6 @@ Famagusta
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 150
@@ -2541,9 +2415,6 @@ Farouk
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -2556,7 +2427,7 @@ MINUJUSTH
 2018
 </td>
 <td style="text-align:left;">
-Fort-LibertÃ©
+Fort-Liberté
 </td>
 <td style="text-align:right;">
 19.6627300
@@ -2572,9 +2443,6 @@ Fort-LibertÃ©
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 0
@@ -2605,9 +2473,6 @@ Gao
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 5605
 </td>
@@ -2636,9 +2501,6 @@ Gok-machar
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 0
@@ -2669,9 +2531,6 @@ Goli
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 220
 </td>
@@ -2700,9 +2559,6 @@ Golo
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 188
@@ -2733,9 +2589,6 @@ Goma
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 1008
 </td>
@@ -2748,7 +2601,7 @@ MINUJUSTH
 2018
 </td>
 <td style="text-align:left;">
-GonaÃ¯ves
+Gonaïves
 </td>
 <td style="text-align:right;">
 19.4475500
@@ -2764,9 +2617,6 @@ NA
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 NaN
@@ -2797,9 +2647,6 @@ Gossi
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -2828,9 +2675,6 @@ Goundam
 </td>
 <td style="text-align:left;">
 Mali
-</td>
-<td style="text-align:left;">
-MLI
 </td>
 <td style="text-align:right;">
 300
@@ -2861,9 +2705,6 @@ Graida
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 225
 </td>
@@ -2892,9 +2733,6 @@ Highway
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 270
@@ -2925,9 +2763,6 @@ Himbe
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -2956,9 +2791,6 @@ Himbi
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 300
@@ -2989,43 +2821,8 @@ Hinche
 <td style="text-align:left;">
 Haiti
 </td>
-<td style="text-align:left;">
-HTI
-</td>
 <td style="text-align:right;">
 0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUJUSTH
-</td>
-<td style="text-align:left;">
-2018
-</td>
-<td style="text-align:left;">
-JÃ©rÃ©mie
-</td>
-<td style="text-align:right;">
-18.6500000
-</td>
-<td style="text-align:right;">
--74.116670
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-Haiti
-</td>
-<td style="text-align:left;">
-HTI
-</td>
-<td style="text-align:right;">
-NaN
 </td>
 </tr>
 <tr>
@@ -3053,11 +2850,37 @@ Jacmel
 <td style="text-align:left;">
 Haiti
 </td>
-<td style="text-align:left;">
-HTI
-</td>
 <td style="text-align:right;">
 0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUJUSTH
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Jérémie
+</td>
+<td style="text-align:right;">
+18.6500000
+</td>
+<td style="text-align:right;">
+-74.116670
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:right;">
+NaN
 </td>
 </tr>
 <tr>
@@ -3084,9 +2907,6 @@ Juba
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 2830
@@ -3117,9 +2937,6 @@ Kabkabiya
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 214
 </td>
@@ -3148,9 +2965,6 @@ Kadugli
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 0
@@ -3181,9 +2995,6 @@ Kaga Bandoro
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 1100
 </td>
@@ -3212,9 +3023,6 @@ Kalemie
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 700
@@ -3245,9 +3053,6 @@ Kalma
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -3276,9 +3081,6 @@ Kamango
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -3309,9 +3111,6 @@ Kamanyola
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -3340,9 +3139,6 @@ Kampala
 </td>
 <td style="text-align:left;">
 Uganda
-</td>
-<td style="text-align:left;">
-UGA
 </td>
 <td style="text-align:right;">
 0
@@ -3373,9 +3169,6 @@ Kananga
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 175
 </td>
@@ -3404,9 +3197,6 @@ Kanyabayonga
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -3437,9 +3227,6 @@ Kas
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -3468,9 +3255,6 @@ Kato Pyrgos
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 0
@@ -3501,9 +3285,6 @@ Kavumu
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 569
 </td>
@@ -3532,9 +3313,6 @@ Khor Abeche
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 262
@@ -3565,9 +3343,6 @@ Kidal
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 3163
 </td>
@@ -3596,9 +3371,6 @@ Kigali
 </td>
 <td style="text-align:left;">
 Rwanda
-</td>
-<td style="text-align:left;">
-RWA
 </td>
 <td style="text-align:right;">
 0
@@ -3629,9 +3401,6 @@ Kinshasa
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 1200
 </td>
@@ -3660,9 +3429,6 @@ Kisangani
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -3693,9 +3459,6 @@ Kiwanja
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 483
 </td>
@@ -3724,9 +3487,6 @@ Komanda
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -3757,9 +3517,6 @@ Kongolo
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 35
 </td>
@@ -3788,9 +3545,6 @@ Korma
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 185
@@ -3821,9 +3575,6 @@ Kosovska Mitrovica
 <td style="text-align:left;">
 Kosovo
 </td>
-<td style="text-align:left;">
-XKO
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -3852,9 +3603,6 @@ Kuacjok
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 150
@@ -3885,9 +3633,6 @@ Kutum
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -3916,9 +3661,6 @@ Laayoune
 </td>
 <td style="text-align:left;">
 Western Sahara
-</td>
-<td style="text-align:left;">
-MAR
 </td>
 <td style="text-align:right;">
 35
@@ -3949,9 +3691,6 @@ Labado
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -3980,9 +3719,6 @@ Leer
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 150
@@ -4013,9 +3749,6 @@ Leonarisso
 <td style="text-align:left;">
 Cyprus
 </td>
-<td style="text-align:left;">
-CYP
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -4044,9 +3777,6 @@ Les Cayes
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 0
@@ -4077,9 +3807,6 @@ Linou
 <td style="text-align:left;">
 Cyprus
 </td>
-<td style="text-align:left;">
-CYP
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -4109,43 +3836,8 @@ Lubumbashi
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MINUSMA
-</td>
-<td style="text-align:left;">
-2018
-</td>
-<td style="text-align:left;">
-MÃ©naka
-</td>
-<td style="text-align:right;">
-15.9182000
-</td>
-<td style="text-align:right;">
-2.402200
-</td>
-<td style="text-align:right;">
-450
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-Mali
-</td>
-<td style="text-align:left;">
-MLI
-</td>
-<td style="text-align:right;">
-450
 </td>
 </tr>
 <tr>
@@ -4172,9 +3864,6 @@ Madingthon
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 70
@@ -4205,9 +3894,6 @@ Mahbas
 <td style="text-align:left;">
 Western Sahara
 </td>
-<td style="text-align:left;">
-MAR
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -4236,9 +3922,6 @@ Malakal
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 1930
@@ -4269,9 +3952,6 @@ Manono
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -4300,9 +3980,6 @@ Marial Achak
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -4333,9 +4010,6 @@ NA
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 NaN
 </td>
@@ -4364,9 +4038,6 @@ Masteri
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -4397,9 +4068,6 @@ Mavivi
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 902
 </td>
@@ -4428,9 +4096,6 @@ Mayimoya
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -4461,9 +4126,6 @@ Mbuji-Mayi
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -4492,9 +4154,6 @@ Mehaires
 </td>
 <td style="text-align:left;">
 Western Sahara
-</td>
-<td style="text-align:left;">
-MAR
 </td>
 <td style="text-align:right;">
 0
@@ -4525,11 +4184,37 @@ Melut
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINUSMA
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Ménaka
+</td>
+<td style="text-align:right;">
+15.9182000
+</td>
+<td style="text-align:right;">
+2.402200
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:right;">
+450
 </td>
 </tr>
 <tr>
@@ -4556,9 +4241,6 @@ Menawashi
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -4589,9 +4271,6 @@ Mijek
 <td style="text-align:left;">
 Western Sahara
 </td>
-<td style="text-align:left;">
-MAR
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -4604,7 +4283,7 @@ MINUJUSTH
 2018
 </td>
 <td style="text-align:left;">
-MiragoÃ¢ne
+Miragoâne
 </td>
 <td style="text-align:right;">
 18.4459900
@@ -4620,9 +4299,6 @@ NA
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 NaN
@@ -4653,9 +4329,6 @@ Moba
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 35
 </td>
@@ -4684,9 +4357,6 @@ Monigi Camp
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 300
@@ -4717,9 +4387,6 @@ Monrovia
 <td style="text-align:left;">
 Liberia
 </td>
-<td style="text-align:left;">
-LBR
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -4748,9 +4415,6 @@ Mopti/Sevare
 </td>
 <td style="text-align:left;">
 Mali
-</td>
-<td style="text-align:left;">
-MLI
 </td>
 <td style="text-align:right;">
 950
@@ -4781,9 +4445,6 @@ Mournei
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -4812,9 +4473,6 @@ Mt Hermon Base
 </td>
 <td style="text-align:left;">
 Syria
-</td>
-<td style="text-align:left;">
-SYR
 </td>
 <td style="text-align:right;">
 173
@@ -4845,9 +4503,6 @@ Mukhjar
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -4876,9 +4531,6 @@ Mushake
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 150
@@ -4909,9 +4561,6 @@ Naqoura
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 2200
 </td>
@@ -4941,9 +4590,6 @@ Nasser
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -4956,7 +4602,7 @@ MINUSCA
 2018
 </td>
 <td style="text-align:left;">
-NdÃ©lÃ©
+Ndélé
 </td>
 <td style="text-align:right;">
 8.4110470
@@ -4972,9 +4618,6 @@ NdÃ©lÃ©
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 0
@@ -5005,9 +4648,6 @@ Ndromo
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 650
 </td>
@@ -5036,9 +4676,6 @@ Nertiti
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 950
@@ -5069,9 +4706,6 @@ Nicosia
 <td style="text-align:left;">
 Cyprus
 </td>
-<td style="text-align:left;">
-CYP
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5100,9 +4734,6 @@ Noong
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 300
@@ -5133,9 +4764,6 @@ Nyala
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 869
 </td>
@@ -5164,9 +4792,6 @@ Obo
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 0
@@ -5197,9 +4822,6 @@ Oum Dreyga
 <td style="text-align:left;">
 Western Sahara
 </td>
-<td style="text-align:left;">
-MAR
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -5228,9 +4850,6 @@ Paoua
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 0
@@ -5261,9 +4880,6 @@ Pariang
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5292,9 +4908,6 @@ Pibor
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 150
@@ -5325,9 +4938,6 @@ NA
 <td style="text-align:left;">
 Haiti
 </td>
-<td style="text-align:left;">
-HTI
-</td>
 <td style="text-align:right;">
 NaN
 </td>
@@ -5356,9 +4966,6 @@ Port-de-Paix
 </td>
 <td style="text-align:left;">
 Haiti
-</td>
-<td style="text-align:left;">
-HTI
 </td>
 <td style="text-align:right;">
 0
@@ -5389,9 +4996,6 @@ Position 1-0A
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -5420,9 +5024,6 @@ Position 1-26
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5453,9 +5054,6 @@ Position 2-1
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 450
 </td>
@@ -5484,9 +5082,6 @@ Position 2-3
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 1250
@@ -5517,9 +5112,6 @@ Position 2-31
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5548,9 +5140,6 @@ Position 2-45
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 600
@@ -5581,9 +5170,6 @@ Position 2-5
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 600
 </td>
@@ -5612,9 +5198,6 @@ Position 4-2
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5645,9 +5228,6 @@ Position 4-28
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5676,9 +5256,6 @@ Position 4-3
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 300
@@ -5709,9 +5286,6 @@ Position 4-30
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5740,9 +5314,6 @@ Position 4-31
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5773,9 +5344,6 @@ Position 4-7C
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5804,9 +5372,6 @@ Position 5-10
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5837,9 +5402,6 @@ Position 5-20
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5868,9 +5430,6 @@ Position 5-42
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5901,9 +5460,6 @@ Position 5-66
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -5932,9 +5488,6 @@ Position 6-43
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -5965,9 +5518,6 @@ Position 7-1
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 300
 </td>
@@ -5996,9 +5546,6 @@ Position 7-2
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 900
@@ -6029,9 +5576,6 @@ Position 7-3
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 450
 </td>
@@ -6060,9 +5604,6 @@ Position 8-30
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6093,9 +5634,6 @@ Position 8-31
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6124,9 +5662,6 @@ Position 8-32
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6157,9 +5692,6 @@ Position 8-33
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6188,9 +5720,6 @@ Position 8-34
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6221,9 +5750,6 @@ Position 8-36
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6252,9 +5778,6 @@ Position 80
 </td>
 <td style="text-align:left;">
 Syria
-</td>
-<td style="text-align:left;">
-SYR
 </td>
 <td style="text-align:right;">
 112
@@ -6285,9 +5808,6 @@ Position 9-1
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 450
 </td>
@@ -6316,9 +5836,6 @@ Position 9-10
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6349,9 +5866,6 @@ Position 9-2
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6380,9 +5894,6 @@ Position 9-63
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6413,9 +5924,6 @@ Position 9-66
 <td style="text-align:left;">
 Lebanon
 </td>
-<td style="text-align:left;">
-LBN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6444,9 +5952,6 @@ Position HIN
 </td>
 <td style="text-align:left;">
 Lebanon
-</td>
-<td style="text-align:left;">
-LBN
 </td>
 <td style="text-align:right;">
 150
@@ -6477,9 +5982,6 @@ Pristina
 <td style="text-align:left;">
 Kosovo
 </td>
-<td style="text-align:left;">
-XKO
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -6508,9 +6010,6 @@ Pyla
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 35
@@ -6541,9 +6040,6 @@ Renk
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6572,9 +6068,6 @@ Rumajak/Dokura
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 300
@@ -6605,9 +6098,6 @@ Rumbek
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 650
 </td>
@@ -6636,9 +6126,6 @@ Rwindi
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 483
@@ -6669,9 +6156,6 @@ Sake
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 2487
 </td>
@@ -6700,9 +6184,6 @@ Sange
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 650
@@ -6733,9 +6214,6 @@ Saraf Omra
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6764,9 +6242,6 @@ Semuliki Bridge
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 255
@@ -6797,9 +6272,6 @@ Shabunda
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6828,9 +6300,6 @@ NA
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 NaN
@@ -6861,9 +6330,6 @@ Shangil Tobay
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6892,9 +6358,6 @@ Sibut
 </td>
 <td style="text-align:left;">
 Central African Republic
-</td>
-<td style="text-align:left;">
-CAF
 </td>
 <td style="text-align:right;">
 650
@@ -6925,9 +6388,6 @@ Skouriotissa
 <td style="text-align:left;">
 Cyprus
 </td>
-<td style="text-align:left;">
-CYP
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -6956,9 +6416,6 @@ Smara
 </td>
 <td style="text-align:left;">
 Western Sahara
-</td>
-<td style="text-align:left;">
-MAR
 </td>
 <td style="text-align:right;">
 0
@@ -6989,9 +6446,6 @@ Sortony
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 185
 </td>
@@ -7020,9 +6474,6 @@ Strovilia
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 0
@@ -7053,9 +6504,6 @@ Tawila
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 185
 </td>
@@ -7084,9 +6532,6 @@ Tejalei
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 300
@@ -7117,9 +6562,6 @@ Tessalit
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 1320
 </td>
@@ -7148,9 +6590,6 @@ Tifariti
 </td>
 <td style="text-align:left;">
 Western Sahara
-</td>
-<td style="text-align:left;">
-MAR
 </td>
 <td style="text-align:right;">
 0
@@ -7181,9 +6620,6 @@ Tindouf
 <td style="text-align:left;">
 Algeria
 </td>
-<td style="text-align:left;">
-DZA
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -7212,9 +6648,6 @@ Todach
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 520
@@ -7245,9 +6678,6 @@ Tombouctou (Timbuktu)
 <td style="text-align:left;">
 Mali
 </td>
-<td style="text-align:left;">
-MLI
-</td>
 <td style="text-align:right;">
 2370
 </td>
@@ -7276,9 +6706,6 @@ Torit
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 210
@@ -7309,9 +6736,6 @@ Tshikapa
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -7340,9 +6764,6 @@ Um Khariet
 </td>
 <td style="text-align:left;">
 Sudan
-</td>
-<td style="text-align:left;">
-SDN
 </td>
 <td style="text-align:right;">
 150
@@ -7373,9 +6794,6 @@ NA
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 NaN
 </td>
@@ -7404,9 +6822,6 @@ UNPA
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 255
@@ -7437,9 +6852,6 @@ Uvira
 <td style="text-align:left;">
 DRC
 </td>
-<td style="text-align:left;">
-COD
-</td>
 <td style="text-align:right;">
 539
 </td>
@@ -7468,9 +6880,6 @@ Walungu
 </td>
 <td style="text-align:left;">
 DRC
-</td>
-<td style="text-align:left;">
-COD
 </td>
 <td style="text-align:right;">
 483
@@ -7501,9 +6910,6 @@ Wau
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 980
 </td>
@@ -7532,9 +6938,6 @@ Xeros
 </td>
 <td style="text-align:left;">
 Cyprus
-</td>
-<td style="text-align:left;">
-CYP
 </td>
 <td style="text-align:right;">
 150
@@ -7565,9 +6968,6 @@ Yaloke
 <td style="text-align:left;">
 Central African Republic
 </td>
-<td style="text-align:left;">
-CAF
-</td>
 <td style="text-align:right;">
 0
 </td>
@@ -7596,9 +6996,6 @@ Yambio
 </td>
 <td style="text-align:left;">
 South Sudan
-</td>
-<td style="text-align:left;">
-SSD
 </td>
 <td style="text-align:right;">
 270
@@ -7629,9 +7026,6 @@ Yei
 <td style="text-align:left;">
 South Sudan
 </td>
-<td style="text-align:left;">
-SSD
-</td>
 <td style="text-align:right;">
 150
 </td>
@@ -7661,9 +7055,6 @@ Zalingei
 <td style="text-align:left;">
 Sudan
 </td>
-<td style="text-align:left;">
-SDN
-</td>
 <td style="text-align:right;">
 309
 </td>
@@ -7671,23 +7062,22 @@ SDN
 </tbody>
 </table>
 </div>
-<p>Hold up – the data subset also includes other missions elsewhere in the world. We want to somehow leave out these observations. In the next step, we’re pulling the shapefiles for country outlines from the package <code>rnaturalearth</code>, and filter for countries in Africa. We can also use this data to extract a list of ISO3 codes for African countries and use it to filter out our main dataframe.</p>
-<pre class="r"><code>library(rnaturalearth)
-library(rnaturalearthdata)
-library(sf)
+<p>Hold up–the data frame still contains missions that did not take place in Africa. We need to filter this out somehow.</p>
+<pre class="r"><code>library(countrycode)
 
-world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;)
-AFR_sf &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)
-AFR_list &lt;- AFR_sf %&gt;% pull(iso_a3)
-GeoPKO2018 &lt;- GeoPKO2018 %&gt;% filter(iso3c %in% AFR_list)</code></pre>
+AFR_list &lt;- codelist %&gt;% filter(continent %in% &quot;Africa&quot;)  %&gt;% select(country.name.en) %&gt;% pull()
+
+GeoPKO2018_AFR &lt;- GeoPKO2018 %&gt;% 
+  mutate(country=case_when(country==&quot;DRC&quot; ~ &quot;Congo-Kinshasa&quot;,
+                           TRUE~ as.character(country))) %&gt;% 
+  filter(country %in% AFR_list)</code></pre>
 <p>With that set, we can start plotting the deployment locations and their respective sizes for UN peacekeeping missions in Africa in 2018.</p>
 <pre class="r"><code>library(ggrepel) #to nudge labels nicely away from geom_point
 library(viridis) #for pretty colors
-library(ggplot2) #to make plots
 library(ggthemes)
 
-  ggplot(data=AFR_sf) + geom_sf() + 
-  geom_point(data = GeoPKO2018, aes(x=longitude, y=latitude, 
+ggplot(data=AFR_sf) + geom_sf() + 
+  geom_point(data = GeoPKO2018_AFR, aes(x=longitude, y=latitude, 
                                     size=YearlyAverage, color= YearlyAverage), alpha=.7)+
   scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
@@ -7695,10 +7085,10 @@ library(ggthemes)
                       breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000), 
                       name=&quot;Average Troop Deployment&quot; ) +
   guides( colour = guide_legend()) +
-  geom_point(data = GeoPKO2018 %&gt;% filter(HQ==3), aes (x=longitude, y=latitude, shape=&quot;HQ&quot;),
+  geom_point(data = GeoPKO2018_AFR %&gt;% filter(hq==3), aes (x=longitude, y=latitude, shape=&quot;HQ&quot;),
              fill = &quot;red&quot;, size=2, color=&quot;red&quot;, alpha=.8)+
   scale_shape_manual(values=c(23), labels=c(&quot;HQ&quot;=&quot;Mission HQ&quot;), name=&quot;&quot;)+
-  geom_label_repel(data = GeoPKO2018 %&gt;% filter(HQ==3), aes(x=longitude, y=latitude, label=Mission),
+  geom_label_repel(data = GeoPKO2018_AFR %&gt;% filter(hq==3), aes(x=longitude, y=latitude, label=mission),
                    min.segment.length = 0, 
                    direction=&quot;both&quot;,
                    label.size = 0.5,
@@ -7720,21 +7110,21 @@ library(ggthemes)
     axis.text=element_blank(),
     legend.key=element_blank()
   )</code></pre>
-<p><img src="figure/viz.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/viz.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Here is a similar visualization, but this time the color aesthetic for geom_point is mapped to shown country instead.</p>
 <pre class="r"><code>p3 &lt;- ggplot(data=AFR_sf) + geom_sf() +
-  geom_point(data=GeoPKO2018, 
+  geom_point(data=GeoPKO2018_AFR, 
              aes(x=longitude, y=latitude, size=YearlyAverage, color=country), alpha=.4, shape=20)+
-  geom_point(data=GeoPKO2018 %&gt;% filter(HQ==3), 
+  geom_point(data=GeoPKO2018_AFR %&gt;% filter(hq==3), 
              aes(x=longitude, y=latitude), 
              color=&quot;black&quot;, shape=16, size=2) +
-  geom_label_repel(data=GeoPKO2018 %&gt;% filter(HQ==3),
-    min.segment.length = 0.2,
-    label.size = 0.5,
-    box.padding = 2,
-    size = 3,
-    fill = alpha(c(&quot;white&quot;),0.7),
-    aes(x=longitude, y=latitude, label=Mission)) +
+  geom_label_repel(data=GeoPKO2018_AFR %&gt;% filter(hq==3),
+                   min.segment.length = 0.2,
+                   label.size = 0.5,
+                   box.padding = 2,
+                   size = 3,
+                   fill = alpha(c(&quot;white&quot;),0.7),
+                   aes(x=longitude, y=latitude, label=mission)) +
   labs(title=&quot;UN Peacekeeping Deployment and Mission HQs in Africa, 2018&quot;)+
   scale_size(range = c(2, 16))+
   labs(size=&quot;Average number of troops\n(continuous scale)&quot;,color=&quot;Country&quot;,shape=&quot;HQ&quot;)+
@@ -7753,23 +7143,25 @@ library(ggthemes)
   guides(colour=guide_legend(ncol=2,override.aes = list(size=5)),
          size=guide_legend(ncol=2))
 p3</code></pre>
-<p><img src="figure/viz.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/viz.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for missions taking place in Africa in 2018. First we would calculate the average number of troops that is deployed to a location per mission per year, for every year between 1994 and 2018.</p>
-<pre class="r"><code>gif_df &lt;- GeoPKO %&gt;%   
-  filter(iso3c %in% AFR_list) %&gt;% 
-  select(Mission, year, location, latitude, longitude, No.troops, HQ) %&gt;%
+<pre class="r"><code>AFR_GIF &lt;- GeoPKO %&gt;%   
+  mutate(country=case_when(country==&quot;DRC&quot; ~ &quot;Congo-Kinshasa&quot;,
+                           TRUE~ as.character(country))) %&gt;%
+  filter(country %in% AFR_list) %&gt;% 
+  select(mission, year, location, latitude, longitude, no.troops, hq) %&gt;%
   mutate_at(vars(latitude, longitude), as.numeric) %&gt;% 
-  group_by_at(vars(-No.troops)) %&gt;%
-  summarise(ave.no.troops = round(mean(as.numeric(No.troops), na.rm=TRUE)))</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;Mission&#39;, &#39;year&#39;, &#39;location&#39;, &#39;latitude&#39;, &#39;longitude&#39; (override with `.groups` argument)</code></pre>
+  group_by_at(vars(-no.troops)) %&gt;%
+  summarise(ave.no.troops = round(mean(as.numeric(no.troops), na.rm=TRUE)))</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;mission&#39;, &#39;year&#39;, &#39;location&#39;, &#39;latitude&#39;, &#39;longitude&#39; (override with `.groups` argument)</code></pre>
 <p>The animated graph is built on the above code for static graphics, using the cool package <code>gganimate</code>.</p>
 <pre class="r"><code>library(gganimate)
 
 # Transforming the &quot;year&quot; variable into a discrete variable.
-gif_df$year &lt;- as.factor(gif_df$year)
+AFR_GIF$year &lt;- as.factor(AFR_GIF$year)
 
 ggplot(AFR_sf) + geom_sf() + 
-  geom_point(data = gif_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  geom_point(data = AFR_GIF, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
   scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option=&quot;cividis&quot;, 
@@ -7792,10 +7184,7 @@ ggplot(AFR_sf) + geom_sf() +
   labs(title=&quot;UN Peacekeeping in Armed Conflicts in Africa: {closest_state}&quot;,
        caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
   ease_aes()</code></pre>
-<img src="figure/viz.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" />
-<div class="alert alert-warning">
-<strong>Warning!</strong> The custom <code>fig.path</code> you set was ignored by workflowr.
-</div>
+<p><img src="figure/viz.Rmd/animatedgraph-1.gif" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#run the following command to save the plot
 #anim_save(&quot;animatedUNPKO.gif&quot;, p4)</code></pre>
 <p>With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset.</p>
@@ -7823,10 +7212,10 @@ attached base packages:
 
 other attached packages:
  [1] gganimate_1.0.6         ggthemes_4.2.0          viridis_0.5.1          
- [4] viridisLite_0.3.0       ggrepel_0.8.2           ggplot2_3.3.2          
- [7] sf_0.9-5                rnaturalearthdata_0.1.0 rnaturalearth_0.1.0    
-[10] kableExtra_1.1.0        knitr_1.29              readr_1.3.1            
-[13] tidyr_1.1.1             dplyr_1.0.2             workflowr_1.6.2        
+ [4] viridisLite_0.3.0       ggrepel_0.8.2           countrycode_1.2.0      
+ [7] kableExtra_1.1.0        knitr_1.29              readr_1.3.1            
+[10] ggplot2_3.3.2           dplyr_1.0.2             sf_0.9-5               
+[13] rnaturalearthdata_0.1.0 rnaturalearth_0.1.0     workflowr_1.6.2        
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5         lattice_0.20-41    prettyunits_1.1.1  class_7.3-17      

@@ -332,7 +332,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-25
+<strong>Last updated:</strong> 2020-12-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -423,16 +423,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeb6fea7a1e52d679289a27b2b4327f8b41b337830targetblankb6fea7aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/b6fea7a1e52d679289a27b2b4327f8b41b337830" target="_blank">b6fea7a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -443,10 +443,11 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/ViEWS/
+    Untracked:  data/Geo_PKO_v2.0.csv
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Deleted:    data/Geo_PKO_v2_ISO3.csv
+    Modified:   figure/viz.Rmd/animatedgraph-1.gif
 
 </code></pre>
 <p>
@@ -485,6 +486,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/eafa002c5ba37e0bac4a4425ee129f16e26e63d1/analysis/index.Rmd" target="_blank">eafa002</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-03
+</td>
+<td>
+adapting to new dataset version
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/acee4ed45acd6a5b4677faf498a38b4478b83658/docs/index.html" target="_blank">acee4ed</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-11-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1408,27 +1443,26 @@ library(dplyr)</code></pre>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>We start by importing the dataset. To get a sense of how <code>read_csv</code> would parse the dataset, run <code>spec_csv()</code> on the dataset beforehand.</p>
-<pre class="r"><code>specs &lt;- spec_csv(&quot;data/Geo_PKO_v2_ISO3.csv&quot;)</code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre class="r"><code>specs &lt;- spec_csv(&quot;data/Geo_PKO_v2.0.csv&quot;)</code></pre>
 <pre><code>Parsed with column specification:
 cols(
   .default = col_double(),
-  Source = col_character(),
-  Mission = col_character(),
+  source = col_character(),
+  mission = col_character(),
   joined_date = col_character(),
   timepoint = col_character(),
   location = col_character(),
   country = col_character(),
   old_xy = col_logical(),
   geocomment = col_character(),
-  `Comment on unit` = col_character(),
-  RPF = col_logical(),
-  RPF_No = col_logical(),
-  `Obs Base` = col_logical(),
-  Cantonment = col_logical(),
-  Disarmament = col_logical(),
-  HeSup_LW = col_logical(),
-  Troop.type = col_character(),
+  comment.on.unit = col_character(),
+  rpf = col_logical(),
+  rpf.no = col_logical(),
+  obs.base = col_logical(),
+  cantonment = col_logical(),
+  disarmament = col_logical(),
+  he.sup.lw = col_logical(),
+  troop.type = col_character(),
   nameoftcc_1 = col_character(),
   notroopspertcc_1 = col_character(),
   nameoftcc_2 = col_character(),
@@ -1437,8 +1471,7 @@ cols(
 )</code></pre>
 <pre><code>See spec(...) for full column specifications.</code></pre>
 <p>This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. Here, we are going to dodge this issue by telling R to parse all columns as character. Running <code>str()</code> can help us ensure that the process was carried out correctly.</p>
-<pre class="r"><code>GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v2_ISO3.csv&quot;, col_types = cols(.default=&quot;c&quot;),
-                          locale=readr::locale(encoding=&quot;latin1&quot;))
+<pre class="r"><code>GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v2.0.csv&quot;, col_types = cols(.default=&quot;c&quot;))
 str(GeoPKO)
 nrow(GeoPKO)
 ncol(GeoPKO)</code></pre>
@@ -1450,13 +1483,10 @@ ncol(GeoPKO)</code></pre>
 <thead>
 <tr>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-X1
+source
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Source
-</th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Mission
+mission
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 joined_date
@@ -1507,103 +1537,103 @@ platoon
 other.size
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Comment on unit
+comment.on.unit
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-No.troops
+no.troops
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-RPF
+rpf
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-RPF_No
+rpf.no
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Inf
+inf
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Inf_No
+inf.no
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-FPU
+fpu
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-FPU_No
+fpu.no
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-RES
+res
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-RES_No
+res.no
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-FP
+fp
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-FP_No
+fp.no
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Eng
+eng
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Sig
+sig
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Trans
+trans
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Riv
+riv
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-HeSup
+he.sup
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-SF
+sf
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Med
+med
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Maint
+maint
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Recon
+recon
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Avia
+avia
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-MP
+mp
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Demining
+demining
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-UAV
+uav
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Obs Base
+obs.base
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Cantonment
+cantonment
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Disarmament
+disarmament
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Other.Type
+other.type
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Armor
+armor
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-HeSup_LW
+he.sup.lw
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Troop.type
+troop.type
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-No.TCC
+no.tcc
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 nameoftcc_1
@@ -1708,25 +1738,25 @@ nameoftcc_17
 notroopspertcc_17
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-UNPOL.dummy
+unpol.dummy
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-UNMO.dummy
+unmo.dummy
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 coding quality for UNMO (1=unsure; 0=perfectly fine)
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-HQ
+hq
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-LO
+lo
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-JMCO
+jmco
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Security Group (dummy)
+security.group.dummy
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 comments
@@ -1738,67 +1768,70 @@ cow_code
 gnwo
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC1
+tcc1
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC2
+tcc2
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC3
+tcc3
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC4
+tcc4
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC5
+tcc5
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC6
+tcc6
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC7
+tcc7
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC8
+tcc8
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC9
+tcc9
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC10
+tcc10
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC11
+tcc11
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC12
+tcc12
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC13
+tcc13
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC14
+tcc14
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC15
+tcc15
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC16
+tcc16
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-TCC17
+tcc17
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-ADM1_id
+adm1.id
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-ADM1_name
+adm1.name
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-PRIOID
+prioid
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 iso3c
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Month
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 MonthName
@@ -1807,9 +1840,6 @@ MonthName
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-1
-</td>
 <td style="text-align:left;">
 Map no. 4309
 </td>
@@ -2159,13 +2189,13 @@ Bujumbura Mairie
 BDI
 </td>
 <td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
 March
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-2
-</td>
 <td style="text-align:left;">
 Map no. 4309 Rev. 1
 </td>
@@ -2515,13 +2545,13 @@ Bujumbura Mairie
 BDI
 </td>
 <td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
 August
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-3
-</td>
 <td style="text-align:left;">
 Map no. 4203 Rev. 2
 </td>
@@ -2871,13 +2901,13 @@ Lagunes
 CIV
 </td>
 <td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
 August
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-4
-</td>
 <td style="text-align:left;">
 Map no. 4203 Rev. 3
 </td>
@@ -3227,13 +3257,13 @@ Lagunes
 CIV
 </td>
 <td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
 November
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-5
-</td>
 <td style="text-align:left;">
 Map no. 4203 Rev. 4
 </td>
@@ -3583,6 +3613,9 @@ Lagunes
 CIV
 </td>
 <td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
 January
 </td>
 </tr>
@@ -3592,12 +3625,12 @@ January
 <div id="what-missions-are-included" class="section level3">
 <h3>What missions are included?</h3>
 <p>Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 – the latest to date – brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries (rather than 45, since there is a disputed location between Ethiopia and Eritrea in UNMEE).</p>
-<pre class="r"><code>str(TotalCount &lt;- with(GeoPKO, table(Mission, country)))</code></pre>
+<pre class="r"><code>str(TotalCount &lt;- with(GeoPKO, table(mission, country)))</code></pre>
 <pre><code> &#39;table&#39; int [1:52, 1:45] 0 0 0 0 0 0 0 0 0 0 ...
  - attr(*, &quot;dimnames&quot;)=List of 2
-  ..$ Mission: chr [1:52] &quot;BINUB&quot; &quot;MINUCI&quot; &quot;MINUGUA&quot; &quot;MINUJUSTH&quot; ...
+  ..$ mission: chr [1:52] &quot;BINUB&quot; &quot;MINUCI&quot; &quot;MINUGUA&quot; &quot;MINUJUSTH&quot; ...
   ..$ country: chr [1:45] &quot;Afghanistan&quot; &quot;Algeria&quot; &quot;Angola&quot; &quot;Bosnia and Herzegovina&quot; ...</code></pre>
-<pre class="r"><code>unique(GeoPKO$Mission)</code></pre>
+<pre class="r"><code>unique(GeoPKO$mission)</code></pre>
 <pre><code> [1] &quot;BINUB&quot;      &quot;MINUCI&quot;     &quot;UNOCI&quot;      &quot;MINURCA&quot;    &quot;MINURCAT&quot;  
  [6] &quot;MINURSO&quot;    &quot;MINUSCA&quot;    &quot;UNISFA&quot;     &quot;MINUSMA&quot;    &quot;UNFICYP&quot;   
 [11] &quot;MONUSCO&quot;    &quot;UNAMID&quot;     &quot;UNSMIS&quot;     &quot;UNAVEM III&quot; &quot;UNMISS&quot;    
@@ -3652,12 +3685,12 @@ Attaching package: &#39;zoo&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:base&#39;:
 
     as.Date, as.Date.numeric</code></pre>
-<pre class="r"><code>GeoPKO %&gt;% select(Mission, year, month) %&gt;% 
+<pre class="r"><code>GeoPKO %&gt;% select(mission, year, month) %&gt;% 
   mutate(month=as.numeric(month),
          MonthChr=as.character(month(month, label=TRUE, abbr= FALSE))) %&gt;%   #turn numeric months into words 
   unite(timepoint, c(&quot;year&quot;, &quot;MonthChr&quot;), sep=&quot; &quot;) %&gt;% 
   mutate(timepoint=zoo::as.yearmon(timepoint, &quot;%Y %B&quot;)) %&gt;% #parse our joined date string as date to arrange
-  group_by(Mission) %&gt;%
+  group_by(mission) %&gt;%
   summarize(start_date=min(timepoint), end_date=max(timepoint)) %&gt;% arrange(start_date) %&gt;% 
   kable(., caption= &quot;Missions arranged by the earliest start date&quot;,
         col.names=c(&quot;Mission&quot;, &quot;Starting point&quot;, &quot;End point&quot;)) %&gt;% kable_styling() %&gt;%
@@ -4262,20 +4295,20 @@ Oct 2019
 <h3>Deployment size</h3>
 <p>Because the dataset gathers observations by deployment maps, depending on how often the maps are published, for certain years a location may have multiple observations. This makes it a bit tricky especially when we want to run analysis at the yearly level. There are several ways to aggregate the data by year, such as taking the yearly average, or taking the first or last observations of the year. The code below uses the first method to obtain the deployment size figures per location-year. For the sake of simplicity, we’re starting first with only MINUSMA, but the same method could be applied to the entire dataset (with some reservations - more on this later).</p>
 <pre class="r"><code>GeoPKO %&gt;% 
-  filter(Mission==&quot;MINUSMA&quot;) %&gt;% 
-  mutate(No.troops=as.numeric(No.troops)) %&gt;% 
-  group_by(Mission, year, location) %&gt;% 
-  summarise(YearlyAverage = round(mean(No.troops, na.rm=TRUE))) %&gt;% 
+  filter(mission==&quot;MINUSMA&quot;) %&gt;% 
+  mutate(no.troops=as.numeric(no.troops)) %&gt;% 
+  group_by(mission, year, location) %&gt;% 
+  summarise(YearlyAverage = round(mean(no.troops, na.rm=TRUE))) %&gt;% 
   pivot_wider(names_from=year, values_from=YearlyAverage) %&gt;% # turning the dataframe from long to wide format for easier viewing
   kable() %&gt;% kable_styling() %&gt;%
   scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;) #displaying the first ten rows</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;Mission&#39;, &#39;year&#39; (override with `.groups` argument)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;mission&#39;, &#39;year&#39; (override with `.groups` argument)</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Mission
+mission
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 location
@@ -4540,7 +4573,7 @@ Kidal
 MINUSMA
 </td>
 <td style="text-align:left;">
-MÃ©naka
+Ménaka
 </td>
 <td style="text-align:right;">
 300
@@ -4670,7 +4703,7 @@ NA
 MINUSMA
 </td>
 <td style="text-align:left;">
-LerÃ©
+Leré
 </td>
 <td style="text-align:right;">
 NA
@@ -4699,36 +4732,36 @@ NA
 <h3>Other features of the dataset</h3>
 <p>Other than locations and deployment size, version 2.0 also includes variables capturing other dimensions of peacekeeping activities. Components such as military observers, civilian and formed police, and liaison offices also make important contributions to the outcome of a mission. This information could be use to complement troop sizes in analysis, or to compare between missions.</p>
 <p>To illustrate, we start by looking at UN mission observers and the UN police. Which mission has both UNMO and UNPOL at the same time, and when? In other words, we are looking for missions for which, at one given time, both UNMO and UNPOL bodies were present regardless of location. To do this, we want to filter for any source map that has <em>at least</em> one UNMO <em>and</em> one UNPOL deployment. This gives us seven missions.</p>
-<pre class="r"><code>GeoPKO %&gt;% select(Source, Mission, location, UNMO.dummy, UNPOL.dummy) %&gt;%   group_by(Source) %&gt;% filter(any(UNMO.dummy==1)&amp; any(UNPOL.dummy==1)) %&gt;%  ungroup() -&gt; UNMO.UNPOL
+<pre class="r"><code>GeoPKO %&gt;% select(source, mission, location, unmo.dummy, unpol.dummy) %&gt;%   group_by(source) %&gt;% filter(any(unmo.dummy==1)&amp; any(unpol.dummy==1)) %&gt;%  ungroup() -&gt; UNMO.UNPOL
 
-unique(UNMO.UNPOL$Mission)</code></pre>
+unique(UNMO.UNPOL$mission)</code></pre>
 <pre><code>[1] &quot;UNOCI&quot;      &quot;MINUSCA&quot;    &quot;UNISFA&quot;     &quot;UNAVEM III&quot; &quot;MONUA&quot;     
 [6] &quot;UNMIL&quot;      &quot;UNMIS&quot;     </code></pre>
 <p>Focusing on UNOCI, we can also run a cross-table to find out whether these UNMO and UNPOL were lodged together or not. When UNMO and UNPOL were both present in UNOCI, it seems that both often appeared at the same location.</p>
-<pre class="r"><code>UNMO.UNPOL %&gt;% filter(Mission ==&quot;UNOCI&quot;) %&gt;% {table(.$UNPOL.dummy, .$UNMO.dummy)} #the curly braces allow us to run table() directly within a pipe, rather than having to save the filtered tibble as a new object. </code></pre>
+<pre class="r"><code>UNMO.UNPOL %&gt;% filter(mission ==&quot;UNOCI&quot;) %&gt;% {table(.$unpol.dummy, .$unmo.dummy)} #the curly braces allow us to run table() directly within a pipe, rather than having to save the filtered tibble as a new object. </code></pre>
 <pre><code>   
       0   1
   0 265  82
   1 233 555</code></pre>
 <p>Version 2.0 also records information on the type of military units deployed. While infantry units are the most common type, missions also make use of other military functions, such as engineer, medical, air force, and demining. Refer to the codebook for a full list of this type of variables. Overall, this may give us a better grasp on a mission’s various capabilities.</p>
 <p>As an example, the following code snippet reveals that both MINUSCA and MINUSMA employ Unmanned Aerial Vehicles in their activities.</p>
-<pre class="r"><code>GeoPKO %&gt;% filter(UAV==1) %&gt;% distinct(Mission)</code></pre>
+<pre class="r"><code>GeoPKO %&gt;% filter(uav==1) %&gt;% distinct(mission)</code></pre>
 <pre><code># A tibble: 2 x 1
-  Mission
+  mission
   &lt;chr&gt;  
 1 MINUSCA
 2 MINUSMA</code></pre>
 <p>We can also see if missions become more specialized over time, here with MINUSMA as an example. Disregarding variations by location, for each source map we want to find out which troop functions were available in the mission. Then we calculate the number of troops functions at each time period.</p>
 <pre class="r"><code>library(ggplot2)
 
-GeoPKO %&gt;% filter(Mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&quot;year&quot;, &quot;month&quot;), sep=&quot; &quot;) %&gt;% 
+GeoPKO %&gt;% filter(mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&quot;year&quot;, &quot;month&quot;), sep=&quot; &quot;) %&gt;% 
   mutate(timepoint=zoo::as.yearmon(timepoint, &quot;%Y %m&quot;)) %&gt;% 
-  select(timepoint, Mission, location, RPF, `Inf`, FPU, RES, FP, Eng:UAV) %&gt;%
-  mutate_at(vars(RPF:UAV), as.integer) %&gt;%
-  group_by(timepoint, Mission) %&gt;% 
-  summarise_at(vars(RPF:UAV), funs(case_when(any(.) ==1 ~ 1, TRUE ~ 0))) %&gt;% 
-  mutate(TroopCap=rowSums(across(RPF:UAV), na.rm=TRUE)) %&gt;% # at this point this seems about right, but the dates are all over the place, so we rearrange them using a similar code from above
-  select(timepoint, Mission, TroopCap) %&gt;% 
+  select(timepoint, mission, location, rpf, inf, fpu, res, fp, eng:uav) %&gt;% #select all the troop type variables
+  mutate_at(vars(rpf:uav), as.integer) %&gt;%
+  group_by(timepoint, mission) %&gt;% 
+  summarise_at(vars(rpf:uav), funs(case_when(any(.) ==1 ~ 1, TRUE ~ 0))) %&gt;% 
+  mutate(TroopCap=rowSums(across(rpf:uav), na.rm=TRUE)) %&gt;% # at this point this seems about right, but the dates are all over the place, so we rearrange them using a similar code from above
+  select(timepoint, mission, TroopCap) %&gt;% 
   arrange(timepoint) %&gt;% 
   ggplot(aes(timepoint, TroopCap))+
   geom_line()</code></pre>
