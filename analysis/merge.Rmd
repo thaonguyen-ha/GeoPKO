@@ -199,6 +199,7 @@ And here we have it: an interactive map to view recent peacekeeping deployments 
 ### Geo-PKO x UCDP
 
 Another useful dataset is from the Uppsala Conflict Data Programme, which offers insights into deaths from armed conflict. Looking at this data in conjunction with peacekeeping data can be useful to draw conclusions into peacekeeping given the severity of armed conflict, or lack thereof. How to merge with this dataset, and a few examples, will be added soon. We start with importing "UCDP Georeferenced Event Dataset (GED) Global version 20.1", of which a small excerpt of 2011 is shown in the table below. 
+
 ```{r}
 UCDP <- read_csv("data/UCDP/ged201.csv")
 kable(UCDP[9546:9550,]) %>% kable_styling() %>%
@@ -208,6 +209,7 @@ kable(UCDP[9546:9550,]) %>% kable_styling() %>%
 ## Preparing the data
 For the GeoPKO data we only used certain variables, and calculate the average troop number by year. 
 The UCDP data has different variables you could use, in this example we took "best", which indicates "the best (most likely) estimate of total fatalities resulting from integer an event"(see UCDP codebook), and "deaths_civilians", which tells us how many of this "best" variable were civilian deaths.
+
 ```{r}
 # Preparing the GeoPKO dataset
 GeoPKO_dataUCDP <- geopko %>% 
@@ -231,7 +233,7 @@ UCDP_dataframe <- UCDP %>%
   distinct()
 ```
 
-#Setting the aesthetics 
+##Setting the aesthetics 
 You can either set all the colours by hand, as seen in pal3, or use the "viridis" package to create a colour scale for you, as shown in pal2. For the UCDP data we used shades of red. The GeoPKO is mapped with viridis, which exists out of blue, green, and yellow. 
 
 ```{r}
@@ -246,7 +248,7 @@ Just as we used leaflet for the VIEWS map, we do the same here. Note that in thi
 ```{r}
 UCDP_Overview_Map <- leaflet() %>%
   addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
-  addMeasure(position = "bottomleft")%>% #Adds a widget that can measure distances between two places to the map
+  addMeasure(position = "bottomleft", primaryLengthUnit = "kilometers")%>% #Adds a widget that can measure distances between two places to the map
   clearMarkers()%>%
   clearShapes()%>% 
   addLegend("topright",
@@ -385,9 +387,10 @@ And here we have it again: an interactive map to view peacekeeping deployments, 
 ## Merging the UCDP and GeoPKO data
 
 If you do want to combine the two datasets into one dataframe there are different ways to do so. As shown with the VIEWS data, you can merge the datasets based on certain variables using "full_join", causing the two datasets to be combined in one file behind each other (it creates a dataframe in which the variables of one of the dataset occur next to the other), this can be utilized to the UCDP data as well. However, you can also merge datasets "under" each other, for the UCDP we wanted to show this second way of merging. Variables that are the same between the two datasets might go by different names, that is why some of the variable of the UCDP are renamed so that they are in line with the GeoPKO ones. The newly combined dataset will first show all the UCDP rows, and under these the GeoPKO rows will be "pasted". 
+Merging can be usefull for all kinds of reasons, such as statistical analysis. 
 
 ```{r}
-# Rename several variables
+# Rename variables you want to merge
 #UCDP_dataframeMerge = UCDP_dataframe %>% rename (location=where_coordinates)
 
 # Merge the datasets

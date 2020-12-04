@@ -198,3 +198,54 @@ ggplot(AFR_sf) + geom_sf() +
 ```
 
 With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset. 
+
+The following code shows how to make an animate plot with the global data by year, using the package "animate".
+```{r}
+library(viridis)
+library(animate)
+library(ggthemes)
+
+#Create a new dataframe keeping all missions and regions
+Global_df <- GeoPKO %>% 
+  select(mission, year, location, latitude, longitude, no.troops) %>%
+  mutate_at(vars(latitude, longitude, no.troops), as.numeric) %>% 
+  group_by(mission, year, location) %>%
+  mutate(ave.no.troops = as.integer(mean(no.troops, na.rm=TRUE))) %>% 
+  select(-no.troops) %>% distinct() %>% drop_na(ave.no.troops) %>% filter(ave.no.troops>0)
+
+#Make the year variable discrete
+Global_df$year <- as.factor(Global_df$year)
+
+#Make the plot
+animated_global <- ggplot() + 
+    borders("world",  xlim = c(-130, 140), ylim = c(-50, 50), colour = "gray85", fill = "gray80") + 
+    theme_map()+
+    geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+    scale_size_continuous(name="Average Troop Deployment", range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
+    scale_color_viridis(option="viridis", breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name="Average Troop Deployment" ) +
+    guides(colour = guide_legend()) + 
+    transition_manual(frames = year)+
+    enter_fade()+
+    labs(title="UN Peacekeeping in intrastate armed conflicts: {current_frame}", 
+       color="Average Deployment Size",
+       caption="Source: The Geo-PKO dataset v2.0")+ 
+    theme(text = element_text(color = "#22211d"),
+         legend.position =  c(1,0.2),
+         plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+         panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+         legend.background = element_rect(fill = "#f5f5f2", color = NA),
+         legend.key = element_rect(fill = "#f5f5f2", color = NA),
+         plot.title = element_text(size= 14, hjust=0.6, color = "#4e4d47", 
+         margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+         panel.grid=element_blank(),
+         axis.text=element_blank(),
+         axis.ticks=element_blank(),
+         axis.title=element_blank(),
+         plot.margin = margin(0, 4.5, 0, -1, "cm"))
+
+#Animate the plot
+animate(animated_global, height = 400, width =800, fps = 4)
+
+##To save the plot run the following line of code
+#anim_save("Animated_GeoPKO2.0.gif")
+```
