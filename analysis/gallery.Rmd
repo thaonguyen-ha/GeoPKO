@@ -7,14 +7,52 @@ editor_options:
   chunk_output_type: console
 ---
 
-The Geo-PKO team has used the dataset to produce a range of visualisations. Here are some ways we have presented data on global peacekeeping deployments and related information.
 
-```{r, results="asis"}
-img_list <- list.files( path = 'C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery')
+```{r setup, include=FALSE}
 
-for (img in img_list){
-  cat(paste("![img](CC:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery", img, sep='' ) , ")\n")
-  }
+library(knitr)
+knitr::opts_chunk$set(out.width="650px", dpi=120)
 
-cat("  \n")
-``````
+```
+
+The Geo-PKO team has used the dataset to produce a range of visualisations. Here are some ways we have presented data on global peacekeeping deployments and related information. Data is from the Geo-PKO v2.0 dataset, with supplementary data from the Uppsala Conflict Data Programme (UCDP) and Uppsala University's Violence Early Warning System (ViEWS).
+
+
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/worldpko2019.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/casia.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE, out.width=350}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/FSD6AR62.gif")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/mepko.png")
+```   
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/troopsconflictrisk.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/UNPOLconflictrisk.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------  
+```{r echo=FALSE}
+include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/Animated_GeoPKO2.0.gif")
+```
