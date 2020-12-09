@@ -241,7 +241,6 @@ ggplot() +
 
 #Animate the plot
 #animate(global_p, height = 400, width =800, fps = 4, renderer="png")
-
 ##To save the plot run the following line of code
 #anim_save("Animated_GeoPKO2.0.gif")
 ```
