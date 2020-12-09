@@ -426,16 +426,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree344e1b466292242b91cff9fe949e55e0bec20ff7targetblank344e1b4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/344e1b466292242b91cff9fe949e55e0bec20ff7" target="_blank">344e1b4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree5d5a409beb3ba94dc905c8585203755cf3fb3437targetblank5d5a409a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/5d5a409beb3ba94dc905c8585203755cf3fb3437" target="_blank">5d5a409</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree344e1b466292242b91cff9fe949e55e0bec20ff7targetblank344e1b4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree5d5a409beb3ba94dc905c8585203755cf3fb3437targetblank5d5a409a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/344e1b466292242b91cff9fe949e55e0bec20ff7" target="_blank">344e1b4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/5d5a409beb3ba94dc905c8585203755cf3fb3437" target="_blank">5d5a409</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -447,6 +447,7 @@ Ignored files:
 
 Unstaged changes:
     Modified:   analysis/_site.yml
+    Modified:   figure/viz.Rmd/animatedgraph-1.gif
     Modified:   figure/viz.Rmd/animatedgraph_2-1.gif
 
 </code></pre>
@@ -486,6 +487,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/5d5a409beb3ba94dc905c8585203755cf3fb3437/analysis/viz.Rmd" target="_blank">5d5a409</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-09
+</td>
+<td>
+test
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/220b93265fb84217940581ab6a549ac59168a23f/docs/viz.html" target="_blank">220b932</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1035,7 +1070,7 @@ AFR_sf &lt;- world %&gt;% filter(region_un == &quot;Africa&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 
 ggplot(data=AFR_sf) + geom_sf()</code></pre>
-<p><img src="figure/viz.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/viz.Rmd/unnamed-chunk-2-1.png" width="1050" style="display: block; margin: auto;" /></p>
 <p>Next, we need to subset the main dataset to include only entries (1) for the year of 2018 and (2) in the continent Africa, all with (3) our variables of interests. Geo-PKO reports deployment sizes according to the available maps published by the UN. Therefore, to obtain the numbers of troop deployment at the yearly level, we calculate the average number of troops per location over the months recorded. We should end up with something similar to the table below.</p>
 <pre class="r"><code>library(readr)
 library(knitr)
@@ -7433,7 +7468,7 @@ ggplot(data=AFR_sf) + geom_sf() +
     axis.text=element_blank(),
     legend.key=element_blank()
   )</code></pre>
-<p><img src="figure/viz.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/viz.Rmd/unnamed-chunk-5-1.png" width="1050" style="display: block; margin: auto;" /></p>
 <p>Here is a similar visualization, but this time the color aesthetic for geom_point is mapped to shown country instead.</p>
 <pre class="r"><code>p3 &lt;- ggplot(data=AFR_sf) + geom_sf() +
   geom_point(data=GeoPKO2018_AFR, 
@@ -7466,7 +7501,7 @@ ggplot(data=AFR_sf) + geom_sf() +
   guides(colour=guide_legend(ncol=2,override.aes = list(size=5)),
          size=guide_legend(ncol=2))
 p3</code></pre>
-<p><img src="figure/viz.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/viz.Rmd/unnamed-chunk-6-1.png" width="1050" style="display: block; margin: auto;" /></p>
 <p>How has this changed over the period covered by the dataset? An animated graph is great for this purpose. The first step is to prepare a dataframe, much similar to what has been done above for missions taking place in Africa in 2018. First we would calculate the average number of troops that is deployed to a location per mission per year, for every year between 1994 and 2018.</p>
 <pre class="r"><code>AFR_GIF &lt;- GeoPKO %&gt;%   
   mutate(country=case_when(country==&quot;DRC&quot; ~ &quot;Congo-Kinshasa&quot;,
@@ -7531,29 +7566,30 @@ ggplot() +
   borders(&quot;world&quot;,  xlim = c(-130, 140), ylim = c(-50, 50), colour = &quot;gray85&quot;, fill = &quot;gray80&quot;) + 
   theme_void()+
   geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
-  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
-  scale_color_viridis(option=&quot;viridis&quot;, breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name=&quot;Average Troop Deployment&quot; ) +
+  scale_size_continuous(name=&quot;Average Troop\nDeployment&quot;, range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
+  scale_color_viridis(option=&quot;viridis&quot;, breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name=&quot;Average Troop\nDeployment&quot; ) +
   guides(colour = guide_legend()) + 
   theme(text = element_text(color = &quot;#22211d&quot;),
-#        legend.position =  c(1,0.2),
+        legend.position =  c(1,0.4),
         plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
         panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
-        legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-        legend.key = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-        plot.title = element_text(size= 14, hjust=0.5, color = &quot;#4e4d47&quot;),
-#        plot.margin=margin(1, 1, 1, 1, &quot;cm&quot;),
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_rect(fill = NA, color = NA),
+        plot.title = element_text(size= 14, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
+        #        plot.margin=margin(1, 1, 1, 1, &quot;cm&quot;),
         panel.grid=element_blank(),
         axis.text=element_blank(),
         axis.ticks=element_blank(),
-        axis.title=element_blank()) +
-  transition_states(states = year, transition_length = 3, state_length=3)+
-  labs(title=&quot;UN Peacekeeping around the world: {closest_state}&quot;,
-       color=&quot;Average Deployment Size&quot;,
-       caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
-  ease_aes()</code></pre>
+        axis.title=element_blank(),
+        plot.caption=element_text(hjust=1, face=&quot;italic&quot;)) +
+ transition_states(states = year, transition_length = 3, state_length=3)+
+ labs(title=&quot;UN Peacekeeping around the world: {closest_state}&quot;,
+      color=&quot;Average Deployment Size&quot;,
+      caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
+ ease_aes()</code></pre>
 <p><img src="figure/viz.Rmd/animatedgraph_2-1.gif" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#Animate the plot
-#animate(global_p, height = 400, width =800, fps = 4, renderer=&quot;png&quot;)
+#animate(global_p, height = 600, width =800, fps = 4, res=120)
 ##To save the plot run the following line of code
 #anim_save(&quot;Animated_GeoPKO2.0.gif&quot;)</code></pre>
 <br>
