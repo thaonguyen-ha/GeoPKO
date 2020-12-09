@@ -387,12 +387,15 @@ And here we have it again: an interactive map to view peacekeeping deployments, 
 ## Merging the UCDP and GeoPKO data
 
 If you do want to combine the two datasets into one dataframe there are different ways to do so. As shown with the VIEWS data, you can merge the datasets based on certain variables using "full_join", causing the two datasets to be combined in one file behind each other (it creates a dataframe in which the variables of one of the dataset occur next to the other), this can be utilized to the UCDP data as well. However, you can also merge datasets "under" each other, for the UCDP we wanted to show this second way of merging. Variables that are the same between the two datasets might go by different names, that is why some of the variable of the UCDP are renamed so that they are in line with the GeoPKO ones. The newly combined dataset will first show all the UCDP rows, and under these the GeoPKO rows will be "pasted". 
-Merging can be usefull for all kinds of reasons, such as statistical analysis. 
+
+Merging can be useful for all kinds of reasons, such as statistical analysis. 
 
 ```{r}
 # Rename variables you want to merge
-#UCDP_dataframeMerge = UCDP_dataframe %>% rename (location=where_coordinates)
+names(UCDP_dataframe)[names(UCDP_dataframe) == "where_coordinates"] <- "location"
 
 # Merge the datasets
-#Combined_UCDP_GeoPKO<- bind_rows(UCDP_dataframeMerge, GeoPKO_dataUCDP)
+Combined_UCDP_GeoPKO<- bind_rows(UCDP_dataframe, GeoPKO_dataUCDP)
+
+kable(Combined_UCDP_GeoPKO) %>% kable_styling()
 ```

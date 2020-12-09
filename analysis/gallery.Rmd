@@ -10,11 +10,11 @@ editor_options:
 The Geo-PKO team has used the dataset to produce a range of visualisations. Here are some ways we have presented data on global peacekeeping deployments and related information.
 
 ```{r, results="asis"}
-img_list <- list.files( path = 'C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery')
+img_list <- list.files(path= "analysis/gallery", pattern=c("png", "gif"), full.names=TRUE)
 
 for (img in img_list){
-  cat(paste("![img](CC:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery", img, sep='' ) , ")\n")
+  cat(paste0("![img](path/to/files/", img, ")\n"))
   }
 
 cat("  \n")
-``````
+```
