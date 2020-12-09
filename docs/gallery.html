@@ -313,7 +313,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -322,7 +322,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -334,7 +334,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2020-12-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>GeoPKO/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -350,12 +350,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -422,16 +422,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c91f39997c98c57ddce9393c30a58844eb2f0a8targetblank3c91f39a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c91f39997c98c57ddce9393c30a58844eb2f0a8" target="_blank">3c91f39</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree7a7271bf96b5131604c8b69aa9eaa8e1d650711ftargetblank7a7271ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/7a7271bf96b5131604c8b69aa9eaa8e1d650711f" target="_blank">7a7271b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c91f39997c98c57ddce9393c30a58844eb2f0a8targetblank3c91f39a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree7a7271bf96b5131604c8b69aa9eaa8e1d650711ftargetblank7a7271ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c91f39997c98c57ddce9393c30a58844eb2f0a8" target="_blank">3c91f39</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/7a7271bf96b5131604c8b69aa9eaa8e1d650711f" target="_blank">7a7271b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -441,17 +441,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Unstaged changes:
-    Conflicted: analysis/gallery.Rmd
-
-Staged changes:
-    New:        gallery/Animated_GeoPKO2.0.gif
-    New:        gallery/FSD6AR62.gif
-    New:        gallery/casia.png
-    New:        gallery/mepko.png
-    New:        gallery/troopsconflictrisk.png
-    New:        gallery/unpolconflictrisk.png
-    New:        gallery/worldpko2019.png
+Untracked files:
+    Untracked:  gallery/
 
 </code></pre>
 <p>
@@ -495,6 +486,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/7a7271bf96b5131604c8b69aa9eaa8e1d650711f/analysis/gallery.Rmd" target="_blank">7a7271b</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-09
+</td>
+<td>
+merging gallery
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/7a7271bf96b5131604c8b69aa9eaa8e1d650711f/docs/gallery.html" target="_blank">7a7271b</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-09
+</td>
+<td>
+merging gallery
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/hatnguyen267/GeoPKO/blob/3c91f39997c98c57ddce9393c30a58844eb2f0a8/analysis/gallery.Rmd" target="_blank">3c91f39</a>
 </td>
 <td>
@@ -529,6 +554,23 @@ commit before pulling to build
 Rmd
 </td>
 <td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/103c6f0fdbb03e8839b51f0f04db8e91aae7dbd7/analysis/gallery.Rmd" target="_blank">103c6f0</a>
+</td>
+<td>
+Tanushree Rao
+</td>
+<td>
+2020-12-09
+</td>
+<td>
+new gallery page
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/hatnguyen267/GeoPKO/blob/f3a5a2d135b22ac471ba9f9d2ea98aa43089eeaa/analysis/gallery.Rmd" target="_blank">f3a5a2d</a>
 </td>
 <td>
@@ -552,6 +594,8 @@ here’s where the gallery page should actually go
 <p><img src="gallery/worldpko2019.png" width="650px" style="display: block; margin: auto;" /></p>
 <hr />
 <p><img src="gallery/casia.png" width="650px" style="display: block; margin: auto;" /></p>
+<hr />
+<p><img src="gallery/africa3-2.png" width="650px" style="display: block; margin: auto;" /></p>
 <hr />
 <p><img src="gallery/FSD6AR62.gif" width="350" style="display: block; margin: auto;" /></p>
 <hr />
@@ -585,17 +629,17 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.29
+[1] knitr_1.29      workflowr_1.6.2
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5      rstudioapi_0.11 whisker_0.4     magrittr_1.5   
- [5] workflowr_1.6.2 R6_2.4.1        rlang_0.4.7     stringr_1.4.0  
- [9] tools_4.0.2     xfun_0.16       git2r_0.27.1    htmltools_0.5.0
-[13] ellipsis_0.3.1  yaml_2.2.1      digest_0.6.25   rprojroot_1.3-2
-[17] tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1  
-[21] vctrs_0.3.2     promises_1.1.1  fs_1.5.0        glue_1.4.1     
-[25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
-[29] pillar_1.4.6    backports_1.1.7 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
+ [5] R6_2.4.1        rlang_0.4.7     stringr_1.4.0   tools_4.0.2    
+ [9] xfun_0.16       git2r_0.27.1    htmltools_0.5.0 ellipsis_0.3.1 
+[13] rprojroot_1.3-2 yaml_2.2.1      digest_0.6.25   tibble_3.0.3   
+[17] lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1   vctrs_0.3.2    
+[21] promises_1.1.1  fs_1.5.0        glue_1.4.1      evaluate_0.14  
+[25] rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2  pillar_1.4.6   
+[29] backports_1.1.7 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
 </div>
 
 
