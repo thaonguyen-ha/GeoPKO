@@ -314,7 +314,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -323,7 +323,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -332,10 +332,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-03
+<strong>Last updated:</strong> 2020-12-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>GeoPKO/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -351,12 +351,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -423,16 +423,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c91f39997c98c57ddce9393c30a58844eb2f0a8targetblank3c91f39a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c91f39997c98c57ddce9393c30a58844eb2f0a8" target="_blank">3c91f39</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeeafa002c5ba37e0bac4a4425ee129f16e26e63d1targetblankeafa002a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree3c91f39997c98c57ddce9393c30a58844eb2f0a8targetblank3c91f39a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/eafa002c5ba37e0bac4a4425ee129f16e26e63d1" target="_blank">eafa002</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/3c91f39997c98c57ddce9393c30a58844eb2f0a8" target="_blank">3c91f39</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -443,11 +443,29 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/Geo_PKO_v2.0.csv
+    Untracked:  figure/viz.Rmd/animatedgraph_2-1.gif
+    Untracked:  figure/viz.Rmd/unnamed-chunk-8-1.gif
 
 Unstaged changes:
-    Deleted:    data/Geo_PKO_v2_ISO3.csv
-    Modified:   figure/viz.Rmd/animatedgraph-1.gif
+    Conflicted: analysis/gallery.Rmd
+    Modified:   analysis/merge.Rmd
+    Modified:   analysis/viz.Rmd
+    Deleted:    gallery/Animated_GeoPKO2.0.gif
+    Deleted:    gallery/FSD6AR62.gif
+    Deleted:    gallery/casia.png
+    Deleted:    gallery/mepko.png
+    Deleted:    gallery/troopsconflictrisk.png
+    Deleted:    gallery/unpolconflictrisk.png
+    Deleted:    gallery/worldpko2019.png
+
+Staged changes:
+    New:        gallery/Animated_GeoPKO2.0.gif
+    New:        gallery/FSD6AR62.gif
+    New:        gallery/casia.png
+    New:        gallery/mepko.png
+    New:        gallery/troopsconflictrisk.png
+    New:        gallery/unpolconflictrisk.png
+    New:        gallery/worldpko2019.png
 
 </code></pre>
 <p>
@@ -486,6 +504,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/6a20fd9a43b257c32a673bd6155f57b615ff6aa1/analysis/viz.Rmd" target="_blank">6a20fd9</a>
+</td>
+<td>
+Lou van Roozendaal
+</td>
+<td>
+2020-12-04
+</td>
+<td>
+update global animated map
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/a966566bcaa53a62b88de6e32cbcaf89fc9748d2/docs/viz.html" target="_blank">a966566</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-03
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -7078,7 +7130,7 @@ library(ggthemes)
 
 ggplot(data=AFR_sf) + geom_sf() + 
   geom_point(data = GeoPKO2018_AFR, aes(x=longitude, y=latitude, 
-                                    size=YearlyAverage, color= YearlyAverage), alpha=.7)+
+                                        size=YearlyAverage, color= YearlyAverage), alpha=.7)+
   scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option=&quot;cividis&quot;, 
@@ -7161,7 +7213,8 @@ p3</code></pre>
 AFR_GIF$year &lt;- as.factor(AFR_GIF$year)
 
 ggplot(AFR_sf) + geom_sf() + 
-  geom_point(data = AFR_GIF, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  geom_point(data = AFR_GIF, aes(x=longitude, y=latitude, 
+                                 size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
   scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option=&quot;cividis&quot;, 
@@ -7188,6 +7241,52 @@ ggplot(AFR_sf) + geom_sf() +
 <pre class="r"><code>#run the following command to save the plot
 #anim_save(&quot;animatedUNPKO.gif&quot;, p4)</code></pre>
 <p>With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset.</p>
+<p>The following code shows how to make an animate plot with the global data by year, using the package “animate”.</p>
+<pre class="r"><code>library(tidyr)
+
+#Create a new dataframe keeping all missions and regions
+Global_df &lt;- GeoPKO %&gt;% 
+  select(mission, year, location, latitude, longitude, no.troops) %&gt;%
+  mutate_at(vars(latitude, longitude, no.troops), as.numeric) %&gt;% 
+  group_by(mission, year, location) %&gt;%
+  mutate(ave.no.troops = as.integer(mean(no.troops, na.rm=TRUE))) %&gt;% 
+  select(-no.troops) %&gt;% distinct() %&gt;% drop_na(ave.no.troops) %&gt;% filter(ave.no.troops&gt;0)
+
+#Make the year variable discrete
+Global_df$year &lt;- as.factor(Global_df$year)
+
+#Make the plot
+ggplot() +     
+  borders(&quot;world&quot;,  xlim = c(-130, 140), ylim = c(-50, 50), colour = &quot;gray85&quot;, fill = &quot;gray80&quot;) + 
+  theme_map()+
+  geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  scale_size_continuous(name=&quot;Average Troop Deployment&quot;, range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
+  scale_color_viridis(option=&quot;viridis&quot;, breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name=&quot;Average Troop Deployment&quot; ) +
+  guides(colour = guide_legend()) + 
+  theme(text = element_text(color = &quot;#22211d&quot;),
+        legend.position =  c(1,0.2),
+        plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
+        panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA), 
+        legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+        legend.key = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+        plot.title = element_text(size= 14, hjust=0.6, color = &quot;#4e4d47&quot;, 
+                                  margin = margin(b = -0.1, t = 0.8, l = 4, unit = &quot;cm&quot;)),
+        panel.grid=element_blank(),
+        axis.text=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title=element_blank(),
+        plot.margin = margin(0, 4.5, 0, -1, &quot;cm&quot;)) +
+  transition_states(states = year, transition_length = 3, state_length=3)+
+  labs(title=&quot;UN Peacekeeping around the world: {closest_state}&quot;, 
+       color=&quot;Average Deployment Size&quot;,
+       caption=&quot;Source: The Geo-PKO dataset v2.0&quot;)+
+  ease_aes()</code></pre>
+<p><img src="figure/viz.Rmd/animatedgraph_2-1.gif" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#Animate the plot
+#animate(animated_global, height = 400, width =800, fps = 4)
+
+##To save the plot run the following line of code
+#anim_save(&quot;Animated_GeoPKO2.0.gif&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -7211,11 +7310,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gganimate_1.0.6         ggthemes_4.2.0          viridis_0.5.1          
- [4] viridisLite_0.3.0       ggrepel_0.8.2           countrycode_1.2.0      
- [7] kableExtra_1.1.0        knitr_1.29              readr_1.3.1            
-[10] ggplot2_3.3.2           dplyr_1.0.2             sf_0.9-5               
-[13] rnaturalearthdata_0.1.0 rnaturalearth_0.1.0     workflowr_1.6.2        
+ [1] tidyr_1.1.1             gganimate_1.0.6         ggthemes_4.2.0         
+ [4] viridis_0.5.1           viridisLite_0.3.0       ggrepel_0.8.2          
+ [7] countrycode_1.2.0       kableExtra_1.1.0        knitr_1.29             
+[10] readr_1.3.1             ggplot2_3.3.2           dplyr_1.0.2            
+[13] sf_0.9-5                rnaturalearthdata_0.1.0 rnaturalearth_0.1.0    
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5         lattice_0.20-41    prettyunits_1.1.1  class_7.3-17      
@@ -7226,14 +7325,15 @@ loaded via a namespace (and not attached):
 [21] labeling_0.3       webshot_0.5.2      stringr_1.4.0      munsell_0.5.0     
 [25] compiler_4.0.2     httpuv_1.5.4       xfun_0.16          pkgconfig_2.0.3   
 [29] rgeos_0.5-3        htmltools_0.5.0    tidyselect_1.1.0   tibble_3.0.3      
-[33] gridExtra_2.3      crayon_1.3.4       withr_2.2.0        later_1.1.0.1     
-[37] grid_4.0.2         gtable_0.3.0       lifecycle_0.2.0    DBI_1.1.0         
-[41] git2r_0.27.1       magrittr_1.5       units_0.6-7        scales_1.1.1      
-[45] KernSmooth_2.23-17 stringi_1.4.6      farver_2.0.3       fs_1.5.0          
-[49] promises_1.1.1     sp_1.4-2           xml2_1.3.2         ellipsis_0.3.1    
-[53] generics_0.0.2     vctrs_0.3.2        tools_4.0.2        glue_1.4.1        
-[57] tweenr_1.0.1       purrr_0.3.4        hms_0.5.3          yaml_2.2.1        
-[61] colorspace_1.4-1   classInt_0.4-3     rvest_0.3.6       </code></pre>
+[33] gridExtra_2.3      workflowr_1.6.2    crayon_1.3.4       withr_2.2.0       
+[37] later_1.1.0.1      grid_4.0.2         gtable_0.3.0       lifecycle_0.2.0   
+[41] DBI_1.1.0          git2r_0.27.1       magrittr_1.5       units_0.6-7       
+[45] scales_1.1.1       KernSmooth_2.23-17 stringi_1.4.6      farver_2.0.3      
+[49] fs_1.5.0           promises_1.1.1     sp_1.4-2           xml2_1.3.2        
+[53] ellipsis_0.3.1     generics_0.0.2     vctrs_0.3.2        tools_4.0.2       
+[57] glue_1.4.1         tweenr_1.0.1       purrr_0.3.4        maps_3.3.0        
+[61] hms_0.5.3          yaml_2.2.1         colorspace_1.4-1   classInt_0.4-3    
+[65] rvest_0.3.6       </code></pre>
 </div>
 </div>
 

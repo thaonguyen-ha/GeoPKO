@@ -7,14 +7,57 @@ editor_options:
   chunk_output_type: console
 ---
 
-The Geo-PKO team has used the dataset to produce a range of visualisations. Here are some ways we have presented data on global peacekeeping deployments and related information.
+```{r setup, include=FALSE}
 
-```{r, results="asis"}
-img_list <- list.files(path= "analysis/gallery", pattern=c("png", "gif"), full.names=TRUE)
+library(knitr)
+knitr::opts_chunk$set(out.width="650px", dpi=120)
 
-for (img in img_list){
-  cat(paste0("![img](path/to/files/", img, ")\n"))
-  }
+```
 
-cat("  \n")
+The Geo-PKO team has used the dataset to produce a range of visualisations. Here are some ways we have presented data on global peacekeeping deployments and related information. Data is from the Geo-PKO v2.0 dataset, with supplementary data from the Uppsala Conflict Data Programme (UCDP) and Uppsala University's Violence Early Warning System (ViEWS).
+
+
+```{r echo=FALSE}
+include_graphics("gallery/worldpko2019.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/casia.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/africa3-2.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE, out.width=350}
+include_graphics("gallery/FSD6AR62.gif")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/mepko.png")
+```   
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/troopsconflictrisk.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/UNPOLconflictrisk.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------  
+```{r echo=FALSE}
+include_graphics("gallery/Animated_GeoPKO2.0.gif")
 ```
