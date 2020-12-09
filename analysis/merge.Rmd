@@ -238,7 +238,7 @@ map
 
 And here we have it: an interactive map to view the latest peacekeeping data and projected conflict risk over the next 36 months. We can also do the same but with a world terrain basemap to identify, at a basic level, potential geographic impacts such as the greater concentration of conflict risk in mountainous areas, and the general deployment of peacekeepers in non-mountainous areas.  
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, out.width="100%"}
 
 # adding provider tiles - replaces addTiles()
 map <- map %>% addProviderTiles("Esri.WorldTerrain")
@@ -298,10 +298,10 @@ pal3 <- colorBin(c("#700524", "#8d072e", "#981f42", "#ed4d3a", "#af516c", "#d19b
 
 ## Mapping UCDP data with Geo-PKO
 
-Just as we used leaflet for the VIEWS map, we do the same here. Note that in this case we did not merge the two datasets into one dataframe. When hovering over the circles, more information will be provided on either the UN peacekeeping deployment or on the UCDP conflict-related deaths. It is possible to use the PRIO-grid ID instead, and both datasets include this variable.  
+Just as we used leaflet for the ViEWS map, we do the same here. Note that in this case we did not merge the two datasets into one dataframe. When hovering over the circles, more information will be provided on either the UN peacekeeping deployment or on the UCDP conflict-related deaths. It is possible to use the PRIO-grid ID instead, and both datasets include this variable.  
 
 ```{r, warning=FALSE, message=FALSE, out.width="100%"}
-UCDP_Overview_Map <- leaflet() %>%
+leaflet() %>%
   addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
   addMeasure(position = "bottomleft", primaryLengthUnit = "kilometers") %>% # Adds a widget that can measure distances between two places to the map
   clearMarkers() %>%
