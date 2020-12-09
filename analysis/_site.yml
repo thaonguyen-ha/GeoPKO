@@ -3,7 +3,7 @@ output_dir: ../docs
 navbar:
   title: "Geo-PKO"
   left:
-  - text: Explore Geo-PKO v2.0
+  - text: Exploring Geo-PKO v2.0
     href: index.html
   - text: Mapping blue helmets
     href: viz.html
