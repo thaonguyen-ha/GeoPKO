@@ -215,7 +215,7 @@ Global_df <- GeoPKO %>%
 Global_df$year <- as.factor(Global_df$year)
 
 #Make the plot
-global_p <- ggplot() +     
+ggplot() +     
   borders("world",  xlim = c(-130, 140), ylim = c(-50, 50), colour = "gray85", fill = "gray80") + 
   theme_map()+
   geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
@@ -240,7 +240,7 @@ global_p <- ggplot() +
   ease_aes()
 
 #Animate the plot
-animate(global_p, height = 400, width =800, fps = 4)
+#animate(global_p, height = 400, width =800, fps = 4, renderer="png")
 
 ##To save the plot run the following line of code
 #anim_save("Animated_GeoPKO2.0.gif")
