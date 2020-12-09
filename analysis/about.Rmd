@@ -7,11 +7,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-These pages demonstrate the various uses of the Geo-PKO dataset using R. This includes simple commands to extract information from the dataset and visualization. A large portion of these scripts have also been used to put together the Geo-PKO Shiny app (add link here). 
+These pages demonstrate the various uses of the Geo-PKO dataset using RStudio. This includes simple commands to extract and visualise information from the dataset. A large portion of these scripts and/or similar scripts have been used to put together the [Geo-PKO visualisation platform](https://geopko.shinyapps.io/geopkodashboard). 
 
-For more information on the dataset, please consult the [official homepage](https://www.pcr.uu.se/data/geo-pko/). 
+For more information on the dataset, please consult the project's [homepage](https://www.pcr.uu.se/data/geo-pko/) on the Uppsala University website. 
 
-Contributors to this GitHub site: 
+## Contributors to this GitHub site
 - Nguyen Ha
 - Lou van Roozendaal
 - Tanushree Rao
