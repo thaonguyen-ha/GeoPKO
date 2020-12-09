@@ -9,6 +9,8 @@ navbar:
     href: viz.html
   - text: Merging datasets
     href: merge.html
+  - text: Gallery
+    href: gallery.html
   - text: About
     href: about.html
 
