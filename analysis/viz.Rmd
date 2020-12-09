@@ -223,12 +223,13 @@ ggplot() +
   scale_color_viridis(option="viridis", breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name="Average Troop Deployment" ) +
   guides(colour = guide_legend()) + 
   theme(text = element_text(color = "#22211d"),
-        legend.position =  c(1,0.2),
+#        legend.position =  c(1,0.2),
         plot.background = element_rect(fill = "#f5f5f2", color = NA), 
         panel.background = element_rect(fill = "#f5f5f2", color = NA), 
         legend.background = element_rect(fill = "#f5f5f2", color = NA),
         legend.key = element_rect(fill = "#f5f5f2", color = NA),
         plot.title = element_text(size= 14, hjust=0.5, color = "#4e4d47"),
+#        plot.margin=margin(1, 1, 1, 1, "cm"),
         panel.grid=element_blank(),
         axis.text=element_blank(),
         axis.ticks=element_blank(),
