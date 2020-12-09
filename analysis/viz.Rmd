@@ -233,7 +233,7 @@ ggplot() +
         legend.background = element_rect(fill = NA, color = NA),
         legend.key = element_rect(fill = NA, color = NA),
         plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
-        #        plot.margin=margin(1, 1, 1, 1, "cm"),
+        plot.margin=margin(0.5, 0.5, 0.5, 0.5, "cm"),
         panel.grid=element_blank(),
         axis.text=element_blank(),
         axis.ticks=element_blank(),
