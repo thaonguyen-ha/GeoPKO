@@ -9,22 +9,31 @@ editor_options:
 
 This page shows how to merge Geo-PKO data with conflict data and visualise the results. The examples used here are Uppsala University's Violence Early Warning System (ViEWS) project, which forecasts conflict risk, and the Uppsala Conflict Data Programme (UCDP), one of the world's leading sources of data on armed conflict. Merging these datasets can provide insights into the links between conflict risk and peacekeeping deployments, and help policymakers make effective peacekeeping decisions where the risk of conflict is high.  
 
+```{css, echo=FALSE}
+pre {max-height: 400px;
+  overflow-yL auto;
+}
+
+pre[class]{
+  max-height: 400px;
+}
+
+```
+
 ## Setting up
 
 Load packages.
 ```{r, warning=FALSE, message=FALSE}
 library(dplyr)
-library(sp)
 library(tidyr)
 library(geojsonio)
 library(broom)
 library(rgdal)
-library(ggplot2)
 library(leaflet)
+library(sp)
 library(sf)
+library(ggplot2)
 library(spdep)
-library(maptools)
-library(plyr)
 library(rjson)
 library(RJSONIO)
 library(rmapshaper)
@@ -36,102 +45,85 @@ library(kableExtra)
 
 ## Geo-PKO x ViEWS
 
-This visualisation aims to show peacekeeping deployments and projected conflict risk for the following 36 months. It helps us visualise conflict forecasts for locations where peacekeepers are deployed and better understand the relationship between peacekeeping deployments and conflict risk (for example, the risk levels at which peacekeeping deployments are more likely).
+Our goal is to show peacekeeping deployments in 2019 and predicted conflict risks for July 2020 -- six months later. It helps us visualise conflict forecasts for locations where peacekeepers are deployed and better understand the relationship between peacekeeping deployments and conflict risk.
 
-First, we import the datasets. We're using the published Geo-PKO dataset, and conflict forecast data from ViEWS for state-based conflict, non-state conflict, and one-sided violence over the next 36 months in Africa. Both datasets offer insights into the sub-national level, using a unique "PRIO-grid" identifier. The PRIO-grid is an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares, allowing geographic analysis beyond the country level to be streamlined.  
+First, we import the datasets. We're using the published Geo-PKO dataset version 2.0, and conflict forecast data from ViEWS. The latter includes the predicted risks for state-based conflict, non-state conflict, and one-sided violence in Africa, starting from July 2020 and spanning over the next 36 months. ViEWS' data is collected by each PRIO-grid -- an innovative geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares, allowing geographic analysis beyond the country level to be streamlined.  
 
 ```{r, warning=FALSE, message=FALSE}
 library(readr)
-geopko <- readr::read_csv("C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v.2.0/Geo_PKO_v.2.0.csv") 
+geopko <- readr::read_csv("data/Geo_PKO_v.2.0.csv") 
 #unzip("data/ViEWS.zip", exdir="data/ViEWS")
-predictors <- read.csv("C:/Users/tanus/Documents/R/GeoPKO/data/ViEWS/ensemble_pgm.csv")
+predictors <- read.csv("data/ViEWS/ensemble_pgm.csv")
 ```
 
 The Geo-PKO dataset includes detail on troop deployment numbers, types of troops, non-troop deployments, and contributing countries.  
  
 ```{r, warning=FALSE, message=FALSE}
-kable(geopko[9546:9550,]) %>% kable_styling() %>%
-  scroll_box(width = "100%", height = "200px")
+kable(geopko[9546:9555,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "400px")
 ```
 
 ### Preparing the data
+
+We first need to filter the Geo-PKO data to include only observations for the year 2019, the latest year in version 2.0. We also remove countries outside Africa, as the ViEWS dataset only covers this continent.
+
+_Note: 2020 data is not currently available, but will be in early 2021. The dataset used for this visualisation will then be updated._
+
+```{r, warning=FALSE, message=FALSE}
+# filtering for troop deployments for the year 2019 in Africa
+
+geopko2 <- geopko %>%
+    filter(year=="2019") %>% 
+  # subsetting columns so we have a smaller data frame to work with
+  select(mission, prioid, no.troops, country, location, latitude, longitude) %>%
+  dplyr::mutate_at(vars(longitude, latitude, no.troops), as.numeric) %>%
+  # filtering out missions that did not take place in Africa
+  filter(!(country %in% c("Kosovo", "Lebanon", "Haiti", "Syria", "Cyprus")))
+
+# for a list of host countries in the Geo-PKO dataset, you can run the following:
+# geopko %>% distinct(country)
+
+```
+
+We now need to calculate the average number of troops deployed over that time period. In the visualisation, we'll use coordinates to map every single deployment locations, so the average is calculated by location. In the next step, we use this number to calculate the average number of deployed troops for each PRIO-grid square. As a PRIO-grid is quite large, one grid square may have been home to multiple locations. We won't visualise this bit of data here, but this is useful for understanding how to synthesize datasets with different units of analysis. 
+
+```{r, warning=FALSE, message=FALSE}
+# calculating an average number of troops per location
+
+geopko2 <- geopko2 %>%
+  group_by_at(vars(-no.troops)) %>%
+  dplyr::summarise(no.troops.yearly.avr = round(mean(no.troops, na.rm=TRUE))) %>%
+  ungroup() %>% 
+# summing the troop count for each prio grid
+  group_by(prioid) %>%
+  dplyr::mutate(no.troops.prio = sum(no.troops.yearly.avr, na.rm=TRUE)) %>%
+  ungroup()
+
+
+```
 
 The predictor database begins with July 2020 and forecasts the risk of conflict over the next 36 months ahead. Here's a preview of the data within it, showing state-based (`sb`), non-state (`ns`) and one-sided violence (`os`) forecasts. The variable `month_id` codes months differently to the Geo-PKO dataset, with every month assigned a different numeric value.  
 
 ```{r, warning=FALSE, message=FALSE}
 kable(predictors[90545:90550,]) %>% kable_styling() %>%
-  scroll_box(width = "100%", height = "200px")
+  scroll_box(width = "100%", height = "400px")
 ```
   
-You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id or prioid`), which corresponds to a specific grid square on the map. This is what we'll use to eventually merge the datasets.
-
-We first need to filter the Geo-PKO data to include only deployments over the relevant time period. We are choosing to visualise deployments between July 2019 - June 2020 and conflict risk for the following 36 months (2020-2023). We also remove countries outside Africa, as the ViEWS dataset only covers this continent.
-
-_Note: 2020 data is not currently available, but will be in early 2021. The dataset used for this visualisation will then be updated._
+You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id` or `prioid`), which corresponds to a specific grid square on the map. This is what we'll use to eventually merge the datasets. For now, we subset the ViEWS predictions to include only the month of July 2020, which gives us a lagged time period of six months between the Geo-PKO observations and ViEWS predictions.
 
 ```{r, warning=FALSE, message=FALSE}
-# filtering for troop deployments over July 2019 - June 2020 in Africa
-
-geopko2 <- geopko %>%
-  select(mission, month, year, prioid, no.troops, country, location, latitude, longitude) %>%
-  dplyr::mutate_at(vars(longitude, latitude, month, year, no.troops), as.numeric) %>%
-  filter(year==2019 & month>6 | year==2020 & month <7) %>%
-  filter(country != "Kosovo" & country != "Lebanon" & country != "Haiti" & country != "Syria" & country != "Cyprus")
-
-```
-
-We now need to calculate the average number of troops deployed over that time period. In the visualisation, we'll use coordinates to map deployment locations, so the average is calculated by location. The following script also shows how to end up with an average number of deployed troops for each PRIO-grid square, which we won't visualise in this example, but is useful to understand how to merge the data.
-
-```{r, warning=FALSE, message=FALSE}
-# calculating an average number of troops per location
-
-geopko3 <- geopko2 %>% 
-  group_by(location) %>%
-  filter (! duplicated(no.troops))  %>%
-  dplyr::mutate(no.troops = mean(no.troops, na.rm=TRUE)) %>%
-  dplyr::mutate(no.troops=round(no.troops)) %>%
-  filter (! duplicated(no.troops))  %>%
-  ungroup() %>%
-  select(-month)
-
-# summing troop count by priogrid id
-
-geopko4 <- geopko3 %>%
-  group_by(prioid) %>%
-  dplyr::mutate(no.troops = sum(no.troops, na.rm=TRUE)) %>%
-  filter (! duplicated(no.troops))  %>%
-  ungroup() %>%
-  select(-location)
-
-
-```
-
-Next, we can calculate the average conflict risk (state-based, non-state, and one-sided) for each PRIO-grid square over the time period we're provided with.
-
-```{r, warning=FALSE, message=FALSE}
-
 predictors2 <- predictors %>% 
-  group_by(pg_id) %>%
-  dplyr::mutate(average_allwthematic_sb = mean(average_allwthematic_sb, na.rm=TRUE)) %>%
-  dplyr::mutate(average_allwthematic_ns = mean(average_allwthematic_ns, na.rm=TRUE)) %>%
-  dplyr::mutate(average_allwthematic_os = mean(average_allwthematic_os, na.rm=TRUE)) %>%
-  filter (! duplicated(pg_id)) %>%
-  ungroup() %>%
-  select(-month_id)
+  filter(month_id==486) 
 
 ```
 
 Finally, we merge the two datasets.
 
 ```{r, warning=FALSE, message=FALSE}
-# merging geopko with conflict forecast data (averaged)
-
-geopko4$pg_id <- geopko4$prioid
-
-priogriddf <- full_join(
-  geopko4, predictors2,
-  by = c("pg_id"), 
-  na.rm = TRUE)
+priogriddf <- left_join(
+  predictors2, geopko2, 
+  by = c("pg_id"="prioid"), 
+  name="pg_id")
   
 ```
 
@@ -140,8 +132,8 @@ priogriddf <- full_join(
 
 Like we mentioned before, the PRIO-grid unit involves dividing the entire world into roughly 100km x 100km squares. That means that if we want to map it, we'll be working with large files, so keep that in mind when you're reading in the shapefile.  
 
-```{r, message=FALSE, warning=FALSE}
-shapefile <- rgdal::readOGR("C:/Users/tanus/Documents/R/R Files/ViEWS/priogrid.geojson")
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+shapefile <- rgdal::readOGR("data/ViEWS/priogrid.geojson")
 ```
 
 The shapefile contains both geospatial polygon data and numerical data that corresponds to the ViEWS dataset; specifically, a PRIO-grid ID and a country ID. To work with the data within this shapefile, we need to fortify it. This converts it into a dataframe. We also convert the IDs to rownames to make it easier to work with. And, finally, we merge it with `pgnewdf2`, which we created earlier.  
@@ -160,8 +152,8 @@ shapefile.df <- merge(shapefile, priogriddf, by.x = "pg_id", by.y = "pg_id", all
 Now `shapefile.df` has the new attributes, including variables from both Geo-PKO and ViEWS. `id` is a variable that ties the 'polygon', or a single square on the grid, to its location on the map. As many PRIO-grid squares will have a conflict forecast index but no troop deployments, many data points under Geo-PKO variables will show NA.
  
 ```{r, warning=FALSE, message=FALSE}
-kable(shapefile.df@data[5386:5390,]) %>% kable_styling() %>%
-  scroll_box(width = "100%", height = "200px")
+kable(shapefile.df@data[5386:5500,]) %>% kable_styling() %>%
+  scroll_box(width = "100%", height = "400px")
 ```
 
 ### Mapping ViEWS data with Geo-PKO
@@ -181,7 +173,7 @@ Next, let's map. We include three colour layers to shade squares according to th
 
 _Zoom in for more detail._
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, out.width="100%"}
 map <- leaflet(shapefile.df) %>%
   addTiles() %>%
   addPolygons(
@@ -191,7 +183,7 @@ map <- leaflet(shapefile.df) %>%
     group = "State-Based Conflict",
     highlightOptions = highlightOptions(
       color = "white", weight = 2,
-      bringToFront = TRUE
+      bringToFront = FALSE
     )
   )  %>%
   addPolygons(
@@ -215,14 +207,14 @@ map <- leaflet(shapefile.df) %>%
     )
   ) %>%
   # these circle markers use geopko3 data to cover multiple locations per prioid
-  addCircleMarkers((data <- geopko3$no.troops),
+  addCircleMarkers(data = geopko2,
     lat = ~latitude, lng = ~longitude,
     weight = 1, radius = 2, fillOpacity = 0.6, color = "darkblue",
     group = "Deployment Locations",
-    label = paste(
-      "<strong>Deployment Location</strong>", "- ", geopko3$mission,
-      "<br/><strong>Number of Troops: </strong>", geopko3$no.troops,
-      "<br/><strong>Location: </strong>", geopko3$location,", ", geopko3$country
+    label = paste0(
+      "<strong>Deployment Location: </strong>", geopko2$mission,
+      "<br/><strong>Number of Troops: </strong>", geopko2$no.troops.yearly.avr,
+      "<br/><strong>Location: </strong>", geopko2$location,", ", geopko2$country
     )
   %>%
   lapply(htmltools::HTML) 
@@ -248,7 +240,7 @@ And here we have it: an interactive map to view the latest peacekeeping data and
 
 We can also do the same but with a world terrain basemap to identify, at a basic level, potential geographic impacts such as the greater concentration of conflict risk in mountainous areas, and the general deployment of peacekeepers in non-mountainous areas.
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, out.width="100%"}
 
 # adding provider tiles - replaces addTiles()
 map <- map %>% addProviderTiles("Esri.WorldTerrain")
@@ -308,10 +300,10 @@ pal3 <- colorBin(c("#700524", "#8d072e", "#981f42", "#ed4d3a", "#af516c", "#d19b
 
 ## Mapping UCDP data with Geo-PKO
 
-Just as we used leaflet for the VIEWS map, we do the same here. Note that in this case we did not merge the two datasets into one dataframe. When hovering over the circles, more information will be provided on either the UN peacekeeping deployment or on the UCDP conflict-related deaths. It is possible to use the PRIO-grid ID instead, and both datasets include this variable.  
+Just as we used leaflet for the ViEWS map, we do the same here. Note that in this case we did not merge the two datasets into one dataframe. When hovering over the circles, more information will be provided on either the UN peacekeeping deployment or on the UCDP conflict-related deaths. It is possible to use the PRIO-grid ID instead, and both datasets include this variable.  
 
-```{r, warning=FALSE, message=FALSE}
-UCDP_Overview_Map <- leaflet() %>%
+```{r, warning=FALSE, message=FALSE, out.width="100%"}
+leaflet() %>%
   addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
   addMeasure(position = "bottomleft", primaryLengthUnit = "kilometers") %>% # Adds a widget that can measure distances between two places to the map
   clearMarkers() %>%
@@ -502,23 +494,24 @@ UCDP_Overview_Map <- leaflet() %>%
 
 # to save as HTML, you can use the following code:
 # saveWidget(UCDP_Overview_Map, file="geopko&ucdp - geopko.html")
-
-# Shows the map
-UCDP_Overview_Map
 ```
 
-And here we have it again: an interactive map to view peacekeeping deployments, in a few selected years, and conflict-related deaths within that same year. We opted to allow the user to select different years to see how both the numbers and locations of both datasets change over time.
+And here we have it again: an interactive map to view peacekeeping deployments, in a few selected years, and conflict-related deaths within that same year. Select different years to see how both the numbers and locations of both datasets have changed over time.
 
 
-## Merging the UCDP and Geo-PKO data
+<!-- ## Merging the UCDP and GeoPKO data -->
 
-If you do want to combine the two datasets into one dataframe, there are different ways to do so. As shown with the VIEWS data, you can merge the datasets based on certain variables using "full_join", causing the two datasets to be combined in one file. This creates a dataframe in which the variables of one of the dataset occur next to the other. This can be used for the UCDP data as well. However, you can also merge datasets "under" each other. For the UCDP we wanted to show this second way of merging. Variables that are the same between the two datasets might go by different names, which is why some of the UCDP variables are renamed so that they are in line with the Geo-PKO variables. The newly combined dataset will first show all the UCDP rows, and under these the Geo-PKO rows will be "pasted". 
-Merging can be useful for all kinds of reasons, such as statistical analysis.  
+<!-- If you do want to combine the two datasets into one dataframe there are different ways to do so. As shown with the VIEWS data, you can merge the datasets based on certain variables using "full_join", causing the two datasets to be combined in one file behind each other (it creates a dataframe in which the variables of one of the dataset occur next to the other), this can be utilized to the UCDP data as well. However, you can also merge datasets "under" each other, for the UCDP we wanted to show this second way of merging. Variables that are the same between the two datasets might go by different names, that is why some of the variable of the UCDP are renamed so that they are in line with the GeoPKO ones. The newly combined dataset will first show all the UCDP rows, and under these the GeoPKO rows will be "pasted".  -->
 
-```{r}
-# Rename variables you want to merge
-# UCDP_dataframeMerge = UCDP_dataframe %>% rename (location=where_coordinates)
+<!-- Merging can be useful for all kinds of reasons, such as statistical analysis.  -->
 
-# Merge the datasets
-# Combined_UCDP_GeoPKO<- bind_rows(UCDP_dataframeMerge, GeoPKO_dataUCDP)
-```
+<!-- ```{r} -->
+<!-- # Rename variables you want to merge -->
+<!-- names(UCDP_dataframe)[names(UCDP_dataframe) == "where_coordinates"] <- "location" -->
+
+<!-- # Merge the datasets -->
+<!-- Combined_UCDP_GeoPKO<- bind_rows(UCDP_dataframe, GeoPKO_dataUCDP) -->
+
+<!-- kable(Combined_UCDP_GeoPKO) %>% kable_styling() -->
+<!-- ``` -->
+

@@ -8,6 +8,10 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dpi=150)
+```
+
 ##  Visualizing deployment locations
 
 An advantage to the Geo-PKO dataset is that it records the numbers of troops by their specific deployment locations. Therefore, users can quickly visualize *where* active troops are in a mission, be it for a specific mission or a region. Below are some examples of visualization.
@@ -75,7 +79,7 @@ library(ggthemes)
 
 ggplot(data=AFR_sf) + geom_sf() + 
   geom_point(data = GeoPKO2018_AFR, aes(x=longitude, y=latitude, 
-                                    size=YearlyAverage, color= YearlyAverage), alpha=.7)+
+                                        size=YearlyAverage, color= YearlyAverage), alpha=.7)+
   scale_size_continuous(name="Average Troop Deployment", range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option="cividis", 
@@ -112,7 +116,6 @@ ggplot(data=AFR_sf) + geom_sf() +
 Here is a similar visualization, but this time the color aesthetic for geom_point is mapped to shown country instead.
 
 ```{r, warning=FALSE, message=FALSE}
-
 p3 <- ggplot(data=AFR_sf) + geom_sf() +
   geom_point(data=GeoPKO2018_AFR, 
              aes(x=longitude, y=latitude, size=YearlyAverage, color=country), alpha=.4, shape=20)+
@@ -168,7 +171,8 @@ library(gganimate)
 AFR_GIF$year <- as.factor(AFR_GIF$year)
 
 ggplot(AFR_sf) + geom_sf() + 
-  geom_point(data = AFR_GIF, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  geom_point(data = AFR_GIF, aes(x=longitude, y=latitude, 
+                                 size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
   scale_size_continuous(name="Average Troop Deployment", range=c(1,12), 
                         breaks=c(0, 100, 300, 500, 1000, 2000, 3000, 4000,5000)) +
   scale_color_viridis(option="cividis", 
@@ -200,10 +204,8 @@ ggplot(AFR_sf) + geom_sf() +
 With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset. 
 
 The following code shows how to make an animate plot with the global data by year, using the package "animate".
-```{r}
-library(viridis)
-library(animate)
-library(ggthemes)
+```{r animatedgraph_2, warning=FALSE, dev="png", interval=0.8, out.width="100%", out.height="40%"}
+library(tidyr)
 
 #Create a new dataframe keeping all missions and regions
 Global_df <- GeoPKO %>% 
@@ -217,34 +219,36 @@ Global_df <- GeoPKO %>%
 Global_df$year <- as.factor(Global_df$year)
 
 #Make the plot
-animated_global <- ggplot() + 
-    borders("world",  xlim = c(-130, 140), ylim = c(-50, 50), colour = "gray85", fill = "gray80") + 
-    theme_map()+
-    geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
-    scale_size_continuous(name="Average Troop Deployment", range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
-    scale_color_viridis(option="viridis", breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name="Average Troop Deployment" ) +
-    guides(colour = guide_legend()) + 
-    transition_manual(frames = year)+
-    enter_fade()+
-    labs(title="UN Peacekeeping in intrastate armed conflicts: {current_frame}", 
-       color="Average Deployment Size",
-       caption="Source: The Geo-PKO dataset v2.0")+ 
-    theme(text = element_text(color = "#22211d"),
-         legend.position =  c(1,0.2),
-         plot.background = element_rect(fill = "#f5f5f2", color = NA), 
-         panel.background = element_rect(fill = "#f5f5f2", color = NA), 
-         legend.background = element_rect(fill = "#f5f5f2", color = NA),
-         legend.key = element_rect(fill = "#f5f5f2", color = NA),
-         plot.title = element_text(size= 14, hjust=0.6, color = "#4e4d47", 
-         margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
-         panel.grid=element_blank(),
-         axis.text=element_blank(),
-         axis.ticks=element_blank(),
-         axis.title=element_blank(),
-         plot.margin = margin(0, 4.5, 0, -1, "cm"))
+ggplot() +     
+  borders("world",  xlim = c(-130, 140), ylim = c(-50, 50), colour = "gray85", fill = "gray80") + 
+  theme_void()+
+  geom_point(data = Global_df, aes(x=longitude, y=latitude, size= ave.no.troops, color= ave.no.troops, group=year), alpha=.7)+
+  scale_size_continuous(name="Average Troop\nDeployment", range=c(1,12), breaks=c(10, 100,300, 500, 1000, 3000, 4500, 6000, 7000)) +
+  scale_color_viridis(option="viridis", breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name="Average Troop\nDeployment" ) +
+  guides(colour = guide_legend()) + 
+  theme(text = element_text(color = "#22211d"),
+        legend.position =  c(1,0.4),
+        plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+        panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_rect(fill = NA, color = NA),
+        plot.title = element_text(size= 14, hjust=0.1, color = "#4e4d47", 
+                                  margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+        plot.margin= margin(0, 1.5, 0, -0.5, "cm"),
+        panel.grid=element_blank(),
+        axis.text=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title=element_blank(),
+        plot.caption=element_text(hjust=1, face="italic")) +
+ transition_states(states = year, transition_length = 3, state_length=3)+
+ labs(title="UN Peacekeeping around the world: {closest_state}",
+      color="Average Deployment Size",
+      caption="Source: The Geo-PKO dataset v2.0")+
+ ease_aes()
+
 
 #Animate the plot
-animate(animated_global, height = 400, width =800, fps = 4)
+#animate(global_map, height = 400, width =800, fps = 4, res=120)
 
 ##To save the plot run the following line of code
 #anim_save("Animated_GeoPKO2.0.gif")

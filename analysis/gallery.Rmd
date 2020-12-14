@@ -7,7 +7,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r setup, include=FALSE}
 
 library(knitr)
@@ -19,40 +18,46 @@ The Geo-PKO team has used the dataset to produce a range of visualisations. Here
 
 
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/worldpko2019.png")
+include_graphics("gallery/worldpko2019.png")
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/casia.png")
+include_graphics("gallery/casia.png")
+```
+
+----------------------------------------------------------------------------------------------------------------------------
+
+```{r echo=FALSE}
+include_graphics("gallery/africa3-2.png")
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 ```{r echo=FALSE, out.width=350}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/FSD6AR62.gif")
+include_graphics("gallery/FSD6AR62.gif")
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/mepko.png")
+include_graphics("gallery/mepko.png")
 ```   
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/troopsconflictrisk.png")
+include_graphics("gallery/troopsconflictrisk.png")
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/UNPOLconflictrisk.png")
+include_graphics("gallery/UNPOLconflictrisk.png")
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------  
 ```{r echo=FALSE}
-include_graphics("C:/Users/tanus/Documents/R/GeoPKO/gallery/Animated_GeoPKO2.0.gif")
+include_graphics("gallery/Animated_GeoPKO2.0.gif")
 ```
