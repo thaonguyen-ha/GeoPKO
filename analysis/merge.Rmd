@@ -63,23 +63,24 @@ kable(predictors[90545:90550,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px")
 ```
   
-You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id or prioid`), which corresponds to a specific grid square on the map. This is what we'll use to eventually merge the datasets.  
+You'll see both the Geo-PKO and ViEWS datasets include the PRIO-grid identification variable (`pg_id or prioid`), which corresponds to a specific grid square on the map. This is what we'll use to eventually merge the datasets.
 
-Next, we need to filter the Geo-PKO data to include only deployments over the relevant time period. We are choosing to visualise deployments between July 2019 - June 2020 and conflict risk for the following 36 months (2020-2023).
+We first need to filter the Geo-PKO data to include only deployments over the relevant time period. We are choosing to visualise deployments between July 2019 - June 2020 and conflict risk for the following 36 months (2020-2023). We also remove countries outside Africa, as the ViEWS dataset only covers this continent.
 
 _Note: 2020 data is not currently available, but will be in early 2021. The dataset used for this visualisation will then be updated._
 
 ```{r, warning=FALSE, message=FALSE}
-# filtering for troop deployments over July 2019 - June 2020
+# filtering for troop deployments over July 2019 - June 2020 in Africa
 
 geopko2 <- geopko %>%
   select(mission, month, year, prioid, no.troops, country, location, latitude, longitude) %>%
   dplyr::mutate_at(vars(longitude, latitude, month, year, no.troops), as.numeric) %>%
-  filter(year==2019 & month>6 | year==2020 & month <7)
+  filter(year==2019 & month>6 | year==2020 & month <7) %>%
+  filter(country != "Kosovo" & country != "Lebanon" & country != "Haiti" & country != "Syria" & country != "Cyprus")
 
 ```
 
-We now need to calculate the average number of troops deployed over that time period. We want to end up with, for each PRIO-grid square, an average number of deployed troops over 2019. As some grids have multiple locations within them, we'll first calculate the average by `location`, and then sum each location's numbers when grouped by `pg_id`.  
+We now need to calculate the average number of troops deployed over that time period. In the visualisation, we'll use coordinates to map deployment locations, so the average is calculated by location. The following script also shows how to end up with an average number of deployed troops for each PRIO-grid square, which we won't visualise in this example, but is useful to understand how to merge the data.
 
 ```{r, warning=FALSE, message=FALSE}
 # calculating an average number of troops per location
@@ -90,7 +91,8 @@ geopko3 <- geopko2 %>%
   dplyr::mutate(no.troops = mean(no.troops, na.rm=TRUE)) %>%
   dplyr::mutate(no.troops=round(no.troops)) %>%
   filter (! duplicated(no.troops))  %>%
-  ungroup()
+  ungroup() %>%
+  select(-month)
 
 # summing troop count by priogrid id
 
@@ -99,7 +101,8 @@ geopko4 <- geopko3 %>%
   dplyr::mutate(no.troops = sum(no.troops, na.rm=TRUE)) %>%
   filter (! duplicated(no.troops))  %>%
   ungroup() %>%
-  select(-location, -month)
+  select(-location)
+
 
 ```
 
@@ -188,7 +191,7 @@ map <- leaflet(shapefile.df) %>%
     group = "State-Based Conflict",
     highlightOptions = highlightOptions(
       color = "white", weight = 2,
-      bringToFront = FALSE
+      bringToFront = TRUE
     )
   )  %>%
   addPolygons(
@@ -198,7 +201,7 @@ map <- leaflet(shapefile.df) %>%
     group = "Non-State Conflict",
     highlightOptions = highlightOptions(
       color = "white", weight = 2,
-      bringToFront = FALSE
+      bringToFront = TRUE
     )
   ) %>%
   addPolygons(
@@ -208,18 +211,8 @@ map <- leaflet(shapefile.df) %>%
     group = "One-Sided Violence",
     highlightOptions = highlightOptions(
       color = "white", weight = 2,
-      bringToFront = FALSE
+      bringToFront = TRUE
     )
-  ) %>%
-  addPolygons(
-    color = "#444444", weight = 0.0, smoothFactor = 0.0,
-    opacity = 0.0, fillOpacity = 0.0,
-    label = paste(
-      "<strong>Troops Deployed: </strong>", shapefile.df@data$no.troops,
-      "<br/><strong>Mission:</strong>", shapefile.df@data$mission
-    )
-  %>%
-  lapply(htmltools::HTML) 
   ) %>%
   # these circle markers use geopko3 data to cover multiple locations per prioid
   addCircleMarkers((data <- geopko3$no.troops),
@@ -251,7 +244,7 @@ map
 
 ```
 
-And here we have it: an interactive map to view the latest peacekeeping data and projected conflict risk over the following 36 months. You can zoom in to areas of higher conflict risk to see more detail, including deployment locations. Note that some marked locations still say 0 for troop count; this indicates a mission site where no troops are deployed, but support personnel such as UNPOL or UNMO are present  
+And here we have it: an interactive map to view the latest peacekeeping data and projected conflict risk over the following 36 months. You can zoom in to areas of higher conflict risk to see more detail, including deployment locations. Note that some marked locations still say 0 for troop count; this indicates a mission site where no troops are deployed, but support personnel such as UNPOL or UNMO are present.  
 
 We can also do the same but with a world terrain basemap to identify, at a basic level, potential geographic impacts such as the greater concentration of conflict risk in mountainous areas, and the general deployment of peacekeepers in non-mountainous areas.
 
