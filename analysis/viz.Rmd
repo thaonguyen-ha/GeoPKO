@@ -204,7 +204,7 @@ ggplot(AFR_sf) + geom_sf() +
 With the release of version 2.0, the Geo-PKO dataset has extended its coverage to missions taking place globally between 1994 and 2019. The above examples are but a few ways through which users can explore and exploit this rich dataset. 
 
 The following code shows how to make an animate plot with the global data by year, using the package "animate".
-```{r, animatedgraph_2, warning=FALSE, dev="png", interval=0.8}
+```{r animatedgraph_2, warning=FALSE, dev="png", interval=0.8, out.width="100%", out.height="40%"}
 library(tidyr)
 
 #Create a new dataframe keeping all missions and regions
@@ -227,13 +227,14 @@ ggplot() +
   scale_color_viridis(option="viridis", breaks=c(10, 100, 300, 500, 1000, 3000, 4500, 6000, 7000), name="Average Troop\nDeployment" ) +
   guides(colour = guide_legend()) + 
   theme(text = element_text(color = "#22211d"),
-        legend.position =  c(0.9,0.4),
+        legend.position =  c(1,0.4),
         plot.background = element_rect(fill = "#f5f5f2", color = NA), 
         panel.background = element_rect(fill = "#f5f5f2", color = NA), 
         legend.background = element_rect(fill = NA, color = NA),
         legend.key = element_rect(fill = NA, color = NA),
-        plot.title = element_text(size= 14, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
-        plot.margin=margin(0.5, 0.5, 0.5, 0.5, "cm"),
+        plot.title = element_text(size= 14, hjust=0.1, color = "#4e4d47", 
+                                  margin = margin(b = -0.1, t = 0.8, l = 4, unit = "cm")),
+        plot.margin= margin(0, 1.5, 0, -0.5, "cm"),
         panel.grid=element_blank(),
         axis.text=element_blank(),
         axis.ticks=element_blank(),
@@ -245,8 +246,10 @@ ggplot() +
       caption="Source: The Geo-PKO dataset v2.0")+
  ease_aes()
 
+
 #Animate the plot
-#animate(global_p, height = 600, width =800, fps = 4, res=120)
+#animate(global_map, height = 400, width =800, fps = 4, res=120)
+
 ##To save the plot run the following line of code
 #anim_save("Animated_GeoPKO2.0.gif")
 ```
