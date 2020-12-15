@@ -7,7 +7,7 @@ navbar:
     href: index.html
   - text: Mapping blue helmets
     href: viz.html
-  - text: Merging datasets
+  - text: Integrating conflict data
     href: merge.html
   - text: Gallery
     href: gallery.html
