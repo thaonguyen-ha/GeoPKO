@@ -22,9 +22,9 @@ pre[class]{
 
 ## Geo-PKO x ViEWS
 
-Our goal is to show peacekeeping deployments in 2019 and predicted conflict risks for July 2020 -- six months later. It helps us visualise conflict forecasts for locations where peacekeepers are deployed and better understand the relationship between peacekeeping deployments and conflict risk.
+Our goal is to show peacekeeping deployments in 2019 and predicted conflict risks for July 2020 -- six months later. It helps us visualise conflict forecasts for locations where peacekeepers are deployed and better understand the relationship between peacekeeping deployments and conflict risk. 
 
-First, we import the datasets. We're using the published Geo-PKO dataset version 2.0, and conflict forecast data provided by ViEWS. The latter includes predicted risks of state-based conflict, non-state conflict, and one-sided violence in Africa. ViEWS' data is collected by PRIO-grid -- a geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 100km x 100km squares, allowing geographic analysis beyond the country level to be streamlined.  
+First, we import the datasets. We're using the published Geo-PKO dataset version 2.0, and conflict forecast data provided by ViEWS. The latter includes predicted risks of state-based conflict, non-state conflict, and one-sided violence in Africa. ViEWS' data is collected by PRIO-grid -- a geospatial unit from the Peace Research Institute Oslo that divides the world into roughly 55km x 55km squares, allowing geographic analysis beyond the country level to be streamlined. Note that the predictions of violence from ViEWS do not account for the presence of peacekeeping missions. 
 
 ```{r, warning=FALSE, message=FALSE}
 library(readr)
@@ -113,7 +113,7 @@ priogriddf <- left_join(
 
 ### Merging the dataframe with the shapefile
 
-Like we mentioned before, the PRIO-grid unit involves dividing the entire world into roughly 100km x 100km squares. That means that if we want to map it, we'll be working with large files, so keep that in mind when you're reading in the shapefile.  
+Like we mentioned before, the PRIO-grid unit involves dividing the entire world into roughly 55km x 55  km squares. That means that if we want to map it, we'll be working with large files, so keep that in mind when you're reading in the shapefile.  
 
 ```{r, message=FALSE, warning=FALSE, results='hide'}
 # loading R packages that we can use to handle shapefiles
@@ -236,7 +236,7 @@ terrainmap <- map %>% addProviderTiles("Esri.WorldTerrain")
 terrainmap
 ```
 
-Extensions of this visualisation can be even more useful, particularly with a time-slider that can help us identify how the risk of conflict changes given peacekeeping deployments (and vice versa). That would be a valuable be a project for the future.  
+Extensions of this visualisation can be even more useful, particularly with a time-slider that can help us identify how the risk of conflict changes given peacekeeping deployments (and vice versa). This could be a valuable project for the future!  
 
 
 # Geo-PKO x UCDP
