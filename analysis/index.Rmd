@@ -16,7 +16,7 @@ We start by importing the dataset. To get a sense of how `read_csv` would parse 
 ```{r}
 library(readr)
 
-specs <- spec_csv("data/Geo_PKO_v.2.0.csv")
+spec_csv("data/Geo_PKO_v.2.0.csv")
 ```
 
 This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. Here, we are going to dodge this issue by telling R to parse all columns as character. Running `str()` can help us ensure that the process was carried out correctly. 
