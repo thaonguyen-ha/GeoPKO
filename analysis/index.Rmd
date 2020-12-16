@@ -8,25 +8,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). 
-
-## Setting up
-
-Load packages.
-```{r, warning=FALSE, message=FALSE}
-library(readr)
-library(ggthemes)
-library(knitr)
-library(kableExtra)
-library(lubridate)
-library(tidyr)
-library(dplyr)
-```
-
 ## Overview
+
+This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). 
 
 We start by importing the dataset. To get a sense of how `read_csv` would parse the dataset, run `spec_csv()` on the dataset beforehand. 
 ```{r}
+library(readr)
+
 specs <- spec_csv("data/Geo_PKO_v.2.0.csv")
 ```
 
@@ -41,6 +30,7 @@ ncol(GeoPKO)
 The last two code lines show us that the dataframe contains `r nrow(GeoPKO)` observations and `r ncol(GeoPKO)` columns. The output from `str()` could get rather clunky, so here is a prettier snippet produced by `kableExtra`.
 
 ```{r, warning=FALSE}
+library(kableExtra)
 
 kable(GeoPKO[1:5,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "200px") #displaying the first five rows
@@ -73,6 +63,9 @@ Geo-PKO v2.0 covers the period of 1994-2019. Some missions that are included her
 
 ```{r}
 library(zoo)
+library(tidyr)
+library(dplyr)
+library(lubridate)
 
 GeoPKO %>% select(mission, year, month) %>% 
   mutate(month=as.numeric(month),
@@ -130,6 +123,7 @@ We can also see if missions become more specialized over time, here with MINUSMA
 
 ```{r, warning=FALSE, message=FALSE}
 library(ggplot2)
+library(ggthemes)
 
 GeoPKO %>% filter(mission=="MINUSMA") %>%   unite(timepoint, c("year", "month"), sep=" ") %>% 
   mutate(timepoint=zoo::as.yearmon(timepoint, "%Y %m")) %>% 
