@@ -9,9 +9,13 @@ editor_options:
 
 These pages demonstrate the various uses of the Geo-PKO dataset using RStudio. This includes simple commands to extract and visualise information from the dataset. A large portion of these scripts and/or similar scripts have been used to put together the [Geo-PKO visualisation platform](https://geopko.shinyapps.io/geopkodashboard). 
 
-For more information on the dataset, please consult the project's [homepage](https://www.pcr.uu.se/data/geo-pko/) on the Uppsala University website. 
+As the icon "workflowr" with the green check shows on each page, we have built the documents using [eponymous R package](https://github.com/jdblischak/workflowr). This is to ensure that the code is highly reproducible, and we encourage readers to explore the raw code behind these documents on its [GitHub repository](https://github.com/geopko/Geo-PKO-R).
 
-## Contributors to this GitHub site
+For more information on the dataset, please consult the project's [homepage](https://www.pcr.uu.se/data/geo-pko/) on the Uppsala University website. When using the data, please cite: 
+
+Cil, D., Fjelde, H., Hultman, L., & Nilsson, D. (2020). [Mapping blue helmets: Introducing the Geocoded Peacekeeping Operations (Geo-PKO) dataset](https://doi-org.ezproxy.its.uu.se/10.1177/0022343319871978). _Journal of Peace Research, 57_(2), 360–370.
+
+## Contributors to this GitHub website                                                                           
 - Nguyen Ha
 - Lou van Roozendaal
 - Tanushree Rao
