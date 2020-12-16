@@ -8,6 +8,17 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{css, echo=FALSE}
+pre {max-height: 400px;
+  overflow-yL auto;
+}
+
+pre[class]{
+  max-height: 400px;
+}
+
+```
+
 ## Overview
 
 This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its [homepage](https://www.pcr.uu.se/data/geo-pko/). 
@@ -19,7 +30,7 @@ library(readr)
 spec_csv("data/Geo_PKO_v.2.0.csv")
 ```
 
-This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. Here, we are going to dodge this issue by telling R to parse all columns as character. Running `str()` can help us ensure that the process was carried out correctly. 
+This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. For example, some of the `notroopspertcc` columns are numeric, while others are logical. Most of the time R will import the variables correctly, but here we are going to dodge this issue by telling R to parse all columns as character. Running `str()` can help us ensure that the process was carried out correctly. 
 
 ```{r, warning=FALSE, message =FALSE, results="hide"}
 GeoPKO <- readr::read_csv("data/Geo_PKO_v.2.0.csv", col_types = cols(.default="c"))
@@ -38,7 +49,8 @@ kable(GeoPKO[1:5,]) %>% kable_styling() %>%
 
 ### What missions are included?
 
-Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 -- the latest to date -- brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries (rather than 45, since there is a disputed location between Ethiopia and Eritrea in UNMEE). 
+Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 -- the latest to date -- brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries. However, running `unique(GeoPKO$country) will return a vector of 45 in length. This is because UNMEE, which took place along the border of Ethiopia and Eritrea, had one location located in a contested territory between these two countries.
+
 ```{r}
 
 str(TotalCount <- with(GeoPKO, table(mission, country)))
