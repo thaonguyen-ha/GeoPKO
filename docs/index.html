@@ -426,16 +426,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree2d3e02ced24c831a911f8e55a390127a1a885eabtargetblank2d3e02ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/2d3e02ced24c831a911f8e55a390127a1a885eab" target="_blank">2d3e02c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreecb517bd013533ba7bfd704ad11e8cf31e57e1f59targetblankcb517bda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/cb517bd013533ba7bfd704ad11e8cf31e57e1f59" target="_blank">cb517bd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtree2d3e02ced24c831a911f8e55a390127a1a885eabtargetblank2d3e02ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreecb517bd013533ba7bfd704ad11e8cf31e57e1f59targetblankcb517bda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/2d3e02ced24c831a911f8e55a390127a1a885eab" target="_blank">2d3e02c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/cb517bd013533ba7bfd704ad11e8cf31e57e1f59" target="_blank">cb517bd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -488,6 +488,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/cb517bd013533ba7bfd704ad11e8cf31e57e1f59/analysis/index.Rmd" target="_blank">cb517bd</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+building index
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/21f777343d9ce97740f33bc532a15319e8c34dd3/docs/index.html" target="_blank">21f7773</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1583,6 +1617,16 @@ Start workflowr project.
 </div>
 </div>
 </div>
+<style type="text/css">
+pre {max-height: 400px;
+  overflow-yL auto;
+}
+
+pre[class]{
+  max-height: 400px;
+}
+
+</style>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
@@ -1731,7 +1775,7 @@ cols(
   adm1.name = col_character(),
   prioid = col_double()
 )</code></pre>
-<p>This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. Here, we are going to dodge this issue by telling R to parse all columns as character. Running <code>str()</code> can help us ensure that the process was carried out correctly.</p>
+<p>This snippet shows that R might arbitrarily parse our columns as a random mix of logical or character variables. For example, some of the <code>notroopspertcc</code> columns are numeric, while others are logical. Most of the time R will import the variables correctly, but here we are going to dodge this issue by telling R to parse all columns as character. Running <code>str()</code> can help us ensure that the process was carried out correctly.</p>
 <pre class="r"><code>GeoPKO &lt;- readr::read_csv(&quot;data/Geo_PKO_v.2.0.csv&quot;, col_types = cols(.default=&quot;c&quot;))
 str(GeoPKO)
 nrow(GeoPKO)
@@ -3797,7 +3841,7 @@ Lagunes
 </div>
 <div id="what-missions-are-included" class="section level3">
 <h3>What missions are included?</h3>
-<p>Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 – the latest to date – brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries (rather than 45, since there is a disputed location between Ethiopia and Eritrea in UNMEE).</p>
+<p>Previous versions of the dataset included UN-authorized peacekeeping missions in Africa between 1994-2018. Version 2.0 – the latest to date – brings the scope of the dataset from regional to global. Specifically, it now covers 52 missions in 44 different countries. However, running `unique(GeoPKO$country) will return a vector of 45 in length. This is because UNMEE, which took place along the border of Ethiopia and Eritrea, had one location located in a contested territory between these two countries.</p>
 <pre class="r"><code>str(TotalCount &lt;- with(GeoPKO, table(mission, country)))</code></pre>
 <pre><code> &#39;table&#39; int [1:52, 1:45] 0 0 0 0 0 0 0 0 0 0 ...
  - attr(*, &quot;dimnames&quot;)=List of 2
@@ -4958,7 +5002,7 @@ GeoPKO %&gt;% filter(mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&
   arrange(timepoint) %&gt;% 
   ggplot(aes(timepoint, TroopCap))+
   geom_line()</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/index.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
