@@ -426,16 +426,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeecb0691132f689376ff299b13812af1c863337e9targetblankecb0691a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/ecb0691132f689376ff299b13812af1c863337e9" target="_blank">ecb0691</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeef1f910680d2f5b593135298956384f60ea8e5b2targetblankef1f910a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/ef1f910680d2f5b593135298956384f60ea8e5b2" target="_blank">ef1f910</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeecb0691132f689376ff299b13812af1c863337e9targetblankecb0691a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreeef1f910680d2f5b593135298956384f60ea8e5b2targetblankef1f910a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/ecb0691132f689376ff299b13812af1c863337e9" target="_blank">ecb0691</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/ef1f910680d2f5b593135298956384f60ea8e5b2" target="_blank">ef1f910</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -488,6 +488,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/hatnguyen267/GeoPKO/blob/ef1f910680d2f5b593135298956384f60ea8e5b2/analysis/index.Rmd" target="_blank">ef1f910</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+building index
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/1e2bda431b00de958cf36ac505490e54fc75e835/docs/index.html" target="_blank">1e2bda4</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1515,22 +1549,13 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
-<div id="setting-up" class="section level2">
-<h2>Setting up</h2>
-<p>Load packages.</p>
-<pre class="r"><code>library(readr)
-library(ggthemes)
-library(knitr)
-library(kableExtra)
-library(lubridate)
-library(tidyr)
-library(dplyr)</code></pre>
-</div>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
+<p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
 <p>We start by importing the dataset. To get a sense of how <code>read_csv</code> would parse the dataset, run <code>spec_csv()</code> on the dataset beforehand.</p>
-<pre class="r"><code>specs &lt;- spec_csv(&quot;data/Geo_PKO_v.2.0.csv&quot;)</code></pre>
+<pre class="r"><code>library(readr)
+
+specs &lt;- spec_csv(&quot;data/Geo_PKO_v.2.0.csv&quot;)</code></pre>
 <pre><code>Parsed with column specification:
 cols(
   .default = col_double(),
@@ -1563,7 +1588,9 @@ str(GeoPKO)
 nrow(GeoPKO)
 ncol(GeoPKO)</code></pre>
 <p>The last two code lines show us that the dataframe contains 17927 observations and 113 columns. The output from <code>str()</code> could get rather clunky, so here is a prettier snippet produced by <code>kableExtra</code>.</p>
-<pre class="r"><code>kable(GeoPKO[1:5,]) %&gt;% kable_styling() %&gt;%
+<pre class="r"><code>library(kableExtra)
+
+kable(GeoPKO[1:5,]) %&gt;% kable_styling() %&gt;%
   scroll_box(width = &quot;100%&quot;, height = &quot;200px&quot;) #displaying the first five rows</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -3682,6 +3709,25 @@ Attaching package: &#39;zoo&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:base&#39;:
 
     as.Date, as.Date.numeric</code></pre>
+<pre class="r"><code>library(tidyr)
+library(dplyr)</code></pre>
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:kableExtra&#39;:
+
+    group_rows</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>
+Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    date, intersect, setdiff, union</code></pre>
 <pre class="r"><code>GeoPKO %&gt;% select(mission, year, month) %&gt;% 
   mutate(month=as.numeric(month),
          MonthChr=as.character(month(month, label=TRUE, abbr= FALSE))) %&gt;%   #turn numeric months into words 
@@ -4750,6 +4796,7 @@ unique(UNMO.UNPOL$mission)</code></pre>
 2 MINUSMA</code></pre>
 <p>We can also see if missions become more specialized over time, here with MINUSMA as an example. Disregarding variations by location, for each source map we want to find out which troop functions were available in the mission. Then we calculate the number of troops functions at each time period.</p>
 <pre class="r"><code>library(ggplot2)
+library(ggthemes)
 
 GeoPKO %&gt;% filter(mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&quot;year&quot;, &quot;month&quot;), sep=&quot; &quot;) %&gt;% 
   mutate(timepoint=zoo::as.yearmon(timepoint, &quot;%Y %m&quot;)) %&gt;% 
@@ -4762,7 +4809,7 @@ GeoPKO %&gt;% filter(mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&
   arrange(timepoint) %&gt;% 
   ggplot(aes(timepoint, TroopCap))+
   geom_line()</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/index.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -4786,25 +4833,25 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggplot2_3.3.2    zoo_1.8-8        dplyr_1.0.2      tidyr_1.1.1     
- [5] lubridate_1.7.9  kableExtra_1.1.0 knitr_1.29       ggthemes_4.2.0  
- [9] readr_1.3.1      workflowr_1.6.2 
+[1] ggthemes_4.2.0   ggplot2_3.3.2    lubridate_1.7.9  dplyr_1.0.2     
+[5] tidyr_1.1.1      zoo_1.8-8        kableExtra_1.1.0 readr_1.3.1     
+[9] workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
  [1] tidyselect_1.1.0  xfun_0.16         purrr_0.3.4       lattice_0.20-41  
  [5] colorspace_1.4-1  vctrs_0.3.2       generics_0.0.2    htmltools_0.5.0  
  [9] viridisLite_0.3.0 yaml_2.2.1        utf8_1.1.4        rlang_0.4.7      
 [13] later_1.1.0.1     pillar_1.4.6      withr_2.2.0       glue_1.4.1       
-[17] lifecycle_0.2.0   stringr_1.4.0     munsell_0.5.0     gtable_0.3.0     
-[21] rvest_0.3.6       evaluate_0.14     labeling_0.3      httpuv_1.5.4     
-[25] fansi_0.4.1       highr_0.8         Rcpp_1.0.5        promises_1.1.1   
-[29] scales_1.1.1      backports_1.1.7   webshot_0.5.2     farver_2.0.3     
-[33] fs_1.5.0          hms_0.5.3         digest_0.6.25     stringi_1.4.6    
-[37] grid_4.0.2        rprojroot_1.3-2   cli_2.0.2         tools_4.0.2      
-[41] magrittr_1.5      tibble_3.0.3      crayon_1.3.4      whisker_0.4      
-[45] pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2        assertthat_0.2.1 
-[49] rmarkdown_2.3     httr_1.4.2        rstudioapi_0.11   R6_2.4.1         
-[53] git2r_0.27.1      compiler_4.0.2   </code></pre>
+[17] lifecycle_0.2.0   stringr_1.4.0     gtable_0.3.0      munsell_0.5.0    
+[21] rvest_0.3.6       evaluate_0.14     labeling_0.3      knitr_1.29       
+[25] httpuv_1.5.4      fansi_0.4.1       highr_0.8         Rcpp_1.0.5       
+[29] promises_1.1.1    backports_1.1.7   scales_1.1.1      webshot_0.5.2    
+[33] farver_2.0.3      fs_1.5.0          hms_0.5.3         digest_0.6.25    
+[37] stringi_1.4.6     rprojroot_1.3-2   grid_4.0.2        cli_2.0.2        
+[41] tools_4.0.2       magrittr_1.5      tibble_3.0.3      crayon_1.3.4     
+[45] whisker_0.4       pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2       
+[49] assertthat_0.2.1  rmarkdown_2.3     httr_1.4.2        rstudioapi_0.11  
+[53] R6_2.4.1          git2r_0.27.1      compiler_4.0.2   </code></pre>
 </div>
 </div>
 </div>
