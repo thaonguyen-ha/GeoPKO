@@ -38,7 +38,7 @@ The Geo-PKO dataset includes detail on troop deployment numbers, types of troops
  
 ```{r, warning=FALSE, message=FALSE}
 library(kableExtra)
-kable(geopko[9546:9555,]) %>% kable_styling() %>%
+kable(geopko[9395:9404,]) %>% kable_styling() %>%
   scroll_box(width = "100%", height = "400px")
 ```
 
